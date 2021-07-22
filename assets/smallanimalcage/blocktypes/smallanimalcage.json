@@ -7,7 +7,7 @@
     ],
     "creativeinventory": { "general": [ "*" ] },
     "heldTpIdleAnimation": "holdbothhands",
-    "shape": { "base": "block/smallanimalcageshape" },
+    "shape": { "base": "game:block/wood/cage/closed" },
     "blockmaterial": "Other",
     "replaceable": 500,
     "resistance": 1.5,
