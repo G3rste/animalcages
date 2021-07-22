@@ -32,25 +32,33 @@ namespace Animalcages
             }
         }
 
-        public void catchEntity(Entity entity, ItemStack stack)
+        public override bool OnBlockInteractStart(IWorldAccessor world, IPlayer byPlayer, BlockSelection blockSel)
         {
-            api.World.Logger.Debug("Catching Entity: " + entity.GetName());
-
-            stack.Attributes.SetBytes("capturedEntity", EntityUtil.EntityToBytes(entity));
-            stack.Attributes.SetString("capturedEntityClass", api.World.ClassRegistry.GetEntityClassName(entity.GetType()));
-        }
-        public override ItemStack OnPickBlock(IWorldAccessor world, BlockPos pos)
-        {
-            ItemStack stack = base.OnPickBlock(world, pos);
-            BlockEntityAnimalCage entity = api.World.BlockAccessor.GetBlockEntity(pos) as BlockEntityAnimalCage;
+            ItemStack stack = new ItemStack(this);
+            BlockEntityAnimalCage entity = api.World.BlockAccessor.GetBlockEntity(blockSel.Position) as BlockEntityAnimalCage;
             if (entity != null && entity.tmpCapturedEntityBytes != null && entity.tmpCapturedEntityClass != null)
             {
                 api.World.Logger.Debug("Hier ist noch was drin");
                 stack.Attributes.SetBytes("capturedEntity", entity.tmpCapturedEntityBytes);
                 stack.Attributes.SetString("capturedEntityClass", entity.tmpCapturedEntityClass);
             }
+            if (byPlayer.InventoryManager.TryGiveItemstack(stack))
+            {
+                world.BlockAccessor.SetBlock(0, blockSel.Position);
+                world.PlaySoundAt(new AssetLocation("sounds/block/planks"), blockSel.Position.X + 0.5, blockSel.Position.Y, blockSel.Position.Z + 0.5, byPlayer, false);
 
-            return stack;
+                return true;
+            }
+
+            return false;
+        }
+
+        public void catchEntity(Entity entity, ItemStack stack)
+        {
+            api.World.Logger.Debug("Catching Entity: " + entity.GetName());
+
+            stack.Attributes.SetBytes("capturedEntity", EntityUtil.EntityToBytes(entity));
+            stack.Attributes.SetString("capturedEntityClass", api.World.ClassRegistry.GetEntityClassName(entity.GetType()));
         }
     }
 
@@ -95,10 +103,7 @@ namespace Animalcages
             {
                 tmpCapturedEntityBytes = byItemStack.Attributes.GetBytes("capturedEntity", null);
                 tmpCapturedEntityClass = byItemStack.Attributes.GetString("capturedEntityClass", null);
-                if (tmpCapturedEntityClass != null && tmpCapturedEntityBytes != null)
-                {
-                    Api.World.Logger.Debug("Placed with Entity:" + tmpCapturedEntityClass);
-                }
+                Api.World.Logger.Debug("Placed with Entity:" + tmpCapturedEntityClass);
                 byItemStack.Attributes.RemoveAttribute("capturedEntity");
                 byItemStack.Attributes.RemoveAttribute("capturedEntityClass");
             }
