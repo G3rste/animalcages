@@ -1,0 +1,486 @@
+{
+    "editor": {
+        "allAngles": false,
+        "singleTexture": false
+    },
+    "textureWidth": 16,
+    "textureHeight": 16,
+    "textureSizes": {
+    },
+    "textures": {
+        "maple": "block/maple",
+        "vertical": "block/vertical"
+    },
+    "elements": [
+        {
+            "name": "Bottom",
+            "from": [ 0.0, 0.0, 0.0 ],
+            "to": [ 16.0, 1.0, 16.0 ],
+            "autoUnwrap": false,
+            "uv": [ 0.0, 0.0 ],
+            "faces": {
+                "north": {
+                    "texture": "#maple",
+                    "uv": [ 0.0, 15.0, 16.0, 16.0 ],
+                    "autoUv": false
+                },
+                "east": {
+                    "texture": "#maple",
+                    "uv": [ 16.0, 15.0, 0.0, 16.0 ],
+                    "autoUv": false
+                },
+                "south": {
+                    "texture": "#maple",
+                    "uv": [ 0.0, 15.0, 16.0, 16.0 ]
+                },
+                "west": {
+                    "texture": "#maple",
+                    "uv": [ 0.0, 15.0, 16.0, 16.0 ]
+                },
+                "up": {
+                    "texture": "#maple",
+                    "uv": [ 0.0, 0.0, 16.0, 16.0 ],
+                    "autoUv": false
+                },
+                "down": {
+                    "texture": "#maple",
+                    "uv": [ 0.0, 0.0, 16.0, 16.0 ],
+                    "autoUv": false
+                }
+            },
+            "children": [
+                {
+                    "name": "Gitter1",
+                    "from": [ 0.0, 1.0, 0.0 ],
+                    "to": [ 1.0, 15.0, 1.0 ],
+                    "uv": [ 0.0, 0.0 ],
+                    "rotationOrigin": [ 0.0, 1.0, 0.0 ],
+                    "faces": {
+                        "north": {
+                            "texture": "#vertical",
+                            "uv": [ 0.0, 1.0, 1.0, 15.0 ]
+                        },
+                        "east": {
+                            "texture": "#vertical",
+                            "uv": [ 1.0, 1.0, 2.0, 15.0 ]
+                        },
+                        "south": {
+                            "texture": "#vertical",
+                            "uv": [ 2.0, 1.0, 3.0, 15.0 ]
+                        },
+                        "west": {
+                            "texture": "#vertical",
+                            "uv": [ 3.0, 1.0, 4.0, 15.0 ]
+                        },
+                        "up": {
+                            "texture": "#null",
+                            "uv": [ 0.0, 0.0, 1.0, 1.0 ]
+                        },
+                        "down": {
+                            "texture": "#null",
+                            "uv": [ 1.0, 0.0, 2.0, 1.0 ]
+                        }
+                    }
+                },
+                {
+                    "name": "Gitter2",
+                    "from": [ 5.0, 1.0, 0.0 ],
+                    "to": [ 6.0, 15.0, 1.0 ],
+                    "uv": [ 0.0, 0.0 ],
+                    "rotationOrigin": [ 5.0, 1.0, 0.0 ],
+                    "faces": {
+                        "north": {
+                            "texture": "#vertical",
+                            "uv": [ 0.0, 1.0, 1.0, 15.0 ]
+                        },
+                        "east": {
+                            "texture": "#vertical",
+                            "uv": [ 1.0, 1.0, 2.0, 15.0 ]
+                        },
+                        "south": {
+                            "texture": "#vertical",
+                            "uv": [ 2.0, 1.0, 3.0, 15.0 ]
+                        },
+                        "west": {
+                            "texture": "#vertical",
+                            "uv": [ 3.0, 1.0, 4.0, 15.0 ]
+                        },
+                        "up": {
+                            "texture": "#null",
+                            "uv": [ 0.0, 0.0, 1.0, 1.0 ]
+                        },
+                        "down": {
+                            "texture": "#null",
+                            "uv": [ 1.0, 0.0, 2.0, 1.0 ]
+                        }
+                    }
+                },
+                {
+                    "name": "Gitter4",
+                    "from": [ 15.0, 1.0, 0.0 ],
+                    "to": [ 16.0, 15.0, 1.0 ],
+                    "uv": [ 0.0, 0.0 ],
+                    "rotationOrigin": [ 15.0, 1.0, 0.0 ],
+                    "faces": {
+                        "north": {
+                            "texture": "#vertical",
+                            "uv": [ 0.0, 1.0, 1.0, 15.0 ]
+                        },
+                        "east": {
+                            "texture": "#vertical",
+                            "uv": [ 1.0, 1.0, 2.0, 15.0 ]
+                        },
+                        "south": {
+                            "texture": "#vertical",
+                            "uv": [ 2.0, 1.0, 3.0, 15.0 ]
+                        },
+                        "west": {
+                            "texture": "#vertical",
+                            "uv": [ 3.0, 1.0, 4.0, 15.0 ]
+                        },
+                        "up": {
+                            "texture": "#null",
+                            "uv": [ 0.0, 0.0, 1.0, 1.0 ]
+                        },
+                        "down": {
+                            "texture": "#null",
+                            "uv": [ 1.0, 0.0, 2.0, 1.0 ]
+                        }
+                    }
+                },
+                {
+                    "name": "Gitter3",
+                    "from": [ 10.0, 1.0, 0.0 ],
+                    "to": [ 11.0, 15.0, 1.0 ],
+                    "uv": [ 0.0, 0.0 ],
+                    "rotationOrigin": [ 10.0, 1.0, 0.0 ],
+                    "faces": {
+                        "north": {
+                            "texture": "#vertical",
+                            "uv": [ 0.0, 1.0, 1.0, 15.0 ]
+                        },
+                        "east": {
+                            "texture": "#vertical",
+                            "uv": [ 1.0, 1.0, 2.0, 15.0 ]
+                        },
+                        "south": {
+                            "texture": "#vertical",
+                            "uv": [ 2.0, 1.0, 3.0, 15.0 ]
+                        },
+                        "west": {
+                            "texture": "#vertical",
+                            "uv": [ 3.0, 1.0, 4.0, 15.0 ]
+                        },
+                        "up": {
+                            "texture": "#null",
+                            "uv": [ 0.0, 0.0, 1.0, 1.0 ]
+                        },
+                        "down": {
+                            "texture": "#null",
+                            "uv": [ 1.0, 0.0, 2.0, 1.0 ]
+                        }
+                    }
+                },
+                {
+                    "name": "Gitter5",
+                    "from": [ 15.0, 1.0, 5.0 ],
+                    "to": [ 16.0, 15.0, 6.0 ],
+                    "uv": [ 0.0, 0.0 ],
+                    "rotationOrigin": [ 15.0, 1.0, 5.0 ],
+                    "faces": {
+                        "north": {
+                            "texture": "#vertical",
+                            "uv": [ 0.0, 1.0, 1.0, 15.0 ]
+                        },
+                        "east": {
+                            "texture": "#vertical",
+                            "uv": [ 1.0, 1.0, 2.0, 15.0 ]
+                        },
+                        "south": {
+                            "texture": "#vertical",
+                            "uv": [ 2.0, 1.0, 3.0, 15.0 ]
+                        },
+                        "west": {
+                            "texture": "#vertical",
+                            "uv": [ 3.0, 1.0, 4.0, 15.0 ]
+                        },
+                        "up": {
+                            "texture": "#null",
+                            "uv": [ 0.0, 0.0, 1.0, 1.0 ]
+                        },
+                        "down": {
+                            "texture": "#null",
+                            "uv": [ 1.0, 0.0, 2.0, 1.0 ]
+                        }
+                    }
+                },
+                {
+                    "name": "Gitter6",
+                    "from": [ 15.0, 1.0, 10.0 ],
+                    "to": [ 16.0, 15.0, 11.0 ],
+                    "uv": [ 0.0, 0.0 ],
+                    "rotationOrigin": [ 15.0, 1.0, 10.0 ],
+                    "faces": {
+                        "north": {
+                            "texture": "#vertical",
+                            "uv": [ 0.0, 1.0, 1.0, 15.0 ]
+                        },
+                        "east": {
+                            "texture": "#vertical",
+                            "uv": [ 1.0, 1.0, 2.0, 15.0 ]
+                        },
+                        "south": {
+                            "texture": "#vertical",
+                            "uv": [ 2.0, 1.0, 3.0, 15.0 ]
+                        },
+                        "west": {
+                            "texture": "#vertical",
+                            "uv": [ 3.0, 1.0, 4.0, 15.0 ]
+                        },
+                        "up": {
+                            "texture": "#null",
+                            "uv": [ 0.0, 0.0, 1.0, 1.0 ]
+                        },
+                        "down": {
+                            "texture": "#null",
+                            "uv": [ 1.0, 0.0, 2.0, 1.0 ]
+                        }
+                    }
+                },
+                {
+                    "name": "Gitter7",
+                    "from": [ 15.0, 1.0, 15.0 ],
+                    "to": [ 16.0, 15.0, 16.0 ],
+                    "uv": [ 0.0, 0.0 ],
+                    "rotationOrigin": [ 15.0, 1.0, 15.0 ],
+                    "faces": {
+                        "north": {
+                            "texture": "#vertical",
+                            "uv": [ 0.0, 1.0, 1.0, 15.0 ]
+                        },
+                        "east": {
+                            "texture": "#vertical",
+                            "uv": [ 1.0, 1.0, 2.0, 15.0 ]
+                        },
+                        "south": {
+                            "texture": "#vertical",
+                            "uv": [ 2.0, 1.0, 3.0, 15.0 ]
+                        },
+                        "west": {
+                            "texture": "#vertical",
+                            "uv": [ 3.0, 1.0, 4.0, 15.0 ]
+                        },
+                        "up": {
+                            "texture": "#null",
+                            "uv": [ 0.0, 0.0, 1.0, 1.0 ]
+                        },
+                        "down": {
+                            "texture": "#null",
+                            "uv": [ 1.0, 0.0, 2.0, 1.0 ]
+                        }
+                    }
+                },
+                {
+                    "name": "Gitter8",
+                    "from": [ 10.0, 1.0, 15.0 ],
+                    "to": [ 11.0, 15.0, 16.0 ],
+                    "uv": [ 0.0, 0.0 ],
+                    "rotationOrigin": [ 10.0, 1.0, 15.0 ],
+                    "faces": {
+                        "north": {
+                            "texture": "#vertical",
+                            "uv": [ 0.0, 1.0, 1.0, 15.0 ]
+                        },
+                        "east": {
+                            "texture": "#vertical",
+                            "uv": [ 1.0, 1.0, 2.0, 15.0 ]
+                        },
+                        "south": {
+                            "texture": "#vertical",
+                            "uv": [ 2.0, 1.0, 3.0, 15.0 ]
+                        },
+                        "west": {
+                            "texture": "#vertical",
+                            "uv": [ 3.0, 1.0, 4.0, 15.0 ]
+                        },
+                        "up": {
+                            "texture": "#null",
+                            "uv": [ 0.0, 0.0, 1.0, 1.0 ]
+                        },
+                        "down": {
+                            "texture": "#null",
+                            "uv": [ 1.0, 0.0, 2.0, 1.0 ]
+                        }
+                    }
+                },
+                {
+                    "name": "Gitter9",
+                    "from": [ 5.0, 1.0, 15.0 ],
+                    "to": [ 6.0, 15.0, 16.0 ],
+                    "uv": [ 0.0, 0.0 ],
+                    "rotationOrigin": [ 5.0, 1.0, 15.0 ],
+                    "faces": {
+                        "north": {
+                            "texture": "#vertical",
+                            "uv": [ 0.0, 1.0, 1.0, 15.0 ]
+                        },
+                        "east": {
+                            "texture": "#vertical",
+                            "uv": [ 1.0, 1.0, 2.0, 15.0 ]
+                        },
+                        "south": {
+                            "texture": "#vertical",
+                            "uv": [ 2.0, 1.0, 3.0, 15.0 ]
+                        },
+                        "west": {
+                            "texture": "#vertical",
+                            "uv": [ 3.0, 1.0, 4.0, 15.0 ]
+                        },
+                        "up": {
+                            "texture": "#null",
+                            "uv": [ 0.0, 0.0, 1.0, 1.0 ]
+                        },
+                        "down": {
+                            "texture": "#null",
+                            "uv": [ 1.0, 0.0, 2.0, 1.0 ]
+                        }
+                    }
+                },
+                {
+                    "name": "Gitter10",
+                    "from": [ 0.0, 1.0, 15.0 ],
+                    "to": [ 1.0, 15.0, 16.0 ],
+                    "uv": [ 0.0, 0.0 ],
+                    "rotationOrigin": [ 0.0, 1.0, 15.0 ],
+                    "faces": {
+                        "north": {
+                            "texture": "#vertical",
+                            "uv": [ 0.0, 1.0, 1.0, 15.0 ]
+                        },
+                        "east": {
+                            "texture": "#vertical",
+                            "uv": [ 1.0, 1.0, 2.0, 15.0 ]
+                        },
+                        "south": {
+                            "texture": "#vertical",
+                            "uv": [ 2.0, 1.0, 3.0, 15.0 ]
+                        },
+                        "west": {
+                            "texture": "#vertical",
+                            "uv": [ 3.0, 1.0, 4.0, 15.0 ]
+                        },
+                        "up": {
+                            "texture": "#null",
+                            "uv": [ 0.0, 0.0, 1.0, 1.0 ]
+                        },
+                        "down": {
+                            "texture": "#null",
+                            "uv": [ 1.0, 0.0, 2.0, 1.0 ]
+                        }
+                    }
+                },
+                {
+                    "name": "Gitter11",
+                    "from": [ 0.0, 1.0, 10.0 ],
+                    "to": [ 1.0, 15.0, 11.0 ],
+                    "uv": [ 0.0, 0.0 ],
+                    "rotationOrigin": [ 0.0, 1.0, 10.0 ],
+                    "faces": {
+                        "north": {
+                            "texture": "#vertical",
+                            "uv": [ 0.0, 1.0, 1.0, 15.0 ]
+                        },
+                        "east": {
+                            "texture": "#vertical",
+                            "uv": [ 1.0, 1.0, 2.0, 15.0 ]
+                        },
+                        "south": {
+                            "texture": "#vertical",
+                            "uv": [ 2.0, 1.0, 3.0, 15.0 ]
+                        },
+                        "west": {
+                            "texture": "#vertical",
+                            "uv": [ 3.0, 1.0, 4.0, 15.0 ]
+                        },
+                        "up": {
+                            "texture": "#null",
+                            "uv": [ 0.0, 0.0, 1.0, 1.0 ]
+                        },
+                        "down": {
+                            "texture": "#null",
+                            "uv": [ 1.0, 0.0, 2.0, 1.0 ]
+                        }
+                    }
+                },
+                {
+                    "name": "Gitter12",
+                    "from": [ 0.0, 1.0, 5.0 ],
+                    "to": [ 1.0, 15.0, 6.0 ],
+                    "uv": [ 0.0, 0.0 ],
+                    "rotationOrigin": [ 0.0, 1.0, 5.0 ],
+                    "faces": {
+                        "north": {
+                            "texture": "#vertical",
+                            "uv": [ 0.0, 0.0, 1.0, 14.0 ],
+                            "autoUv": false
+                        },
+                        "east": {
+                            "texture": "#vertical",
+                            "uv": [ 0.0, 1.0, 1.0, 15.0 ]
+                        },
+                        "south": {
+                            "texture": "#vertical",
+                            "uv": [ 1.0, 1.0, 2.0, 15.0 ]
+                        },
+                        "west": {
+                            "texture": "#vertical",
+                            "uv": [ 2.0, 1.0, 3.0, 15.0 ]
+                        },
+                        "up": {
+                            "texture": "#null",
+                            "uv": [ 0.0, 0.0, 1.0, 1.0 ]
+                        },
+                        "down": {
+                            "texture": "#null",
+                            "uv": [ 1.0, 0.0, 2.0, 1.0 ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Top",
+            "from": [ 0.0, 15.0, 0.0 ],
+            "to": [ 16.0, 16.0, 16.0 ],
+            "autoUnwrap": false,
+            "uv": [ 0.0, 0.0 ],
+            "rotationOrigin": [ 0.0, 15.0, 0.0 ],
+            "faces": {
+                "north": {
+                    "texture": "#maple",
+                    "uv": [ 0.0, 15.0, 16.0, 16.0 ]
+                },
+                "east": {
+                    "texture": "#maple",
+                    "uv": [ 0.0, 15.0, 16.0, 16.0 ]
+                },
+                "south": {
+                    "texture": "#maple",
+                    "uv": [ 0.0, 15.0, 16.0, 16.0 ]
+                },
+                "west": {
+                    "texture": "#maple",
+                    "uv": [ 0.0, 15.0, 16.0, 16.0 ]
+                },
+                "up": {
+                    "texture": "#maple",
+                    "uv": [ 0.0, 0.0, 16.0, 16.0 ]
+                },
+                "down": {
+                    "texture": "#maple",
+                    "uv": [ 0.0, 0.0, 16.0, 16.0 ]
+                }
+            }
+        }
+    ]
+}

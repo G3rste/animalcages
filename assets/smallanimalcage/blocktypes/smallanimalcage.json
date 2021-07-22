@@ -1,0 +1,28 @@
+{
+    "code": "SmallAnimalCage",
+    "class": "BlockSmallAnimalCage",
+    "entityclass": "BlockEntitySmallAnimalCage",
+    "behaviors": [
+        { "name": "UnstableFalling" },
+        { "name": "RightClickPickup" }
+    ],
+    "creativeinventory": { "general": [ "*" ] },
+    "heldTpIdleAnimation": "holdbothhands",
+    "shape": { "base": "block/smallanimalcageshape" },
+    "blockmaterial": "Other",
+    "replaceable": 500,
+    "resistance": 1.5,
+    "materialDensity": 400,
+    "sidesolid": {
+        "all": false
+    },
+    "sideopaque": {
+        "all": false
+    },
+    "sounds": {
+        "place": "game:block/planks",
+        "hit": "game:block/planks",
+        "break": "game:block/planks",
+        "walk": "game:walk/wood"
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "type": "code",
+    "modid": "animalcages",
+    "name": "animalcages",
+    "side": "universal",
+    "author": "Unknown",
+    "description": "To be added",
+    "version": "1.0.0",
+    "dependency": {
+        "game": "1.15.1"
+    }
+}
