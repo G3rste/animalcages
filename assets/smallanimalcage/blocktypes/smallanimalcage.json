@@ -7,7 +7,20 @@
     ],
     "creativeinventory": { "general": [ "*" ] },
     "heldTpIdleAnimation": "holdbothhands",
-    "shape": { "base": "game:block/wood/cage/closed" },
+    "variantgroups": [
+        {
+            "code": "type",
+            "states": [ "closed", "opened" ]
+        }
+    ],
+    "shapebytype": {
+        "*-closed": {
+            "base": "game:block/wood/cage/closed"
+        },
+        "*-opened": {
+            "base": "game:block/wood/cage/opened"
+        }
+    },
     "blockmaterial": "Other",
     "replaceable": 500,
     "resistance": 1.5,
