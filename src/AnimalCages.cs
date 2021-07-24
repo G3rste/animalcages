@@ -7,6 +7,7 @@ using System.Text;
 using Vintagestory.API.Datastructures;
 using System;
 using Vintagestory.API.Server;
+using Vintagestory.API.Client;
 
 namespace Animalcages
 {
@@ -20,18 +21,20 @@ namespace Animalcages
         }
     }
 
-    public class BlockCage : BlockContainer
+    public class BlockCage : Block
     {
         public override void OnAttackingWith(IWorldAccessor world, Entity byEntity, Entity attackedEntity, ItemSlot itemslot)
         {
             base.OnAttackingWith(world, byEntity, attackedEntity, itemslot);
             if (attackedEntity != null && world is IServerWorldAccessor)
             {
+                ItemStack newStack = new ItemStack(api.World.GetBlock(CodeWithVariant("type", "closed")));
+                itemslot.TakeOutWhole();
+                itemslot.Itemstack = newStack;
                 catchEntity(attackedEntity, itemslot.Itemstack);
                 attackedEntity.Die(EnumDespawnReason.PickedUp);
             }
         }
-
         public override bool OnBlockInteractStart(IWorldAccessor world, IPlayer byPlayer, BlockSelection blockSel)
         {
             ItemStack stack = new ItemStack(this);
@@ -66,10 +69,9 @@ namespace Animalcages
     {
         public byte[] tmpCapturedEntityBytes;
         public string tmpCapturedEntityClass;
-
+        MeshData currentMesh;
         public override void OnBlockBroken()
         {
-            base.OnBlockBroken();
             Entity entity = getCapturedEntity();
             if (entity != null)
             {
@@ -109,6 +111,26 @@ namespace Animalcages
             }
             Api.World.Logger.Debug("Placed");
         }
+        /*public override bool OnTesselation(ITerrainMeshPool mesher, ITesselatorAPI tessThreadTesselator)
+        {
+            if (currentMesh == null)
+            {
+                ICoreClientAPI capi = Api as ICoreClientAPI;
+                if (tmpCapturedEntityBytes != null && tmpCapturedEntityClass != null)
+                {
+                    Shape shape = capi.Assets.Get(Block.CodeWithVariant("type", "closed")).ToObject<Shape>();
+                    capi.Tesselator.TesselateShape(Block, shape, out currentMesh);
+                }
+                else
+                {
+                    Shape shape = capi.Assets.Get(Block.CodeWithVariant("type", "opened")).ToObject<Shape>();
+                    capi.Tesselator.TesselateShape(Block, shape, out currentMesh);
+                }
+
+            }
+            mesher.AddMeshData(currentMesh);
+            return true;
+        }*/
         private Entity getCapturedEntity()
         {
             if (tmpCapturedEntityBytes != null && tmpCapturedEntityClass != null)
