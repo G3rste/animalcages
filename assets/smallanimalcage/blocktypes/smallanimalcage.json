@@ -2,14 +2,29 @@
     "code": "SmallAnimalCage",
     "class": "BlockSmallAnimalCage",
     "entityclass": "BlockEntitySmallAnimalCage",
-    "behaviors": [
-        { "name": "UnstableFalling" }
-    ],
     "creativeinventory": { "general": [ "*" ] },
     "heldTpIdleAnimation": "holdbothhands",
-    "shape": { "base": "block/smallanimalcageshape" },
-    "blockmaterial": "Other",
-    "replaceable": 500,
+    "variantgroups": [
+        {
+            "code": "type",
+            "states": [ "closed", "opened" ]
+        }
+    ],
+    "shapebytype": {
+        "*-closed": {
+            "base": "game:block/wood/cage/closed"
+        },
+        "*-opened": {
+            "base": "game:block/wood/cage/opened"
+        }
+    },
+    "drops": [
+        {
+            "type": "block",
+            "code": "smallanimalcage-opened"
+        }
+    ],
+    "blockmaterial": "Wood",
     "resistance": 1.5,
     "materialDensity": 400,
     "sidesolid": {
