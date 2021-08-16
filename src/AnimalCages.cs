@@ -8,6 +8,7 @@ using Vintagestory.API.Datastructures;
 using System;
 using Vintagestory.API.Server;
 using Vintagestory.API.Client;
+using Vintagestory.API.Util;
 
 namespace Animalcages
 {
@@ -41,7 +42,6 @@ namespace Animalcages
             BlockEntityAnimalCage entity = api.World.BlockAccessor.GetBlockEntity(blockSel.Position) as BlockEntityAnimalCage;
             if (entity != null && entity.tmpCapturedEntityBytes != null && entity.tmpCapturedEntityClass != null)
             {
-                api.World.Logger.Debug("Hier ist noch was drin");
                 stack.Attributes.SetBytes("capturedEntity", entity.tmpCapturedEntityBytes);
                 stack.Attributes.SetString("capturedEntityClass", entity.tmpCapturedEntityClass);
             }
@@ -62,14 +62,77 @@ namespace Animalcages
 
             stack.Attributes.SetBytes("capturedEntity", EntityUtil.EntityToBytes(entity));
             stack.Attributes.SetString("capturedEntityClass", api.World.ClassRegistry.GetEntityClassName(entity.GetType()));
+            stack.Attributes.SetString("capturedEntityShape", entity.Properties.Client.Shape.Base.Clone().WithPathPrefix("shapes/").WithPathAppendix(".json").Path);
+            stack.Attributes.SetString("capturedEntityTexture", getEntityTextureString(entity));
+        }
+        private string getEntityTextureString(Entity entity)
+        {
+            int altTexNumber = entity.WatchedAttributes.GetInt("textureIndex", 0);
+            if (altTexNumber == 0)
+            {
+                return entity.Properties.Client.FirstTexture.Base.Path;
+            }
+            return entity.Properties.Client.FirstTexture.Alternates[altTexNumber % entity.Properties.Client.FirstTexture.Alternates.Length].Base.Path;
+        }
+
+        private int getEntityTextureSubId(Entity entity)
+        {
+            JsonObject json = entity.Properties.Attributes;
+            if (json != null)
+            {
+                string skinBaseTextureKey = json["skinBaseTextureKey"].AsString();
+                if (skinBaseTextureKey != null)
+                {
+                    return entity.Properties.Client.Textures[skinBaseTextureKey].Baked.TextureSubId;
+                }
+            }
+            return entity
+                .Properties
+                .Client
+                .Texture
+                .Baked
+                .TextureSubId;
         }
     }
 
-    public class BlockEntityAnimalCage : BlockEntity
+    public class BlockEntityAnimalCage : BlockEntity, ITexPositionSource
     {
         public byte[] tmpCapturedEntityBytes;
         public string tmpCapturedEntityClass;
+        public string tmpCapturedEntityShape;
+        public string tmpCapturedEntityTexture;
+        public int tmpCapturedEntityTextureId;
         MeshData currentMesh;
+
+        public Size2i AtlasSize
+        {
+            get
+            {
+                ICoreClientAPI capi = Api as ICoreClientAPI;
+                if (capi != null)
+                {
+                    return capi.EntityTextureAtlas.Size;
+                }
+                return null;
+            }
+        }
+        public TextureAtlasPosition this[string textureCode]
+        {
+            get
+            {
+                ICoreClientAPI capi = Api as ICoreClientAPI;
+                if (capi != null)
+                {
+                    return capi.EntityTextureAtlas[new AssetLocation(tmpCapturedEntityTexture)];
+                }
+
+                return null;
+            }
+        }
+        public override void Initialize(ICoreAPI api)
+        {
+            base.Initialize(api);
+        }
         public override void OnBlockBroken()
         {
             Entity entity = getCapturedEntity();
@@ -105,32 +168,38 @@ namespace Animalcages
             {
                 tmpCapturedEntityBytes = byItemStack.Attributes.GetBytes("capturedEntity", null);
                 tmpCapturedEntityClass = byItemStack.Attributes.GetString("capturedEntityClass", null);
+                tmpCapturedEntityShape = byItemStack.Attributes.GetString("capturedEntityShape", null);
+                tmpCapturedEntityTexture = byItemStack.Attributes.GetString("capturedEntityTexture", null);
+                tmpCapturedEntityTextureId = byItemStack.Attributes.GetInt("capturedEntityTextureId", 0);
                 Api.World.Logger.Debug("Placed with Entity:" + tmpCapturedEntityClass);
+                Api.World.Logger.Debug("Placed with Shape:" + tmpCapturedEntityShape);
+                Api.World.Logger.Debug("Placed with Texture:" + tmpCapturedEntityTexture);
+                Api.World.Logger.Debug("Placed with TextureId:" + tmpCapturedEntityTextureId);
                 byItemStack.Attributes.RemoveAttribute("capturedEntity");
                 byItemStack.Attributes.RemoveAttribute("capturedEntityClass");
             }
+            ICoreClientAPI capi = Api as ICoreClientAPI;
+            if (capi != null)
+            {
+                Api.World.Logger.Debug("Should be rendered");
+                Shape shape = capi.Assets.TryGet(new AssetLocation(tmpCapturedEntityShape)).ToObject<Shape>();
+                AssetLocation texture = new AssetLocation(tmpCapturedEntityTexture);
+                tmpCapturedEntityTextureId = capi.EntityTextureAtlas[texture].atlasNumber;
+                capi.Tesselator.TesselateShape("aimalcage", shape, out currentMesh, this);
+            }
             Api.World.Logger.Debug("Placed");
         }
-        /*public override bool OnTesselation(ITerrainMeshPool mesher, ITesselatorAPI tessThreadTesselator)
+        public override bool OnTesselation(ITerrainMeshPool mesher, ITesselatorAPI tessThreadTesselator)
         {
-            if (currentMesh == null)
-            {
-                ICoreClientAPI capi = Api as ICoreClientAPI;
-                if (tmpCapturedEntityBytes != null && tmpCapturedEntityClass != null)
-                {
-                    Shape shape = capi.Assets.Get(Block.CodeWithVariant("type", "closed")).ToObject<Shape>();
-                    capi.Tesselator.TesselateShape(Block, shape, out currentMesh);
-                }
-                else
-                {
-                    Shape shape = capi.Assets.Get(Block.CodeWithVariant("type", "opened")).ToObject<Shape>();
-                    capi.Tesselator.TesselateShape(Block, shape, out currentMesh);
-                }
-
-            }
             mesher.AddMeshData(currentMesh);
-            return true;
-        }*/
+            return false;
+        }
+
+        BlockEntityAnimationUtil animUtil
+        {
+            get { return GetBehavior<BEBehaviorAnimatable>().animUtil; }
+        }
+
         private Entity getCapturedEntity()
         {
             if (tmpCapturedEntityBytes != null && tmpCapturedEntityClass != null)
