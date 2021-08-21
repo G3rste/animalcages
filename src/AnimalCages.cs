@@ -121,7 +121,7 @@ namespace Animalcages
             api.World.Logger.Debug("Catching Entity: " + entity.GetName());
             stack.Attributes.SetBytes("capturedEntity", EntityUtil.EntityToBytes(entity));
             stack.Attributes.SetString("capturedEntityClass", api.World.ClassRegistry.GetEntityClassName(entity.GetType()));
-            stack.Attributes.SetString("capturedEntityShape", entity.Properties.Client.Shape.Base.Clone().WithPathPrefix("shapes/").WithPathAppendix(".json").Path);
+            stack.Attributes.SetString("capturedEntityShape", entity.Properties.Client.Shape.Base.Clone().WithPathPrefix("shapes/").WithPathPrefix(entity.Properties.Client.Shape.Base.Domain + ":").WithPathAppendix(".json").Path);
             stack.Attributes.SetInt("capturedEntityTextureId", getEntityTextureId(entity));
             stack.Attributes.SetString("capturedEntityName", entity.Properties.Code.GetName());
         }
