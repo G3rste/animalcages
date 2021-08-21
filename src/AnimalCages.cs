@@ -9,6 +9,7 @@ using System;
 using Vintagestory.API.Server;
 using Vintagestory.API.Client;
 using Vintagestory.API.Util;
+using System.Collections.Generic;
 
 namespace Animalcages
 {
@@ -21,9 +22,65 @@ namespace Animalcages
             api.RegisterBlockEntityClass("BlockEntitySmallAnimalCage", typeof(BlockEntityAnimalCage));
         }
     }
-
+    public class CapturedEntityTextures
+    {
+        public Dictionary<int, int> TextureSubIdsByCode = new Dictionary<int, int>();
+    }
     public class BlockCage : Block
     {
+        public static Dictionary<string, CapturedEntityTextures> ToolTextureSubIds(ICoreAPI api)
+        {
+            Dictionary<string, CapturedEntityTextures> toolTextureSubIds;
+            object obj;
+
+            if (api.ObjectCache.TryGetValue("entityTextureSubIds", out obj))
+            {
+
+                toolTextureSubIds = obj as Dictionary<string, CapturedEntityTextures>;
+            }
+            else
+            {
+                api.ObjectCache["entityTextureSubIds"] = toolTextureSubIds = new Dictionary<string, CapturedEntityTextures>();
+            }
+
+            return toolTextureSubIds;
+        }
+
+        /*public override void OnBeforeRender(ICoreClientAPI capi, ItemStack itemstack, EnumItemRenderTarget target, ref ItemRenderInfo renderinfo)
+        {
+            base.OnBeforeRender(capi, itemstack, target, ref renderinfo);
+            if (customMesh == null)
+            {
+                string entityName = itemstack.Attributes.GetString("capturedEntityName", null);
+                string entityShape = itemstack.Attributes.GetString("capturedEntityShape", null);
+                int entityTextureId = itemstack.Attributes.GetInt("capturedEntityTextureId", 0);
+                if (entityName != null && entityName.Length != 0)
+                {
+                    capi.Logger.Debug("OnBeforeRender gets Called");
+                    CagedEntityRenderer renderer = new CagedEntityRenderer(capi, entityName, entityTextureId, entityShape);
+                    MeshData mesh = renderer.genMesh();
+                    MeshData cageMesh;
+                    capi.Tesselator.TesselateBlock(this, out cageMesh);
+                    mesh.AddMeshData(cageMesh);
+                    customMesh = capi.Render.UploadMesh(mesh);
+                }
+            }
+            else
+            {
+                renderinfo.ModelRef = customMesh;
+            }
+        }*/
+
+        public override string GetHeldItemName(ItemStack itemStack)
+        {
+            string itemName = "Small animal cage";
+            string entityName = itemStack.Attributes.GetString("capturedEntityName", null);
+            if (entityName != null && entityName.Length != 0)
+            {
+                itemName += " (" + entityName + ")";
+            }
+            return itemName;
+        }
         public override void OnAttackingWith(IWorldAccessor world, Entity byEntity, Entity attackedEntity, ItemSlot itemslot)
         {
             base.OnAttackingWith(world, byEntity, attackedEntity, itemslot);
@@ -44,6 +101,9 @@ namespace Animalcages
             {
                 stack.Attributes.SetBytes("capturedEntity", entity.tmpCapturedEntityBytes);
                 stack.Attributes.SetString("capturedEntityClass", entity.tmpCapturedEntityClass);
+                stack.Attributes.SetString("capturedEntityShape", entity.tmpCapturedEntityShape);
+                stack.Attributes.SetInt("capturedEntityTextureId", entity.tmpCapturedEntityTextureId);
+                stack.Attributes.SetString("capturedEntityName", entity.tmpCapturedEntityName);
             }
             if (byPlayer.InventoryManager.TryGiveItemstack(stack))
             {
@@ -59,79 +119,92 @@ namespace Animalcages
         public void catchEntity(Entity entity, ItemStack stack)
         {
             api.World.Logger.Debug("Catching Entity: " + entity.GetName());
-
             stack.Attributes.SetBytes("capturedEntity", EntityUtil.EntityToBytes(entity));
             stack.Attributes.SetString("capturedEntityClass", api.World.ClassRegistry.GetEntityClassName(entity.GetType()));
             stack.Attributes.SetString("capturedEntityShape", entity.Properties.Client.Shape.Base.Clone().WithPathPrefix("shapes/").WithPathAppendix(".json").Path);
-            stack.Attributes.SetString("capturedEntityTexture", getEntityTextureString(entity));
+            stack.Attributes.SetInt("capturedEntityTextureId", getEntityTextureId(entity));
+            stack.Attributes.SetString("capturedEntityName", entity.Properties.Code.GetName());
         }
-        private string getEntityTextureString(Entity entity)
+        public override void OnCollectTextures(ICoreAPI api, ITextureLocationDictionary textureDict)
         {
-            int altTexNumber = entity.WatchedAttributes.GetInt("textureIndex", 0);
-            if (altTexNumber == 0)
+            base.OnCollectTextures(api, textureDict);
+            lock (this)
             {
-                return entity.Properties.Client.FirstTexture.Base.Path;
-            }
-            return entity.Properties.Client.FirstTexture.Alternates[altTexNumber % entity.Properties.Client.FirstTexture.Alternates.Length].Base.Path;
-        }
-
-        private int getEntityTextureSubId(Entity entity)
-        {
-            JsonObject json = entity.Properties.Attributes;
-            if (json != null)
-            {
-                string skinBaseTextureKey = json["skinBaseTextureKey"].AsString();
-                if (skinBaseTextureKey != null)
+                for (int i = 0; i < api.World.EntityTypes.Count; i++)
                 {
-                    return entity.Properties.Client.Textures[skinBaseTextureKey].Baked.TextureSubId;
+                    EntityProperties item = api.World.EntityTypes[i];
+
+                    CapturedEntityTextures tt = new CapturedEntityTextures();
+
+                    if (item.Client.FirstTexture != null)
+                    {
+                        int count = 0;
+                        item.Client.FirstTexture.Bake(api.Assets);
+                        textureDict.AddTextureLocation(new AssetLocationAndSource(item.Client.FirstTexture.Baked.BakedName, "Item code ", item.Code));
+                        tt.TextureSubIdsByCode[count] = textureDict[new AssetLocationAndSource(item.Client.FirstTexture.Baked.BakedName)];
+                        api.Logger.Debug("Load Entity Block Asset: " + item.Client.FirstTexture.Base.Path);
+                        if (item.Client.FirstTexture.Alternates != null)
+                        {
+                            foreach (var val in item.Client.FirstTexture.Alternates)
+                            {
+                                count++;
+                                val.Bake(api.Assets);
+                                textureDict.AddTextureLocation(new AssetLocationAndSource(val.Baked.BakedName, "Item code ", item.Code));
+                                tt.TextureSubIdsByCode[count] = textureDict[new AssetLocationAndSource(val.Baked.BakedName)];
+                                api.Logger.Debug("Load Entity Block Asset: " + val.Base.Path);
+                            }
+                        }
+                    }
+
+
+
+                    ToolTextureSubIds(api)[item.Code.GetName()] = tt;
                 }
             }
-            return entity
-                .Properties
-                .Client
-                .Texture
-                .Baked
-                .TextureSubId;
+        }
+
+        /*public override void GetHeldItemInfo(ItemSlot inSlot, StringBuilder dsc, IWorldAccessor world, bool withDebugInfo)
+        {
+            base.GetHeldItemInfo(inSlot, dsc, world, withDebugInfo);
+            dsc.Append("Small animal cage");
+            string capturedEntity = inSlot.Itemstack.Attributes.GetString("capturedEntityName", null);
+            if (capturedEntity != null)
+            {
+                dsc.Append(" (" + capturedEntity + ")");
+            }
+        }*/
+
+        private int getEntityTextureId(Entity entity)
+        {
+            return entity.WatchedAttributes.GetInt("textureIndex", 0);
         }
     }
 
-    public class BlockEntityAnimalCage : BlockEntity, ITexPositionSource
+    public class BlockEntityAnimalCage : BlockEntity
     {
         public byte[] tmpCapturedEntityBytes;
         public string tmpCapturedEntityClass;
         public string tmpCapturedEntityShape;
-        public string tmpCapturedEntityTexture;
         public int tmpCapturedEntityTextureId;
+        public string tmpCapturedEntityName;
+        public CagedEntityRenderer renderer;
         MeshData currentMesh;
 
-        public Size2i AtlasSize
-        {
-            get
-            {
-                ICoreClientAPI capi = Api as ICoreClientAPI;
-                if (capi != null)
-                {
-                    return capi.EntityTextureAtlas.Size;
-                }
-                return null;
-            }
-        }
-        public TextureAtlasPosition this[string textureCode]
-        {
-            get
-            {
-                ICoreClientAPI capi = Api as ICoreClientAPI;
-                if (capi != null)
-                {
-                    return capi.EntityTextureAtlas[new AssetLocation(tmpCapturedEntityTexture)];
-                }
-
-                return null;
-            }
-        }
         public override void Initialize(ICoreAPI api)
         {
             base.Initialize(api);
+            renderer = new CagedEntityRenderer(Api as ICoreClientAPI, tmpCapturedEntityName, tmpCapturedEntityTextureId, tmpCapturedEntityShape);
+            currentMesh = renderer.genMesh();
+            MarkDirty(true);
+        }
+
+        public override void GetBlockInfo(IPlayer forPlayer, StringBuilder dsc)
+        {
+            //base.GetBlockInfo(forPlayer, dsc);
+            if (tmpCapturedEntityName != null && tmpCapturedEntityName.Length != 0)
+            {
+                dsc.Append("Contains: " + tmpCapturedEntityName);
+            }
         }
         public override void OnBlockBroken()
         {
@@ -141,7 +214,6 @@ namespace Animalcages
                 entity.Pos.SetPos(Pos);
                 entity.ServerPos.SetPos(Pos);
                 Api.World.SpawnEntity(entity);
-                deleteCapturedEntity();
             }
         }
         public override void ToTreeAttributes(ITreeAttribute tree)
@@ -151,6 +223,9 @@ namespace Animalcages
             {
                 tree.SetBytes("capturedEntity", tmpCapturedEntityBytes);
                 tree.SetString("capturedEntityClass", tmpCapturedEntityClass);
+                tree.SetString("capturedEntityShape", tmpCapturedEntityShape);
+                tree.SetString("capturedEntityName", tmpCapturedEntityName);
+                tree.SetInt("capturedEntityTextureId", tmpCapturedEntityTextureId);
             }
         }
 
@@ -159,6 +234,9 @@ namespace Animalcages
             base.FromTreeAttributes(tree, worldAccessForResolve);
             tmpCapturedEntityBytes = tree.GetBytes("capturedEntity");
             tmpCapturedEntityClass = tree.GetString("capturedEntityClass");
+            tmpCapturedEntityShape = tree.GetString("capturedEntityShape");
+            tmpCapturedEntityName = tree.GetString("capturedEntityName");
+            tmpCapturedEntityTextureId = tree.GetInt("capturedEntityTextureId");
         }
 
         public override void OnBlockPlaced(ItemStack byItemStack = null)
@@ -169,35 +247,18 @@ namespace Animalcages
                 tmpCapturedEntityBytes = byItemStack.Attributes.GetBytes("capturedEntity", null);
                 tmpCapturedEntityClass = byItemStack.Attributes.GetString("capturedEntityClass", null);
                 tmpCapturedEntityShape = byItemStack.Attributes.GetString("capturedEntityShape", null);
-                tmpCapturedEntityTexture = byItemStack.Attributes.GetString("capturedEntityTexture", null);
                 tmpCapturedEntityTextureId = byItemStack.Attributes.GetInt("capturedEntityTextureId", 0);
-                Api.World.Logger.Debug("Placed with Entity:" + tmpCapturedEntityClass);
-                Api.World.Logger.Debug("Placed with Shape:" + tmpCapturedEntityShape);
-                Api.World.Logger.Debug("Placed with Texture:" + tmpCapturedEntityTexture);
-                Api.World.Logger.Debug("Placed with TextureId:" + tmpCapturedEntityTextureId);
-                byItemStack.Attributes.RemoveAttribute("capturedEntity");
-                byItemStack.Attributes.RemoveAttribute("capturedEntityClass");
+                tmpCapturedEntityName = byItemStack.Attributes.GetString("capturedEntityName", null);
             }
-            ICoreClientAPI capi = Api as ICoreClientAPI;
-            if (capi != null)
-            {
-                Api.World.Logger.Debug("Should be rendered");
-                Shape shape = capi.Assets.TryGet(new AssetLocation(tmpCapturedEntityShape)).ToObject<Shape>();
-                AssetLocation texture = new AssetLocation(tmpCapturedEntityTexture);
-                tmpCapturedEntityTextureId = capi.EntityTextureAtlas[texture].atlasNumber;
-                capi.Tesselator.TesselateShape("aimalcage", shape, out currentMesh, this);
-            }
-            Api.World.Logger.Debug("Placed");
+            renderer = new CagedEntityRenderer(Api as ICoreClientAPI, tmpCapturedEntityName, tmpCapturedEntityTextureId, tmpCapturedEntityShape);
+            currentMesh = renderer.genMesh();
+            MarkDirty(true);
         }
         public override bool OnTesselation(ITerrainMeshPool mesher, ITesselatorAPI tessThreadTesselator)
         {
             mesher.AddMeshData(currentMesh);
+            (Api as ICoreClientAPI).Logger.Debug("Tesselation gets called");
             return false;
-        }
-
-        BlockEntityAnimationUtil animUtil
-        {
-            get { return GetBehavior<BEBehaviorAnimatable>().animUtil; }
         }
 
         private Entity getCapturedEntity()
@@ -210,11 +271,6 @@ namespace Animalcages
             {
                 return null;
             }
-        }
-        private void deleteCapturedEntity()
-        {
-            tmpCapturedEntityBytes = null;
-            tmpCapturedEntityClass = null;
         }
     }
 
@@ -248,6 +304,60 @@ namespace Animalcages
                 }
             }
             else return null;
+        }
+    }
+
+    public class CagedEntityRenderer : ITexPositionSource
+    {
+        private ICoreClientAPI capi;
+        private string entityName;
+        private int entityTextureId;
+        private string entityShape;
+
+        public CagedEntityRenderer(ICoreClientAPI capi, string entityName, int entityTextureId, string entityShape)
+        {
+            this.capi = capi;
+            this.entityName = entityName;
+            this.entityTextureId = entityTextureId;
+            this.entityShape = entityShape;
+        }
+
+        public Size2i AtlasSize
+        {
+            get
+            {
+                if (capi != null)
+                {
+                    return capi.BlockTextureAtlas.Size;
+                }
+                return null;
+            }
+        }
+        public TextureAtlasPosition this[string textureCode]
+        {
+            get
+            {
+                if (capi != null)
+                {
+                    CapturedEntityTextures textures;
+                    BlockCage.ToolTextureSubIds(capi).TryGetValue(entityName, out textures);
+                    int position = textures.TextureSubIdsByCode[entityTextureId];
+                    return capi.BlockTextureAtlas.Positions[position];
+                }
+
+                return null;
+            }
+        }
+
+        public MeshData genMesh()
+        {
+            MeshData currentMesh = null;
+            if (capi != null && entityShape != null)
+            {
+                Shape shape = capi.Assets.TryGet(new AssetLocation(entityShape)).ToObject<Shape>();
+                capi.Tesselator.TesselateShapeWithJointIds("aimalcage", shape, out currentMesh, this, new Vec3f());
+            }
+            return currentMesh;
         }
     }
 }
