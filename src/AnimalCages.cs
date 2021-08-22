@@ -18,8 +18,8 @@ namespace Animalcages
         public override void Start(ICoreAPI api)
         {
             base.Start(api);
-            api.RegisterBlockClass("BlockSmallAnimalCage", typeof(BlockCage));
-            api.RegisterBlockEntityClass("BlockEntitySmallAnimalCage", typeof(BlockEntityAnimalCage));
+            api.RegisterBlockClass("blocksmallanimalcage", typeof(BlockCage));
+            api.RegisterBlockEntityClass("blockentitysmallanimalcage", typeof(BlockEntityAnimalCage));
         }
     }
     public class CapturedEntityTextures
