@@ -1,4 +1,6 @@
 {
     "block-smallanimalcage-opened": "Kleintierkäfig (offen)",
-    "block-smallanimalcage-closed": "Kleintierkäfig (geschlossen)"
+    "blockdesc-smallanimalcage-opened": "Greife ein Kleintier mit diesem Item an, um es einzufangen.",
+    "block-smallanimalcage-closed": "Kleintierkäfig (geschlossen)",
+    "blockdesc-smallanimalcage-closed": "Enthält ein gefangenes Kleintier. Zerstöre den Block, um es freizulassen."
 }

@@ -1,4 +1,6 @@
 {
     "block-smallanimalcage-opened": "Small animal cage (open)",
-    "block-smallanimalcage-closed": "Small animal cage (closed)"
+    "blockdesc-smallanimalcage-opened": "Attack a small animal with this cage to catch it.",
+    "block-smallanimalcage-closed": "Small animal cage (closed)",
+    "blockdesc-smallanimalcage-closed": "Contains a captured animal. Break the Block to release it."
 }

@@ -1,15 +1,14 @@
 ﻿using Vintagestory.API.Common;
 using Vintagestory.API.MathTools;
 using Vintagestory.API.Common.Entities;
-using Vintagestory.GameContent;
 using System.IO;
 using System.Text;
 using Vintagestory.API.Datastructures;
 using System;
 using Vintagestory.API.Server;
 using Vintagestory.API.Client;
-using Vintagestory.API.Util;
 using System.Collections.Generic;
+using Vintagestory.API.Config;
 
 namespace Animalcages
 {
@@ -62,9 +61,9 @@ namespace Animalcages
         {
             base.GetHeldItemInfo(inSlot, dsc, world, withDebugInfo);
             string entityName = inSlot.Itemstack.Attributes.GetString("capturedEntityName", null);
-            if (entityName != null && entityName.Length != 0)
+            if (inSlot.Itemstack.Attributes.HasAttribute("capturedEntityName"))
             {
-                dsc.Append("Contains: " + entityName);
+                dsc.AppendLine("(" + entityName + ")");
             }
         }
         public override void OnAttackingWith(IWorldAccessor world, Entity byEntity, Entity attackedEntity, ItemSlot itemslot)
@@ -174,14 +173,6 @@ namespace Animalcages
             renderer = new CagedEntityRenderer(Api as ICoreClientAPI, tmpCapturedEntityName, tmpCapturedEntityTextureId, tmpCapturedEntityShape);
             currentMesh = renderer.genMesh();
             MarkDirty(true);
-        }
-
-        public override void GetBlockInfo(IPlayer forPlayer, StringBuilder dsc)
-        {
-            if (tmpCapturedEntityName != null && tmpCapturedEntityName.Length != 0)
-            {
-                dsc.Append("Contains: " + tmpCapturedEntityName);
-            }
         }
         public override void OnBlockBroken()
         {
