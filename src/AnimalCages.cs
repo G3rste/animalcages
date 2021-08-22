@@ -71,15 +71,14 @@ namespace Animalcages
             }
         }*/
 
-        public override string GetHeldItemName(ItemStack itemStack)
+        public override void GetHeldItemInfo(ItemSlot inSlot, StringBuilder dsc, IWorldAccessor world, bool withDebugInfo)
         {
-            string itemName = "Small animal cage";
-            string entityName = itemStack.Attributes.GetString("capturedEntityName", null);
+            base.GetHeldItemInfo(inSlot, dsc, world, withDebugInfo);
+            string entityName = inSlot.Itemstack.Attributes.GetString("capturedEntityName", null);
             if (entityName != null && entityName.Length != 0)
             {
-                itemName += " (" + entityName + ")";
+                dsc.Append("Contains: " + entityName);
             }
-            return itemName;
         }
         public override void OnAttackingWith(IWorldAccessor world, Entity byEntity, Entity attackedEntity, ItemSlot itemslot)
         {
