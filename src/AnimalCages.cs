@@ -58,31 +58,6 @@ namespace Animalcages
             return toolTextureSubIds;
         }
 
-        /*public override void OnBeforeRender(ICoreClientAPI capi, ItemStack itemstack, EnumItemRenderTarget target, ref ItemRenderInfo renderinfo)
-        {
-            base.OnBeforeRender(capi, itemstack, target, ref renderinfo);
-            if (customMesh == null)
-            {
-                string entityName = itemstack.Attributes.GetString("capturedEntityName", null);
-                string entityShape = itemstack.Attributes.GetString("capturedEntityShape", null);
-                int entityTextureId = itemstack.Attributes.GetInt("capturedEntityTextureId", 0);
-                if (entityName != null && entityName.Length != 0)
-                {
-                    capi.Logger.Debug("OnBeforeRender gets Called");
-                    CagedEntityRenderer renderer = new CagedEntityRenderer(capi, entityName, entityTextureId, entityShape);
-                    MeshData mesh = renderer.genMesh();
-                    MeshData cageMesh;
-                    capi.Tesselator.TesselateBlock(this, out cageMesh);
-                    mesh.AddMeshData(cageMesh);
-                    customMesh = capi.Render.UploadMesh(mesh);
-                }
-            }
-            else
-            {
-                renderinfo.ModelRef = customMesh;
-            }
-        }*/
-
         public override void GetHeldItemInfo(ItemSlot inSlot, StringBuilder dsc, IWorldAccessor world, bool withDebugInfo)
         {
             base.GetHeldItemInfo(inSlot, dsc, world, withDebugInfo);
@@ -95,7 +70,11 @@ namespace Animalcages
         public override void OnAttackingWith(IWorldAccessor world, Entity byEntity, Entity attackedEntity, ItemSlot itemslot)
         {
             base.OnAttackingWith(world, byEntity, attackedEntity, itemslot);
-            if (attackedEntity != null && attackedEntity.Alive && CageConfig.Current.catchableEntities.Contains(attackedEntity.Properties.Code.GetName()) && world is IServerWorldAccessor)
+            if (attackedEntity != null
+                && attackedEntity.Alive
+                && !itemslot.Itemstack.Attributes.HasAttribute("capturedEntity")
+                && CageConfig.Current.catchableEntities.Contains(attackedEntity.Properties.Code.GetName())
+                && world is IServerWorldAccessor)
             {
                 ItemStack newStack = new ItemStack(api.World.GetBlock(CodeWithVariant("type", "closed")));
                 itemslot.TakeOutWhole();
@@ -129,7 +108,6 @@ namespace Animalcages
 
         public void catchEntity(Entity entity, ItemStack stack)
         {
-            api.World.Logger.Debug("Catching Entity: " + entity.GetName());
             stack.Attributes.SetBytes("capturedEntity", EntityUtil.EntityToBytes(entity));
             stack.Attributes.SetString("capturedEntityClass", api.World.ClassRegistry.GetEntityClassName(entity.GetType()));
             stack.Attributes.SetString("capturedEntityShape", entity.Properties.Client.Shape.Base.Clone().WithPathPrefix("shapes/").WithPathPrefix(entity.Properties.Client.Shape.Base.Domain + ":").WithPathAppendix(".json").Path);
@@ -174,17 +152,6 @@ namespace Animalcages
             }
         }
 
-        /*public override void GetHeldItemInfo(ItemSlot inSlot, StringBuilder dsc, IWorldAccessor world, bool withDebugInfo)
-        {
-            base.GetHeldItemInfo(inSlot, dsc, world, withDebugInfo);
-            dsc.Append("Small animal cage");
-            string capturedEntity = inSlot.Itemstack.Attributes.GetString("capturedEntityName", null);
-            if (capturedEntity != null)
-            {
-                dsc.Append(" (" + capturedEntity + ")");
-            }
-        }*/
-
         private int getEntityTextureId(Entity entity)
         {
             return entity.WatchedAttributes.GetInt("textureIndex", 0);
@@ -211,7 +178,6 @@ namespace Animalcages
 
         public override void GetBlockInfo(IPlayer forPlayer, StringBuilder dsc)
         {
-            //base.GetBlockInfo(forPlayer, dsc);
             if (tmpCapturedEntityName != null && tmpCapturedEntityName.Length != 0)
             {
                 dsc.Append("Contains: " + tmpCapturedEntityName);
@@ -268,7 +234,6 @@ namespace Animalcages
         public override bool OnTesselation(ITerrainMeshPool mesher, ITesselatorAPI tessThreadTesselator)
         {
             mesher.AddMeshData(currentMesh);
-            (Api as ICoreClientAPI).Logger.Debug("Tesselation gets called");
             return false;
         }
 
