@@ -20,6 +20,19 @@ namespace Animalcages
             base.Start(api);
             api.RegisterBlockClass("blocksmallanimalcage", typeof(BlockCage));
             api.RegisterBlockEntityClass("blockentitysmallanimalcage", typeof(BlockEntityAnimalCage));
+            try
+            {
+                var Config = api.LoadModConfig<CatchableEntities>("animalcagesconfig.json");
+                if (Config != null)
+                {
+                    CageConfig.Current = Config;
+                }
+                api.StoreModConfig<CatchableEntities>(CageConfig.Current, "animalcagesconfig.json");
+            }
+            catch
+            {
+                api.Logger.Error("Failed to load custom mod configuration, falling back to default settings!");
+            }
         }
     }
     public class CapturedEntityTextures
@@ -35,7 +48,6 @@ namespace Animalcages
 
             if (api.ObjectCache.TryGetValue("entityTextureSubIds", out obj))
             {
-
                 toolTextureSubIds = obj as Dictionary<string, CapturedEntityTextures>;
             }
             else
@@ -83,7 +95,7 @@ namespace Animalcages
         public override void OnAttackingWith(IWorldAccessor world, Entity byEntity, Entity attackedEntity, ItemSlot itemslot)
         {
             base.OnAttackingWith(world, byEntity, attackedEntity, itemslot);
-            if (attackedEntity != null && world is IServerWorldAccessor)
+            if (attackedEntity != null && attackedEntity.Alive && CageConfig.Current.catchableEntities.Contains(attackedEntity.Properties.Code.GetName()) && world is IServerWorldAccessor)
             {
                 ItemStack newStack = new ItemStack(api.World.GetBlock(CodeWithVariant("type", "closed")));
                 itemslot.TakeOutWhole();
@@ -357,6 +369,26 @@ namespace Animalcages
                 capi.Tesselator.TesselateShapeWithJointIds("aimalcage", shape, out currentMesh, this, new Vec3f());
             }
             return currentMesh;
+        }
+    }
+
+    public class CageConfig
+    {
+        public static CatchableEntities Current = CatchableEntities.getDefault();
+    }
+
+    public class CatchableEntities
+    {
+        public List<String> catchableEntities;
+
+        public static CatchableEntities getDefault()
+        {
+            CatchableEntities defaultConfig = new CatchableEntities();
+            string[] list = { "chicken-baby", "chicken-hen", "chicken-henpoult", "chicken-rooster", "chicken-roosterpoult", "hare-baby", "pig-wild-piglet", "sheep-bighorn-lamb", "wolf-pup", "raccoon-male", "raccoon-female", "raccoon-pub", "hyena-pup", "deer-fawn",
+                              "hare-female-arctic", "hare-female-ashgrey", "hare-female-darkbrown", "hare-female-desert", "hare-female-gold", "hare-female-lightbrown", "hare-female-lightgrey", "hare-female-silver", "hare-female-smokegrey",
+                              "hare-male-arctic", "hare-male-ashgrey", "hare-male-darkbrown", "hare-male-desert", "hare-male-gold", "hare-male-lightbrown", "hare-male-lightgrey", "hare-male-silver", "hare-male-smokegrey"};
+            defaultConfig.catchableEntities = new List<string>(list);
+            return defaultConfig;
         }
     }
 }
