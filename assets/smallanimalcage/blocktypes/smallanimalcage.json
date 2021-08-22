@@ -1,9 +1,11 @@
 {
-    "code": "SmallAnimalCage",
-    "class": "BlockSmallAnimalCage",
-    "entityclass": "BlockEntitySmallAnimalCage",
+    "code": "smallanimalcage",
+    "class": "blocksmallanimalcage",
+    "entityclass": "blockentitysmallanimalcage",
     "creativeinventory": { "general": [ "*" ] },
     "heldTpIdleAnimation": "holdbothhands",
+    "entityBehaviors": [ { "name": "Animatable" } ],
+    "maxstacksize": 1,
     "variantgroups": [
         {
             "code": "type",
