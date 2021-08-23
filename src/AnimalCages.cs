@@ -56,6 +56,10 @@ namespace Animalcages
 
             return toolTextureSubIds;
         }
+        public override void OnBeforeRender(ICoreClientAPI capi, ItemStack itemstack, EnumItemRenderTarget target, ref ItemRenderInfo renderinfo)
+        {
+            base.OnBeforeRender(capi, itemstack, target, ref renderinfo);
+        }
 
         public override void GetHeldItemInfo(ItemSlot inSlot, StringBuilder dsc, IWorldAccessor world, bool withDebugInfo)
         {
@@ -63,7 +67,7 @@ namespace Animalcages
             string entityName = inSlot.Itemstack.Attributes.GetString("capturedEntityName", null);
             if (inSlot.Itemstack.Attributes.HasAttribute("capturedEntityName"))
             {
-                dsc.AppendLine("(" + entityName + ")");
+                dsc.AppendLine("(" + Lang.Get("item-creature-" + entityName) + ")");
             }
         }
         public override void OnAttackingWith(IWorldAccessor world, Entity byEntity, Entity attackedEntity, ItemSlot itemslot)
@@ -317,6 +321,11 @@ namespace Animalcages
             {
                 Shape shape = capi.Assets.TryGet(new AssetLocation(entityShape)).ToObject<Shape>();
                 capi.Tesselator.TesselateShapeWithJointIds("aimalcage", shape, out currentMesh, this, new Vec3f());
+                ModelTransform transform = ModelTransform.NoTransform;
+                float scale = CageConfig.Current.getScale(entityName);
+                transform.Scale = scale;
+                currentMesh.ModelTransform(transform);
+                currentMesh.Translate(0f, 0.0625f - (1 - scale) / 2, 0f);
             }
             return currentMesh;
         }
@@ -329,16 +338,30 @@ namespace Animalcages
 
     public class CatchableEntities
     {
-        public List<String> catchableEntities;
+        public List<string> catchableEntities;
+        public List<float> catchableEntityScales;
 
         public static CatchableEntities getDefault()
         {
             CatchableEntities defaultConfig = new CatchableEntities();
-            string[] list = { "chicken-baby", "chicken-hen", "chicken-henpoult", "chicken-rooster", "chicken-roosterpoult", "hare-baby", "pig-wild-piglet", "sheep-bighorn-lamb", "wolf-pup", "raccoon-male", "raccoon-female", "raccoon-pub", "hyena-pup", "deer-fawn",
+            string[] entities = { "sheep-bighorn-lamb", "deer-fawn", "chicken-baby", "chicken-hen", "chicken-henpoult", "chicken-rooster", "chicken-roosterpoult", "hare-baby", "pig-wild-piglet", "wolf-pup", "raccoon-male", "raccoon-female", "raccoon-pub", "hyena-pup",
                               "hare-female-arctic", "hare-female-ashgrey", "hare-female-darkbrown", "hare-female-desert", "hare-female-gold", "hare-female-lightbrown", "hare-female-lightgrey", "hare-female-silver", "hare-female-smokegrey",
                               "hare-male-arctic", "hare-male-ashgrey", "hare-male-darkbrown", "hare-male-desert", "hare-male-gold", "hare-male-lightbrown", "hare-male-lightgrey", "hare-male-silver", "hare-male-smokegrey"};
-            defaultConfig.catchableEntities = new List<string>(list);
+            float[] scales = { 0.85f, 0.85f, 1f, 1f, 1f, 1f, 1f, 1f, 1f, 1f, 1f, 1f, 1f, 1f,
+                              1f, 1f, 1f, 1f, 1f, 1f, 1f, 1f, 1f,
+                              1f, 1f, 1f, 1f, 1f, 1f, 1f, 1f, 1f};
+            defaultConfig.catchableEntities = new List<string>(entities);
+            defaultConfig.catchableEntityScales = new List<float>(scales);
             return defaultConfig;
+        }
+
+        public float getScale(string entity)
+        {
+            if (catchableEntities.IndexOf(entity) != -1)
+            {
+                return catchableEntityScales[catchableEntities.IndexOf(entity)];
+            }
+            return 1f;
         }
     }
 }
