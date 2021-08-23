@@ -62,13 +62,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="assets\smallanimalcage\textures\block\maple.png" />
-    <Content Include="assets\smallanimalcage\textures\block\vertical.png" />
     <Content Include="modinfo.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\smallanimalcage\blocktypes\smallanimalcage.json" />
-    <None Include="assets\smallanimalcage\shapes\block\smallanimalcageshape.json" />
+    <None Include="assets\smallanimalcage\lang\en.json" />
+    <None Include="assets\smallanimalcage\lang\de.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\AnimalCages.cs" />

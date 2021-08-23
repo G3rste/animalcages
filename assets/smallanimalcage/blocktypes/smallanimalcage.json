@@ -4,7 +4,9 @@
     "entityclass": "blockentitysmallanimalcage",
     "creativeinventory": { "general": [ "*" ] },
     "heldTpIdleAnimation": "holdbothhands",
-    "entityBehaviors": [ { "name": "Animatable" } ],
+    "behaviors": [
+        { "name": "RightClickPickup" }
+    ],
     "maxstacksize": 1,
     "variantgroups": [
         {

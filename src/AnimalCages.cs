@@ -82,27 +82,21 @@ namespace Animalcages
                 attackedEntity.Die(EnumDespawnReason.PickedUp);
             }
         }
-        public override bool OnBlockInteractStart(IWorldAccessor world, IPlayer byPlayer, BlockSelection blockSel)
+
+        public override ItemStack OnPickBlock(IWorldAccessor world, BlockPos pos)
         {
-            ItemStack stack = new ItemStack(this);
-            BlockEntityAnimalCage entity = api.World.BlockAccessor.GetBlockEntity(blockSel.Position) as BlockEntityAnimalCage;
+            BlockEntityAnimalCage entity = api.World.BlockAccessor.GetBlockEntity(pos) as BlockEntityAnimalCage;
             if (entity != null && entity.tmpCapturedEntityBytes != null && entity.tmpCapturedEntityClass != null)
             {
+                ItemStack stack = new ItemStack(this);
                 stack.Attributes.SetBytes("capturedEntity", entity.tmpCapturedEntityBytes);
                 stack.Attributes.SetString("capturedEntityClass", entity.tmpCapturedEntityClass);
+                stack.Attributes.SetString("capturedEntityName", entity.tmpCapturedEntityName);
                 stack.Attributes.SetString("capturedEntityShape", entity.tmpCapturedEntityShape);
                 stack.Attributes.SetInt("capturedEntityTextureId", entity.tmpCapturedEntityTextureId);
-                stack.Attributes.SetString("capturedEntityName", entity.tmpCapturedEntityName);
+                return stack;
             }
-            if (byPlayer.InventoryManager.TryGiveItemstack(stack))
-            {
-                world.BlockAccessor.SetBlock(0, blockSel.Position);
-                world.PlaySoundAt(new AssetLocation("sounds/block/planks"), blockSel.Position.X + 0.5, blockSel.Position.Y, blockSel.Position.Z + 0.5, byPlayer, false);
-
-                return true;
-            }
-
-            return false;
+            return base.OnPickBlock(world, pos);
         }
 
         public void catchEntity(Entity entity, ItemStack stack)
