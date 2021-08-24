@@ -45,23 +45,57 @@ namespace Animalcages
     {
         public static Dictionary<string, CapturedEntityTextures> ToolTextureSubIds(ICoreAPI api)
         {
-            Dictionary<string, CapturedEntityTextures> toolTextureSubIds;
+            Dictionary<string, CapturedEntityTextures> entityTextureSubIds;
             object obj;
 
             if (api.ObjectCache.TryGetValue("entityTextureSubIds", out obj))
             {
-                toolTextureSubIds = obj as Dictionary<string, CapturedEntityTextures>;
+                entityTextureSubIds = obj as Dictionary<string, CapturedEntityTextures>;
             }
             else
             {
-                api.ObjectCache["entityTextureSubIds"] = toolTextureSubIds = new Dictionary<string, CapturedEntityTextures>();
+                api.ObjectCache["entityTextureSubIds"] = entityTextureSubIds = new Dictionary<string, CapturedEntityTextures>();
+            }
+
+            return entityTextureSubIds;
+        }
+
+        public static Dictionary<string, MeshRef> CachedMeshRefs(ICoreAPI api)
+        {
+            Dictionary<string, MeshRef> toolTextureSubIds;
+            object obj;
+
+            if (api.ObjectCache.TryGetValue("cachedEntityMeshRefs", out obj))
+            {
+                toolTextureSubIds = obj as Dictionary<string, MeshRef>;
+            }
+            else
+            {
+                api.ObjectCache["cachedEntityMeshRefs"] = toolTextureSubIds = new Dictionary<string, MeshRef>();
             }
 
             return toolTextureSubIds;
         }
         public override void OnBeforeRender(ICoreClientAPI capi, ItemStack itemstack, EnumItemRenderTarget target, ref ItemRenderInfo renderinfo)
         {
-            base.OnBeforeRender(capi, itemstack, target, ref renderinfo);
+            string entity = itemstack.Attributes.GetString("capturedEntityName");
+            if (!string.IsNullOrEmpty(entity))
+            {
+                if (!CachedMeshRefs(capi).ContainsKey(entity + "_" + itemstack.Attributes.GetInt("capturedEntityTextureId")))
+                {
+                    MeshData cageMesh;
+                    capi.Tesselator.TesselateBlock(this, out cageMesh);
+                    cageMesh.AddMeshData(new CagedEntityRenderer(capi,
+                                entity,
+                                itemstack.Attributes.GetInt("capturedEntityTextureId"),
+                                itemstack.Attributes.GetString("capturedEntityShape"))
+                            .genMesh());
+                    CachedMeshRefs(capi)[entity + "_" + itemstack.Attributes.GetInt("capturedEntityTextureId")] = capi.Render
+                        .UploadMesh(cageMesh);
+                }
+                renderinfo.ModelRef = CachedMeshRefs(capi)[entity + "_" + itemstack.Attributes.GetInt("capturedEntityTextureId")];
+            }
+            else { base.OnBeforeRender(capi, itemstack, target, ref renderinfo); }
         }
 
         public override void GetHeldItemInfo(ItemSlot inSlot, StringBuilder dsc, IWorldAccessor world, bool withDebugInfo)
