@@ -26,11 +26,14 @@ namespace Animalcages
                 {
                     CageConfig.Current = Config;
                 }
-                api.StoreModConfig<CatchableEntities>(CageConfig.Current, "animalcagesconfig.json");
             }
             catch
             {
                 api.Logger.Error("Failed to load custom mod configuration, falling back to default settings!");
+            }
+            finally
+            {
+                api.StoreModConfig(CageConfig.Current, "animalcagesconfig.json");
             }
         }
     }
