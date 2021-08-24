@@ -21,15 +21,22 @@ namespace Animalcages
             api.RegisterBlockEntityClass("blockentitysmallanimalcage", typeof(BlockEntityAnimalCage));
             try
             {
-                var Config = api.LoadModConfig<CatchableEntities>("animalcagesconfig.json");
-                if (Config != null)
+                var Config = api.LoadModConfig<CageConfig>("animalcagesconfig.json");
+                if (Config != null && CageConfig.Current != null)
                 {
+                    api.Logger.Notification("Mod Config successfully loaded.");
                     CageConfig.Current = Config;
+                }
+                else
+                {
+                    api.Logger.Notification("No Mod Config specified. Falling back to default settings");
+                    CageConfig.Current = CageConfig.getDefault();
                 }
             }
             catch
             {
-                api.Logger.Error("Failed to load custom mod configuration, falling back to default settings!");
+                CageConfig.Current = CageConfig.getDefault();
+                api.Logger.Error("Failed to load custom mod configuration. Falling back to default settings!");
             }
             finally
             {
@@ -43,7 +50,7 @@ namespace Animalcages
     }
     public class BlockCage : Block
     {
-        public static Dictionary<string, CapturedEntityTextures> ToolTextureSubIds(ICoreAPI api)
+        public static Dictionary<string, CapturedEntityTextures> EntitiyTextureIds(ICoreAPI api)
         {
             Dictionary<string, CapturedEntityTextures> entityTextureSubIds;
             object obj;
@@ -113,7 +120,7 @@ namespace Animalcages
             if (attackedEntity != null
                 && attackedEntity.Alive
                 && !itemslot.Itemstack.Attributes.HasAttribute("capturedEntity")
-                && CageConfig.Current.catchableEntities.Contains(attackedEntity.Properties.Code.GetName())
+                && CageConfig.Current.smallCatchableEntities.Exists(x => x.name == attackedEntity.Properties.Code.GetName())
                 && world is IServerWorldAccessor)
             {
                 ItemStack newStack = new ItemStack(api.World.GetBlock(CodeWithVariant("type", "closed")));
@@ -181,7 +188,7 @@ namespace Animalcages
 
 
 
-                    ToolTextureSubIds(api)[item.Code.GetName()] = tt;
+                    EntitiyTextureIds(api)[item.Code.GetName()] = tt;
                 }
             }
         }
@@ -342,7 +349,7 @@ namespace Animalcages
                 if (capi != null)
                 {
                     CapturedEntityTextures textures;
-                    BlockCage.ToolTextureSubIds(capi).TryGetValue(entityName, out textures);
+                    BlockCage.EntitiyTextureIds(capi).TryGetValue(entityName, out textures);
                     int position = textures.TextureSubIdsByCode[entityTextureId];
                     return capi.BlockTextureAtlas.Positions[position];
                 }
@@ -370,35 +377,38 @@ namespace Animalcages
 
     public class CageConfig
     {
-        public static CatchableEntities Current = CatchableEntities.getDefault();
-    }
+        public static CageConfig Current { get; set; }
 
-    public class CatchableEntities
-    {
-        public List<string> catchableEntities;
-        public List<float> catchableEntityScales;
+        public List<CatchableEntity> smallCatchableEntities;
 
-        public static CatchableEntities getDefault()
+        public static CageConfig getDefault()
         {
-            CatchableEntities defaultConfig = new CatchableEntities();
-            string[] entities = { "sheep-bighorn-lamb", "deer-fawn", "chicken-baby", "chicken-hen", "chicken-henpoult", "chicken-rooster", "chicken-roosterpoult", "hare-baby", "pig-wild-piglet", "wolf-pup", "raccoon-male", "raccoon-female", "raccoon-pub", "hyena-pup",
-                              "hare-female-arctic", "hare-female-ashgrey", "hare-female-darkbrown", "hare-female-desert", "hare-female-gold", "hare-female-lightbrown", "hare-female-lightgrey", "hare-female-silver", "hare-female-smokegrey",
-                              "hare-male-arctic", "hare-male-ashgrey", "hare-male-darkbrown", "hare-male-desert", "hare-male-gold", "hare-male-lightbrown", "hare-male-lightgrey", "hare-male-silver", "hare-male-smokegrey"};
-            float[] scales = { 0.85f, 0.85f, 1f, 1f, 1f, 1f, 1f, 1f, 1f, 1f, 1f, 1f, 1f, 1f,
-                              1f, 1f, 1f, 1f, 1f, 1f, 1f, 1f, 1f,
-                              1f, 1f, 1f, 1f, 1f, 1f, 1f, 1f, 1f};
-            defaultConfig.catchableEntities = new List<string>(entities);
-            defaultConfig.catchableEntityScales = new List<float>(scales);
+            CageConfig defaultConfig = new CageConfig();
+            CatchableEntity[] smallEntities = { new CatchableEntity("sheep-bighorn-lamb", 0.85f), new CatchableEntity("deer-fawn", 0.85f), new CatchableEntity("chicken-baby", 1f), new CatchableEntity("chicken-hen", 1f), new CatchableEntity("chicken-henpoult", 1f), new CatchableEntity("chicken-rooster", 1f), new CatchableEntity("chicken-roosterpoult", 1f), new CatchableEntity("hare-baby", 1f), new CatchableEntity("pig-wild-piglet", 1f), new CatchableEntity("wolf-pup", 1f), new CatchableEntity("raccoon-male", 1f), new CatchableEntity("raccoon-female", 1f), new CatchableEntity("raccoon-pub", 1f), new CatchableEntity("hyena-pup", 1f),
+                              new CatchableEntity("hare-female-arctic", 1f), new CatchableEntity("hare-female-ashgrey", 1f), new CatchableEntity("hare-female-darkbrown", 1f), new CatchableEntity("hare-female-desert", 1f), new CatchableEntity("hare-female-gold", 1f), new CatchableEntity("hare-female-lightbrown", 1f), new CatchableEntity("hare-female-lightgrey", 1f), new CatchableEntity("hare-female-silver", 1f), new CatchableEntity("hare-female-smokegrey", 1f),
+                              new CatchableEntity("hare-male-arctic", 1f), new CatchableEntity("hare-male-ashgrey", 1f), new CatchableEntity("hare-male-darkbrown", 1f), new CatchableEntity("hare-male-desert", 1f), new CatchableEntity("hare-male-gold", 1f), new CatchableEntity("hare-male-lightbrown", 1f), new CatchableEntity("hare-male-lightgrey", 1f), new CatchableEntity("hare-male-silver", 1f), new CatchableEntity("hare-male-smokegrey", 1f)};
+
+            defaultConfig.smallCatchableEntities = new List<CatchableEntity>(smallEntities);
             return defaultConfig;
         }
 
         public float getScale(string entity)
         {
-            if (catchableEntities.IndexOf(entity) != -1)
-            {
-                return catchableEntityScales[catchableEntities.IndexOf(entity)];
-            }
+            var find = smallCatchableEntities.Find(x => x.name == entity);
+            if (find != null) { return find.scale; }
             return 1f;
+
+        }
+        public class CatchableEntity
+        {
+            public string name;
+            public float scale;
+
+            public CatchableEntity(string name, float scale)
+            {
+                this.name = name;
+                this.scale = scale;
+            }
         }
     }
 }
