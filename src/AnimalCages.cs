@@ -13,7 +13,7 @@ namespace Animalcages
             try
             {
                 var Config = api.LoadModConfig<CageConfig>("animalcagesconfig.json");
-                if (Config != null && CageConfig.Current != null)
+                if (Config != null)
                 {
                     api.Logger.Notification("Mod Config successfully loaded.");
                     CageConfig.Current = Config;
