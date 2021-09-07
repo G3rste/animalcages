@@ -66,12 +66,26 @@
     <Content Include="modinfo.json" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="assets\smallanimalcage\blocktypes\mediumanimalcage.json" />
     <None Include="assets\smallanimalcage\blocktypes\smallanimalcage.json" />
     <None Include="assets\smallanimalcage\lang\en.json" />
     <None Include="assets\smallanimalcage\lang\de.json" />
+    <None Include="assets\smallanimalcage\recipes\grid\smallanimalcage.json" />
+    <None Include="assets\smallanimalcage\shapes\mediumanimalcage-closed-ceiling.json" />
+    <None Include="assets\smallanimalcage\shapes\mediumanimalcage-closed-floor.json" />
+    <None Include="assets\smallanimalcage\shapes\mediumanimalcage-gui.json" />
+    <None Include="assets\smallanimalcage\shapes\mediumanimalcage-opened-ceiling.json" />
+    <None Include="assets\smallanimalcage\shapes\mediumanimalcage-opened-floor.json" />
+    <None Include="assets\smallanimalcage\shapes\mediumanimalcage.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\AnimalCages.cs" />
+    <Compile Include="src\BlockCage.cs" />
+    <Compile Include="src\BlockEntityAnimalCage.cs" />
+    <Compile Include="src\BlockEntityMediumAnimalCage.cs" />
+    <Compile Include="src\BlockMediumCage.cs" />
+    <Compile Include="src\BlockSmallCage.cs" />
+    <Compile Include="src\Util.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

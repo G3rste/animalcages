@@ -13,13 +13,11 @@ namespace Animalcages
         public int tmpCapturedEntityTextureId;
         public string tmpCapturedEntityName;
         public CagedEntityRenderer renderer;
-        MeshData currentMesh;
+        protected MeshData currentMesh;
 
         public override void Initialize(ICoreAPI api)
         {
             base.Initialize(api);
-            renderer = new CagedEntityRenderer(Api as ICoreClientAPI, tmpCapturedEntityName, tmpCapturedEntityTextureId, tmpCapturedEntityShape);
-            currentMesh = renderer.genMesh();
             MarkDirty(true);
         }
         public override void OnBlockBroken()
@@ -66,16 +64,19 @@ namespace Animalcages
                 tmpCapturedEntityTextureId = byItemStack.Attributes.GetInt("capturedEntityTextureId", 0);
                 tmpCapturedEntityName = byItemStack.Attributes.GetString("capturedEntityName", null);
             }
-            renderer = new CagedEntityRenderer(Api as ICoreClientAPI, tmpCapturedEntityName, tmpCapturedEntityTextureId, tmpCapturedEntityShape);
-            currentMesh = renderer.genMesh();
             MarkDirty(true);
         }
         public override bool OnTesselation(ITerrainMeshPool mesher, ITesselatorAPI tessThreadTesselator)
         {
+            tryGenMesh();
             mesher.AddMeshData(currentMesh);
             return false;
         }
-
+        protected virtual void tryGenMesh()
+        {
+            renderer = new CagedEntityRenderer(Api as ICoreClientAPI, tmpCapturedEntityName, tmpCapturedEntityTextureId, tmpCapturedEntityShape);
+            currentMesh = renderer.genMesh();
+        }
         private Entity getCapturedEntity()
         {
             if (tmpCapturedEntityBytes != null && tmpCapturedEntityClass != null)

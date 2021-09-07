@@ -8,8 +8,10 @@ namespace Animalcages
         public override void Start(ICoreAPI api)
         {
             base.Start(api);
-            api.RegisterBlockClass("blocksmallanimalcage", typeof(BlockCage));
+            api.RegisterBlockClass("blocksmallanimalcage", typeof(BlockSmallCage));
+            api.RegisterBlockClass("blockmediumanimalcage", typeof(BlockMediumCage));
             api.RegisterBlockEntityClass("blockentitysmallanimalcage", typeof(BlockEntityAnimalCage));
+            api.RegisterBlockEntityClass("blockentitymediumanimalcage", typeof(BlockEntityMediumAnimalCage));
             try
             {
                 var Config = api.LoadModConfig<CageConfig>("animalcagesconfig.json");
@@ -40,7 +42,11 @@ namespace Animalcages
     {
         public static CageConfig Current { get; set; }
 
-        public List<CatchableEntity> smallCatchableEntities;
+        public List<CatchableEntity> smallCatchableEntities { get; set; }
+
+        public List<CatchableEntity> mediumCatchableEntities { get; set; }
+
+        public int woundedMultiplicator { get; set; }
 
         public static CageConfig getDefault()
         {
@@ -49,7 +55,11 @@ namespace Animalcages
                               new CatchableEntity("hare-female-arctic", 1f), new CatchableEntity("hare-female-ashgrey", 1f), new CatchableEntity("hare-female-darkbrown", 1f), new CatchableEntity("hare-female-desert", 1f), new CatchableEntity("hare-female-gold", 1f), new CatchableEntity("hare-female-lightbrown", 1f), new CatchableEntity("hare-female-lightgrey", 1f), new CatchableEntity("hare-female-silver", 1f), new CatchableEntity("hare-female-smokegrey", 1f),
                               new CatchableEntity("hare-male-arctic", 1f), new CatchableEntity("hare-male-ashgrey", 1f), new CatchableEntity("hare-male-darkbrown", 1f), new CatchableEntity("hare-male-desert", 1f), new CatchableEntity("hare-male-gold", 1f), new CatchableEntity("hare-male-lightbrown", 1f), new CatchableEntity("hare-male-lightgrey", 1f), new CatchableEntity("hare-male-silver", 1f), new CatchableEntity("hare-male-smokegrey", 1f)};
 
+            CatchableEntity[] mediumEntities = { new CatchableEntity("wolf-male", 0.9f), new CatchableEntity("wolf-female", 0.9f), new CatchableEntity("pig-wild-male", 1f), new CatchableEntity("pig-wild-female", 1f), new CatchableEntity("sheep-bighorn-male", 0.9f), new CatchableEntity("sheep-bighorn-female", 1f), new CatchableEntity("hyena-male", 0.9f), new CatchableEntity("hyena-female", 0.9f), new CatchableEntity("fox-male", 1f), new CatchableEntity("fox-female", 1f), new CatchableEntity("fox-arctic-male", 1f), new CatchableEntity("fox-arctic-female", 1f) };
+
             defaultConfig.smallCatchableEntities = new List<CatchableEntity>(smallEntities);
+            defaultConfig.mediumCatchableEntities = new List<CatchableEntity>(mediumEntities);
+            defaultConfig.woundedMultiplicator = 3;
             return defaultConfig;
         }
 
@@ -57,13 +67,17 @@ namespace Animalcages
         {
             var find = smallCatchableEntities.Find(x => x.name == entity);
             if (find != null) { return find.scale; }
+
+            find = mediumCatchableEntities.Find(x => x.name == entity);
+            if (find != null) { return find.scale; }
+
             return 1f;
 
         }
         public class CatchableEntity
         {
-            public string name;
-            public float scale;
+            public string name { get; set; }
+            public float scale { get; set; }
 
             public CatchableEntity(string name, float scale)
             {

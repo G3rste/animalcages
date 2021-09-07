@@ -1,0 +1,75 @@
+{
+    "code": "mediumanimalcage",
+    "class": "blockmediumanimalcage",
+    "entityclass": "blockentitymediumanimalcage",
+    "handbook": {
+        "groupBy": [ "*" ]
+    },
+    "heldTpIdleAnimation": "holdbothhands",
+    "creativeinventory": {
+        "general": [ "*" ]
+    },
+    "shapeinventory": { "base": "mediumanimalcage-{type}-gui" },
+    "behaviors": [
+        { "name": "RightClickPickup" }
+    ],
+    "maxstacksize": 1,
+    "attributes": {
+        "handbook": {
+            "groupBy": [ "mediumanimalcage-*" ]
+        }
+    },
+    "variantgroups": [
+        {
+            "code": "hpart",
+            "states": [ "ceiling", "floor" ]
+        },
+        {
+            "code": "type",
+            "states": [ "closed", "opened" ]
+        },
+        {
+            "code": "side",
+            "loadFromProperties": "abstract/horizontalorientation"
+        }
+
+    ],
+    "shapebytype": {
+        "*-north": {
+            "base": "mediumanimalcage-{type}-{hpart}",
+            "rotateY": 90
+        },
+        "*-east": {
+            "base": "mediumanimalcage-{type}-{hpart}"
+        },
+        "*-south": {
+            "base": "mediumanimalcage-{type}-{hpart}",
+            "rotateY": 270
+        },
+        "*-west": {
+            "base": "mediumanimalcage-{type}-{hpart}",
+            "rotateY": 180
+        }
+    },
+    "drops": [
+        {
+            "type": "block",
+            "code": "smallanimalcage-opened"
+        }
+    ],
+    "blockmaterial": "Wood",
+    "resistance": 1.5,
+    "materialDensity": 400,
+    "sidesolid": {
+        "all": false
+    },
+    "sideopaque": {
+        "all": false
+    },
+    "sounds": {
+        "place": "game:block/planks",
+        "hit": "game:block/planks",
+        "break": "game:block/planks",
+        "walk": "game:walk/wood"
+    }
+}

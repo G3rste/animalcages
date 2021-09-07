@@ -88,7 +88,7 @@ namespace Animalcages
             }
         }
 
-        public MeshData genMesh()
+        public MeshData genMesh(float scale = 1f)
         {
             MeshData currentMesh = null;
             if (capi != null && entityShape != null)
@@ -96,7 +96,7 @@ namespace Animalcages
                 Shape shape = capi.Assets.TryGet(new AssetLocation(entityShape)).ToObject<Shape>();
                 capi.Tesselator.TesselateShapeWithJointIds("aimalcage", shape, out currentMesh, this, new Vec3f());
                 ModelTransform transform = ModelTransform.NoTransform;
-                float scale = CageConfig.Current.getScale(entityName);
+                scale *= CageConfig.Current.getScale(entityName);
                 transform.Scale = scale;
                 currentMesh.ModelTransform(transform);
                 currentMesh.Translate(0f, 0.0625f - (1 - scale) / 2, 0f);
