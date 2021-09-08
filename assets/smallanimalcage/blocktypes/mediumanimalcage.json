@@ -15,10 +15,8 @@
         { "name": "RightClickPickup" }
     ],
     "maxstacksize": 1,
-    "attributes": {
-        "handbook": {
-            "groupBy": [ "mediumanimalcage-*" ]
-        }
+    "storageFlagsByType": {
+        "*-closed-*": 2
     },
     "variantgroups": [
         {
@@ -55,7 +53,7 @@
     "drops": [
         {
             "type": "block",
-            "code": "smallanimalcage-opened"
+            "code": "mediumanimalcage-floor-opened-north"
         }
     ],
     "blockmaterial": "Wood",
