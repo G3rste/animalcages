@@ -65,6 +65,7 @@ namespace Animalcages
             if (entity != null && entity.tmpCapturedEntityBytes != null && entity.tmpCapturedEntityClass != null)
             {
                 ItemStack stack = new ItemStack(this);
+
                 stack.Attributes.SetBytes(CAPTURED_ENTITY, entity.tmpCapturedEntityBytes);
                 stack.Attributes.SetString(CAPTURED_ENTITY_CLASS, entity.tmpCapturedEntityClass);
                 stack.Attributes.SetString(CAPTURED_ENTITY_NAME, entity.tmpCapturedEntityName);
@@ -72,7 +73,7 @@ namespace Animalcages
                 stack.Attributes.SetInt(CAPTURED_ENTITY_TEXTURE_ID, entity.tmpCapturedEntityTextureId);
                 return stack;
             }
-            return base.OnPickBlock(world, pos);
+            return new ItemStack(world.BlockAccessor.GetBlock(CodeWithVariant("type", "opened")));
         }
 
         public void catchEntity(Entity entity, ItemStack stack)

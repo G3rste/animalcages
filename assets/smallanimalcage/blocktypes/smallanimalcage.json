@@ -4,6 +4,7 @@
     "entityclass": "blockentitysmallanimalcage",
     "creativeinventory": { "general": [ "*-opened" ] },
     "heldTpIdleAnimation": "holdbothhands",
+    "heldTpHitAnimation": "twohandplaceblock",
     "behaviors": [
         { "name": "RightClickPickup" }
     ],

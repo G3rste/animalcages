@@ -5,7 +5,8 @@
     "handbook": {
         "groupBy": [ "*" ]
     },
-    "heldTpIdleAnimation": "holdbothhands",
+    "heldTpIdleAnimation": "holdbothhandslarge",
+    "heldTpHitAnimation": "twohandplaceblock",
     "creativeinventory": {
         "general": [ "*-floor-opened-north" ]
     },
