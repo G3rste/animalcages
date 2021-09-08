@@ -37,7 +37,7 @@ namespace Animalcages
                 if (!CachedMeshRefs(capi).ContainsKey(entity + "_" + itemstack.Attributes.GetInt(CAPTURED_ENTITY_TEXTURE_ID)))
                 {
                     MeshData cageMesh;
-                    Shape guiShape = capi.Assets.Get(new AssetLocation("smallanimalcage:shapes/mediumanimalcage-closed-gui.json")).ToObject<Shape>();
+                    Shape guiShape = capi.Assets.Get(new AssetLocation("animalcages:shapes/mediumanimalcage-closed-gui.json")).ToObject<Shape>();
                     capi.Tesselator.TesselateShape(this, guiShape, out cageMesh);
                     MeshData entityMesh = new CagedEntityRenderer(capi,
                                 entity,
