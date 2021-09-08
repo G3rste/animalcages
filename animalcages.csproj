@@ -73,6 +73,8 @@
     <None Include="assets\smallanimalcage\recipes\grid\smallanimalcage.json" />
     <None Include="assets\smallanimalcage\shapes\mediumanimalcage-closed-ceiling.json" />
     <None Include="assets\smallanimalcage\shapes\mediumanimalcage-closed-floor.json" />
+    <None Include="assets\smallanimalcage\shapes\mediumanimalcage-opened-gui.json" />
+    <None Include="assets\smallanimalcage\shapes\mediumanimalcage-closed-gui.json" />
     <None Include="assets\smallanimalcage\shapes\mediumanimalcage-gui.json" />
     <None Include="assets\smallanimalcage\shapes\mediumanimalcage-opened-ceiling.json" />
     <None Include="assets\smallanimalcage\shapes\mediumanimalcage-opened-floor.json" />

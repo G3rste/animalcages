@@ -2,7 +2,7 @@
     "code": "smallanimalcage",
     "class": "blocksmallanimalcage",
     "entityclass": "blockentitysmallanimalcage",
-    "creativeinventory": { "general": [ "*" ] },
+    "creativeinventory": { "general": [ "*-opened" ] },
     "heldTpIdleAnimation": "holdbothhands",
     "behaviors": [
         { "name": "RightClickPickup" }

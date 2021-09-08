@@ -7,7 +7,7 @@
     },
     "heldTpIdleAnimation": "holdbothhands",
     "creativeinventory": {
-        "general": [ "*" ]
+        "general": [ "*-floor-opened-north" ]
     },
     "shapeinventory": { "base": "mediumanimalcage-{type}-gui" },
     "behaviors": [
