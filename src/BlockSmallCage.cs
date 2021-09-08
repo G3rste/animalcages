@@ -26,23 +26,23 @@ namespace Animalcages
 
         public override void OnBeforeRender(ICoreClientAPI capi, ItemStack itemstack, EnumItemRenderTarget target, ref ItemRenderInfo renderinfo)
         {
-            string entity = itemstack.Attributes.GetString("capturedEntityName");
+            string entity = itemstack.Attributes.GetString(CAPTURED_ENTITY_NAME);
             if (!string.IsNullOrEmpty(entity))
             {
-                if (!CachedMeshRefs(capi).ContainsKey(entity + "_" + itemstack.Attributes.GetInt("capturedEntityTextureId")))
+                if (!CachedMeshRefs(capi).ContainsKey(entity + "_" + itemstack.Attributes.GetInt(CAPTURED_ENTITY_TEXTURE_ID)))
                 {
                     MeshData cageMesh;
                     capi.Tesselator.TesselateBlock(this, out cageMesh);
                     MeshData entityMesh = new CagedEntityRenderer(capi,
                                 entity,
-                                itemstack.Attributes.GetInt("capturedEntityTextureId"),
-                                itemstack.Attributes.GetString("capturedEntityShape"))
+                                itemstack.Attributes.GetInt(CAPTURED_ENTITY_TEXTURE_ID),
+                                itemstack.Attributes.GetString(CAPTURED_ENTITY_SHAPE))
                             .genMesh();
                     cageMesh.AddMeshData(entityMesh);
-                    CachedMeshRefs(capi)[entity + "_" + itemstack.Attributes.GetInt("capturedEntityTextureId")] = capi.Render
+                    CachedMeshRefs(capi)[entity + "_" + itemstack.Attributes.GetInt(CAPTURED_ENTITY_TEXTURE_ID)] = capi.Render
                         .UploadMesh(cageMesh);
                 }
-                renderinfo.ModelRef = CachedMeshRefs(capi)[entity + "_" + itemstack.Attributes.GetInt("capturedEntityTextureId")];
+                renderinfo.ModelRef = CachedMeshRefs(capi)[entity + "_" + itemstack.Attributes.GetInt(CAPTURED_ENTITY_TEXTURE_ID)];
             }
             else { base.OnBeforeRender(capi, itemstack, target, ref renderinfo); }
         }

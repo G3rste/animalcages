@@ -35,22 +35,22 @@ namespace Animalcages
             base.ToTreeAttributes(tree);
             if (tmpCapturedEntityBytes != null && tmpCapturedEntityClass != null)
             {
-                tree.SetBytes("capturedEntity", tmpCapturedEntityBytes);
-                tree.SetString("capturedEntityClass", tmpCapturedEntityClass);
-                tree.SetString("capturedEntityShape", tmpCapturedEntityShape);
-                tree.SetString("capturedEntityName", tmpCapturedEntityName);
-                tree.SetInt("capturedEntityTextureId", tmpCapturedEntityTextureId);
+                tree.SetBytes(BlockCage.CAPTURED_ENTITY, tmpCapturedEntityBytes);
+                tree.SetString(BlockCage.CAPTURED_ENTITY_CLASS, tmpCapturedEntityClass);
+                tree.SetString(BlockCage.CAPTURED_ENTITY_SHAPE, tmpCapturedEntityShape);
+                tree.SetString(BlockCage.CAPTURED_ENTITY_NAME, tmpCapturedEntityName);
+                tree.SetInt(BlockCage.CAPTURED_ENTITY_TEXTURE_ID, tmpCapturedEntityTextureId);
             }
         }
 
         public override void FromTreeAttributes(ITreeAttribute tree, IWorldAccessor worldAccessForResolve)
         {
             base.FromTreeAttributes(tree, worldAccessForResolve);
-            tmpCapturedEntityBytes = tree.GetBytes("capturedEntity");
-            tmpCapturedEntityClass = tree.GetString("capturedEntityClass");
-            tmpCapturedEntityShape = tree.GetString("capturedEntityShape");
-            tmpCapturedEntityName = tree.GetString("capturedEntityName");
-            tmpCapturedEntityTextureId = tree.GetInt("capturedEntityTextureId");
+            tmpCapturedEntityBytes = tree.GetBytes(BlockCage.CAPTURED_ENTITY);
+            tmpCapturedEntityClass = tree.GetString(BlockCage.CAPTURED_ENTITY_CLASS);
+            tmpCapturedEntityShape = tree.GetString(BlockCage.CAPTURED_ENTITY_SHAPE);
+            tmpCapturedEntityName = tree.GetString(BlockCage.CAPTURED_ENTITY_NAME);
+            tmpCapturedEntityTextureId = tree.GetInt(BlockCage.CAPTURED_ENTITY_TEXTURE_ID);
         }
 
         public override void OnBlockPlaced(ItemStack byItemStack = null)
@@ -58,11 +58,11 @@ namespace Animalcages
             base.OnBlockPlaced(byItemStack);
             if (byItemStack != null)
             {
-                tmpCapturedEntityBytes = byItemStack.Attributes.GetBytes("capturedEntity", null);
-                tmpCapturedEntityClass = byItemStack.Attributes.GetString("capturedEntityClass", null);
-                tmpCapturedEntityShape = byItemStack.Attributes.GetString("capturedEntityShape", null);
-                tmpCapturedEntityTextureId = byItemStack.Attributes.GetInt("capturedEntityTextureId", 0);
-                tmpCapturedEntityName = byItemStack.Attributes.GetString("capturedEntityName", null);
+                tmpCapturedEntityBytes = byItemStack.Attributes.GetBytes(BlockCage.CAPTURED_ENTITY);
+                tmpCapturedEntityClass = byItemStack.Attributes.GetString(BlockCage.CAPTURED_ENTITY_CLASS);
+                tmpCapturedEntityShape = byItemStack.Attributes.GetString(BlockCage.CAPTURED_ENTITY_SHAPE);
+                tmpCapturedEntityName = byItemStack.Attributes.GetString(BlockCage.CAPTURED_ENTITY_NAME);
+                tmpCapturedEntityTextureId = byItemStack.Attributes.GetInt(BlockCage.CAPTURED_ENTITY_TEXTURE_ID);
             }
             MarkDirty(true);
         }

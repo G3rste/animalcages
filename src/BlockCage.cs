@@ -37,7 +37,7 @@ namespace Animalcages
             base.OnAttackingWith(world, byEntity, attackedEntity, itemslot);
             if (attackedEntity != null
                 && attackedEntity.Alive
-                && !itemslot.Itemstack.Attributes.HasAttribute("capturedEntity")
+                && !itemslot.Itemstack.Attributes.HasAttribute(CAPTURED_ENTITY)
                 && world is Vintagestory.API.Server.IServerWorldAccessor
                 && isCatchable(attackedEntity))
             {
@@ -52,8 +52,8 @@ namespace Animalcages
         public override void GetHeldItemInfo(ItemSlot inSlot, StringBuilder dsc, IWorldAccessor world, bool withDebugInfo)
         {
             base.GetHeldItemInfo(inSlot, dsc, world, withDebugInfo);
-            string entityName = inSlot.Itemstack.Attributes.GetString("capturedEntityName", null);
-            if (inSlot.Itemstack.Attributes.HasAttribute("capturedEntityName"))
+            string entityName = inSlot.Itemstack.Attributes.GetString(CAPTURED_ENTITY_NAME);
+            if (inSlot.Itemstack.Attributes.HasAttribute(CAPTURED_ENTITY_NAME))
             {
                 dsc.AppendLine("(" + Lang.Get("item-creature-" + entityName) + ")");
             }
@@ -65,11 +65,11 @@ namespace Animalcages
             if (entity != null && entity.tmpCapturedEntityBytes != null && entity.tmpCapturedEntityClass != null)
             {
                 ItemStack stack = new ItemStack(this);
-                stack.Attributes.SetBytes("capturedEntity", entity.tmpCapturedEntityBytes);
-                stack.Attributes.SetString("capturedEntityClass", entity.tmpCapturedEntityClass);
-                stack.Attributes.SetString("capturedEntityName", entity.tmpCapturedEntityName);
-                stack.Attributes.SetString("capturedEntityShape", entity.tmpCapturedEntityShape);
-                stack.Attributes.SetInt("capturedEntityTextureId", entity.tmpCapturedEntityTextureId);
+                stack.Attributes.SetBytes(CAPTURED_ENTITY, entity.tmpCapturedEntityBytes);
+                stack.Attributes.SetString(CAPTURED_ENTITY_CLASS, entity.tmpCapturedEntityClass);
+                stack.Attributes.SetString(CAPTURED_ENTITY_NAME, entity.tmpCapturedEntityName);
+                stack.Attributes.SetString(CAPTURED_ENTITY_SHAPE, entity.tmpCapturedEntityShape);
+                stack.Attributes.SetInt(CAPTURED_ENTITY_TEXTURE_ID, entity.tmpCapturedEntityTextureId);
                 return stack;
             }
             return base.OnPickBlock(world, pos);
@@ -77,11 +77,11 @@ namespace Animalcages
 
         public void catchEntity(Entity entity, ItemStack stack)
         {
-            stack.Attributes.SetBytes("capturedEntity", EntityUtil.EntityToBytes(entity));
-            stack.Attributes.SetString("capturedEntityClass", api.World.ClassRegistry.GetEntityClassName(entity.GetType()));
-            stack.Attributes.SetString("capturedEntityShape", entity.Properties.Client.Shape.Base.Clone().WithPathPrefix("shapes/").WithPathPrefix(entity.Properties.Client.Shape.Base.Domain + ":").WithPathAppendix(".json").Path);
-            stack.Attributes.SetInt("capturedEntityTextureId", entity.WatchedAttributes.GetInt("textureIndex", 0));
-            stack.Attributes.SetString("capturedEntityName", entity.Properties.Code.GetName());
+            stack.Attributes.SetBytes(CAPTURED_ENTITY, EntityUtil.EntityToBytes(entity));
+            stack.Attributes.SetString(CAPTURED_ENTITY_CLASS, api.World.ClassRegistry.GetEntityClassName(entity.GetType()));
+            stack.Attributes.SetString(CAPTURED_ENTITY_NAME, entity.Properties.Code.GetName());
+            stack.Attributes.SetString(CAPTURED_ENTITY_SHAPE, entity.Properties.Client.Shape.Base.Clone().WithPathPrefix("shapes/").WithPathPrefix(entity.Properties.Client.Shape.Base.Domain + ":").WithPathAppendix(".json").Path);
+            stack.Attributes.SetInt(CAPTURED_ENTITY_TEXTURE_ID, entity.WatchedAttributes.GetInt("textureIndex", 0));
         }
         public override void OnCollectTextures(ICoreAPI api, ITextureLocationDictionary textureDict)
         {

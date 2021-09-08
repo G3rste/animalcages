@@ -31,24 +31,24 @@ namespace Animalcages
 
         public override void OnBeforeRender(ICoreClientAPI capi, ItemStack itemstack, EnumItemRenderTarget target, ref ItemRenderInfo renderinfo)
         {
-            string entity = itemstack.Attributes.GetString("capturedEntityName");
+            string entity = itemstack.Attributes.GetString(CAPTURED_ENTITY_NAME);
             if (!string.IsNullOrEmpty(entity))
             {
-                if (!CachedMeshRefs(capi).ContainsKey(entity + "_" + itemstack.Attributes.GetInt("capturedEntityTextureId")))
+                if (!CachedMeshRefs(capi).ContainsKey(entity + "_" + itemstack.Attributes.GetInt(CAPTURED_ENTITY_TEXTURE_ID)))
                 {
                     MeshData cageMesh;
                     Shape guiShape = capi.Assets.Get(new AssetLocation("smallanimalcage:shapes/mediumanimalcage-closed-gui.json")).ToObject<Shape>();
                     capi.Tesselator.TesselateShape(this, guiShape, out cageMesh);
                     MeshData entityMesh = new CagedEntityRenderer(capi,
                                 entity,
-                                itemstack.Attributes.GetInt("capturedEntityTextureId"),
-                                itemstack.Attributes.GetString("capturedEntityShape"))
+                                itemstack.Attributes.GetInt(CAPTURED_ENTITY_TEXTURE_ID),
+                                itemstack.Attributes.GetString(CAPTURED_ENTITY_SHAPE))
                             .genMesh(0.5f);
                     cageMesh.AddMeshData(entityMesh);
-                    CachedMeshRefs(capi)[entity + "_" + itemstack.Attributes.GetInt("capturedEntityTextureId")] = capi.Render
+                    CachedMeshRefs(capi)[entity + "_" + itemstack.Attributes.GetInt(CAPTURED_ENTITY_TEXTURE_ID)] = capi.Render
                         .UploadMesh(cageMesh);
                 }
-                renderinfo.ModelRef = CachedMeshRefs(capi)[entity + "_" + itemstack.Attributes.GetInt("capturedEntityTextureId")];
+                renderinfo.ModelRef = CachedMeshRefs(capi)[entity + "_" + itemstack.Attributes.GetInt(CAPTURED_ENTITY_TEXTURE_ID)];
             }
             else { base.OnBeforeRender(capi, itemstack, target, ref renderinfo); }
         }
@@ -93,7 +93,7 @@ namespace Animalcages
                 string front = horVer[0].Code;
                 string back = horVer[0].Opposite.Code;
 
-                string type = itemstack.Attributes.HasAttribute("capturedEntityName") ? "closed" : "opened";
+                string type = itemstack.Attributes.HasAttribute(CAPTURED_ENTITY) ? "closed" : "opened";
 
                 Block orientedBlock = world.BlockAccessor.GetBlock(CodeWithParts("floor", "closed", back));
                 orientedBlock.DoPlaceBlock(world, byPlayer, blockSel, itemstack);
