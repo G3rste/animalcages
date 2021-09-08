@@ -4,7 +4,7 @@
     "block-smallanimalcage-closed": "Kleintierkäfig (geschlossen)",
     "blockdesc-smallanimalcage-closed": "Enthält ein gefangenes Kleintier. Zerstöre den Block, um es freizulassen.",
     "block-mediumanimalcage-*-opened-*": "Mittelgroßer Tierkäfig (offen)",
-    "blockdesc-mediumanimalcage-*-opened-*": "reife ein Tier mit diesem Item an, um es einzufangen. Das Tier muss verletzt oder domestiziert sein, um eingefangen werden zu können.",
+    "blockdesc-mediumanimalcage-*-opened-*": "Greife ein Tier mit diesem Item an, um es einzufangen. Das Tier muss verletzt oder domestiziert sein, um eingefangen werden zu können.",
     "block-mediumanimalcage-*-closed-*": "Mittelgroßer Tierkäfig (geschlossen)",
-    "blockdesc-mediumanimalcage-*-closed-*": "Enthält ein gefangenes Tier. Zerstöre den Block, um es freizulassen."
+    "blockdesc-mediumanimalcage-*-closed-*": "Enthält ein gefangenes Tier. Zerstöre den Block, um es freizulassen. Für einen vollen Käfig im Inventar wird ein leerer Rucksackplatz benötigt."
 }

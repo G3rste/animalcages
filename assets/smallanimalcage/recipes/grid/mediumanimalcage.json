@@ -1,0 +1,25 @@
+{
+    "ingredientPattern": "PSP,SCS,PSP",
+    "ingredients": {
+        "S": {
+            "type": "item",
+            "code": "game:stick",
+            "quantity": 1
+        },
+        "C": {
+            "type": "item",
+            "code": "game:ingot-copper",
+            "quantity": 1
+        },
+        "P": {
+            "type": "item",
+            "code": "game:plank-*"
+        }
+    },
+    "width": 3,
+    "height": 3,
+    "output": {
+        "type": "block",
+        "code": "mediumanimalcage-floor-opened-north"
+    }
+}
