@@ -14,6 +14,28 @@
     "behaviors": [
         { "name": "RightClickPickup" }
     ],
+    "guitransform": {
+        "scale": 0.6
+    },
+    "fpHandTransform": {
+        "scale": 0.6
+    },
+    "tpHandTransform": {
+        "translation": {
+            "x": -2.9,
+            "y": -1.3,
+            "z": -1.6
+        },
+        "origin": {
+            "x": 0.5,
+            "y": 0.2,
+            "z": 0.5
+        },
+        "scale": 0.2
+    },
+    "groundTransform": {
+        "scale": 0.6
+    },
     "maxstacksize": 1,
     "storageFlagsByType": {
         "*-closed-*": 2
