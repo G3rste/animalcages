@@ -66,19 +66,18 @@
     <Content Include="modinfo.json" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\smallanimalcage\blocktypes\mediumanimalcage.json" />
-    <None Include="assets\smallanimalcage\blocktypes\smallanimalcage.json" />
-    <None Include="assets\smallanimalcage\lang\en.json" />
-    <None Include="assets\smallanimalcage\lang\de.json" />
-    <None Include="assets\smallanimalcage\recipes\grid\smallanimalcage.json" />
-    <None Include="assets\smallanimalcage\shapes\mediumanimalcage-closed-ceiling.json" />
-    <None Include="assets\smallanimalcage\shapes\mediumanimalcage-closed-floor.json" />
-    <None Include="assets\smallanimalcage\shapes\mediumanimalcage-opened-gui.json" />
-    <None Include="assets\smallanimalcage\shapes\mediumanimalcage-closed-gui.json" />
-    <None Include="assets\smallanimalcage\shapes\mediumanimalcage-gui.json" />
-    <None Include="assets\smallanimalcage\shapes\mediumanimalcage-opened-ceiling.json" />
-    <None Include="assets\smallanimalcage\shapes\mediumanimalcage-opened-floor.json" />
-    <None Include="assets\smallanimalcage\shapes\mediumanimalcage.json" />
+    <None Include="assets\animalcages\blocktypes\mediumanimalcage.json" />
+    <None Include="assets\animalcages\blocktypes\smallanimalcage.json" />
+    <None Include="assets\animalcages\lang\en.json" />
+    <None Include="assets\animalcages\lang\de.json" />
+    <None Include="assets\animalcages\recipes\grid\mediumanimalcage.json" />
+    <None Include="assets\animalcages\recipes\grid\smallanimalcage.json" />
+    <None Include="assets\animalcages\shapes\mediumanimalcage-closed-ceiling.json" />
+    <None Include="assets\animalcages\shapes\mediumanimalcage-closed-floor.json" />
+    <None Include="assets\animalcages\shapes\mediumanimalcage-opened-gui.json" />
+    <None Include="assets\animalcages\shapes\mediumanimalcage-closed-gui.json" />
+    <None Include="assets\animalcages\shapes\mediumanimalcage-opened-ceiling.json" />
+    <None Include="assets\animalcages\shapes\mediumanimalcage-opened-floor.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\AnimalCages.cs" />
