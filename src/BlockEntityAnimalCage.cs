@@ -74,8 +74,29 @@ namespace Animalcages
         }
         protected virtual void tryGenMesh()
         {
-            renderer = new CagedEntityRenderer(Api as ICoreClientAPI, tmpCapturedEntityName, tmpCapturedEntityTextureId, tmpCapturedEntityShape);
-            currentMesh = renderer.genMesh();
+            currentMesh = new CagedEntityRenderer(Api as ICoreClientAPI, tmpCapturedEntityName, tmpCapturedEntityTextureId, tmpCapturedEntityShape).genMesh();
+            string variant = Block.CodeEndWithoutParts(0);
+            if (currentMesh != null)
+            {
+                ModelTransform transform = new ModelTransform();
+                transform.EnsureDefaultValues();
+                if (variant.Contains("east"))
+                {
+                }
+                if (variant.Contains("south"))
+                {
+                    transform.Rotation.Y = 270;
+                }
+                if (variant.Contains("west"))
+                {
+                    transform.Rotation.Y = 180;
+                }
+                if (variant.Contains("north"))
+                {
+                    transform.Rotation.Y = 90;
+                }
+                currentMesh.ModelTransform(transform);
+            }
         }
         private Entity getCapturedEntity()
         {

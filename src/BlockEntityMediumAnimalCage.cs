@@ -21,7 +21,6 @@ namespace Animalcages
                     if (variant.Contains("south"))
                     {
                         transform.Translation.Z -= 0.6f;
-                        transform.Rotation.Y = 90;
                     }
                     currentMesh.ModelTransform(transform);
                 }

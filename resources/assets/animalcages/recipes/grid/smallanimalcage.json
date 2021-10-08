@@ -8,13 +8,14 @@
         },
         "P": {
             "type": "item",
-            "code": "game:plank-*"
+            "code": "game:plank-*",
+            "name": "wood"
         }
     },
     "width": 3,
     "height": 3,
     "output": {
         "type": "block",
-        "code": "smallanimalcage-opened"
+        "code": "smallanimalcage-opened-{wood}-north"
     }
 }

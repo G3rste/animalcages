@@ -2,31 +2,72 @@
     "code": "smallanimalcage",
     "class": "blocksmallanimalcage",
     "entityclass": "blockentitysmallanimalcage",
-    "creativeinventory": { "general": [ "*-opened" ] },
-    "heldTpIdleAnimation": "holdbothhands",
+    "creativeinventory": {
+        "general": [
+            "*-opened-*-north"
+        ]
+    },
+    "heldTpIdleAnimation": "holdbothhandslarge",
     "heldTpHitAnimation": "twohandplaceblock",
     "behaviors": [
-        { "name": "RightClickPickup" }
+        {
+            "name": "RightClickPickup"
+        },
+        {
+            "name": "HorizontalOrientable"
+        }
     ],
     "maxstacksize": 1,
     "variantgroups": [
         {
             "code": "type",
-            "states": [ "closed", "opened" ]
+            "states": [
+                "closed",
+                "opened"
+            ]
+        },
+        {
+            "code": "material",
+            "states": [
+                "aged"
+            ],
+            "loadFromProperties": "block/wood"
+        },
+        {
+            "code": "side",
+            "loadFromProperties": "abstract/horizontalorientation"
         }
     ],
+    "shapeinventory": {
+        "base": "game:block/wood/cage/{type}"
+    },
     "shapebytype": {
-        "*-closed": {
-            "base": "game:block/wood/cage/closed"
+        "*-north": {
+            "base": "game:block/wood/cage/{type}",
+            "rotateY": 90
         },
-        "*-opened": {
-            "base": "game:block/wood/cage/opened"
+        "*-east": {
+            "base": "game:block/wood/cage/{type}"
+        },
+        "*-south": {
+            "base": "game:block/wood/cage/{type}",
+            "rotateY": 270
+        },
+        "*-west": {
+            "base": "game:block/wood/cage/{type}",
+            "rotateY": 180
+        }
+    },
+    "textures": {
+        "all": {
+            "base": "game:block/wood/debarked/{material}",
+            "rotation": 90
         }
     },
     "drops": [
         {
             "type": "block",
-            "code": "smallanimalcage-opened"
+            "code": "smallanimalcage-opened-{material}-north"
         }
     ],
     "blockmaterial": "Wood",
@@ -43,5 +84,23 @@
         "hit": "game:block/planks",
         "break": "game:block/planks",
         "walk": "game:walk/wood"
+    },
+    "tpHandTransform": {
+        "translation": {
+            "x": 0.2,
+            "y": -0.35,
+            "z": 1.1 
+        },
+        "origin": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "rotation": {
+            "x": 280,
+            "y": 190,
+            "z": 100
+        },
+        "scale": 0.4
     }
 }
