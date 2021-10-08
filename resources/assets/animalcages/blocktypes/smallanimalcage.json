@@ -4,7 +4,7 @@
     "entityclass": "blockentitysmallanimalcage",
     "creativeinventory": {
         "general": [
-            "*-opened-*-north"
+            "*-opened-*-east"
         ]
     },
     "heldTpIdleAnimation": "holdbothhandslarge",
@@ -29,9 +29,8 @@
         {
             "code": "material",
             "states": [
-                "aged"
-            ],
-            "loadFromProperties": "block/wood"
+                "oak"
+            ]
         },
         {
             "code": "side",
@@ -58,16 +57,10 @@
             "rotateY": 180
         }
     },
-    "textures": {
-        "all": {
-            "base": "game:block/wood/debarked/{material}",
-            "rotation": 90
-        }
-    },
     "drops": [
         {
             "type": "block",
-            "code": "smallanimalcage-opened-{material}-north"
+            "code": "smallanimalcage-opened-{material}-east"
         }
     ],
     "blockmaterial": "Wood",
@@ -89,7 +82,7 @@
         "translation": {
             "x": 0.2,
             "y": -0.35,
-            "z": 1.1 
+            "z": 1.1
         },
         "origin": {
             "x": 0,
