@@ -5,8 +5,8 @@
     "side": "universal",
     "author": "G3rste",
     "description": "Mod that adds cages for animals so you can catch, transport and display them.",
-    "version": "2.0.2",
+    "version": "2.0.3",
     "dependency": {
-        "game": "1.15.5"
+        "game": "1.15.6"
     }
 }
