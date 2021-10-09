@@ -1,0 +1,12 @@
+[
+    {
+        "op": "add",
+        "file": "game:config/remaps.json",
+        "side": "server",
+        "path": "/animalcages:v2.0.4",
+        "value": [
+            "/bir remapq animalcages:smallanimalcage-opened animalcages:smallanimalcage-opened-oak-east force",
+            "/bir remapq animalcages:smallanimalcage-closed animalcages:smallanimalcage-closed-oak-east force"
+        ]
+    }
+]
