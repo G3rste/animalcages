@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
@@ -31,25 +32,32 @@ namespace Animalcages
             string entity = itemstack.Attributes.GetString(CAPTURED_ENTITY_NAME);
             if (!string.IsNullOrEmpty(entity))
             {
-                if (!CachedMeshRefs(capi).ContainsKey(entity + "_" + itemstack.Attributes.GetInt(CAPTURED_ENTITY_TEXTURE_ID)))
+                try
                 {
-                    MeshData cageMesh;
-                    Shape guiShape = capi.Assets.Get(new AssetLocation("animalcages:shapes/mediumanimalcage-closed-gui.json")).ToObject<Shape>();
-                    capi.Tesselator.TesselateShape(this, guiShape, out cageMesh);
-                    MeshData entityMesh = new CagedEntityRenderer(capi,
-                                entity,
-                                itemstack.Attributes.GetInt(CAPTURED_ENTITY_TEXTURE_ID),
-                                itemstack.Attributes.GetString(CAPTURED_ENTITY_SHAPE))
-                            .genMesh();
-                    ModelTransform transform = new ModelTransform();
-                    transform.EnsureDefaultValues();
-                    transform.Translation.X -= 0.4f;
-                    entityMesh.ModelTransform(transform);
-                    cageMesh.AddMeshData(entityMesh);
-                    CachedMeshRefs(capi)[entity + "_" + itemstack.Attributes.GetInt(CAPTURED_ENTITY_TEXTURE_ID)] = capi.Render
-                        .UploadMesh(cageMesh);
+                    if (!CachedMeshRefs(capi).ContainsKey(entity + "_" + itemstack.Attributes.GetInt(CAPTURED_ENTITY_TEXTURE_ID)))
+                    {
+                        MeshData cageMesh;
+                        Shape guiShape = capi.Assets.Get(new AssetLocation("animalcages:shapes/mediumanimalcage-closed-gui.json")).ToObject<Shape>();
+                        capi.Tesselator.TesselateShape(this, guiShape, out cageMesh);
+                        MeshData entityMesh = new CagedEntityRenderer(capi,
+                                    entity,
+                                    itemstack.Attributes.GetInt(CAPTURED_ENTITY_TEXTURE_ID),
+                                    itemstack.Attributes.GetString(CAPTURED_ENTITY_SHAPE))
+                                .genMesh();
+                        ModelTransform transform = new ModelTransform();
+                        transform.EnsureDefaultValues();
+                        transform.Translation.X -= 0.4f;
+                        entityMesh.ModelTransform(transform);
+                        cageMesh.AddMeshData(entityMesh);
+                        CachedMeshRefs(capi)[entity + "_" + itemstack.Attributes.GetInt(CAPTURED_ENTITY_TEXTURE_ID)] = capi.Render
+                            .UploadMesh(cageMesh);
+                    }
+                    renderinfo.ModelRef = CachedMeshRefs(capi)[entity + "_" + itemstack.Attributes.GetInt(CAPTURED_ENTITY_TEXTURE_ID)];
                 }
-                renderinfo.ModelRef = CachedMeshRefs(capi)[entity + "_" + itemstack.Attributes.GetInt(CAPTURED_ENTITY_TEXTURE_ID)];
+                catch (Exception)
+                {
+                    base.OnBeforeRender(capi, itemstack, target, ref renderinfo);
+                }
             }
             else { base.OnBeforeRender(capi, itemstack, target, ref renderinfo); }
         }

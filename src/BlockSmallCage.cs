@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
@@ -29,20 +30,27 @@ namespace Animalcages
             string entity = itemstack.Attributes.GetString(CAPTURED_ENTITY_NAME);
             if (!string.IsNullOrEmpty(entity))
             {
-                if (!CachedMeshRefs(capi).ContainsKey(entity + "_" + itemstack.Attributes.GetInt(CAPTURED_ENTITY_TEXTURE_ID)))
+                try
                 {
-                    MeshData cageMesh;
-                    capi.Tesselator.TesselateBlock(this, out cageMesh);
-                    MeshData entityMesh = new CagedEntityRenderer(capi,
-                                entity,
-                                itemstack.Attributes.GetInt(CAPTURED_ENTITY_TEXTURE_ID),
-                                itemstack.Attributes.GetString(CAPTURED_ENTITY_SHAPE))
-                            .genMesh();
-                    cageMesh.AddMeshData(entityMesh);
-                    CachedMeshRefs(capi)[entity + "_" + itemstack.Attributes.GetInt(CAPTURED_ENTITY_TEXTURE_ID)] = capi.Render
-                        .UploadMesh(cageMesh);
+                    if (!CachedMeshRefs(capi).ContainsKey(entity + "_" + itemstack.Attributes.GetInt(CAPTURED_ENTITY_TEXTURE_ID)))
+                    {
+                        MeshData cageMesh;
+                        capi.Tesselator.TesselateBlock(this, out cageMesh);
+                        MeshData entityMesh = new CagedEntityRenderer(capi,
+                                    entity,
+                                    itemstack.Attributes.GetInt(CAPTURED_ENTITY_TEXTURE_ID),
+                                    itemstack.Attributes.GetString(CAPTURED_ENTITY_SHAPE))
+                                .genMesh();
+                        cageMesh.AddMeshData(entityMesh);
+                        CachedMeshRefs(capi)[entity + "_" + itemstack.Attributes.GetInt(CAPTURED_ENTITY_TEXTURE_ID)] = capi.Render
+                            .UploadMesh(cageMesh);
+                    }
+                    renderinfo.ModelRef = CachedMeshRefs(capi)[entity + "_" + itemstack.Attributes.GetInt(CAPTURED_ENTITY_TEXTURE_ID)];
                 }
-                renderinfo.ModelRef = CachedMeshRefs(capi)[entity + "_" + itemstack.Attributes.GetInt(CAPTURED_ENTITY_TEXTURE_ID)];
+                catch (Exception)
+                {
+                    base.OnBeforeRender(capi, itemstack, target, ref renderinfo);
+                }
             }
             else { base.OnBeforeRender(capi, itemstack, target, ref renderinfo); }
         }

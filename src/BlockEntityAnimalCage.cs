@@ -2,6 +2,7 @@
 using Vintagestory.API.Common.Entities;
 using Vintagestory.API.Datastructures;
 using Vintagestory.API.Client;
+using System;
 
 namespace Animalcages
 {
@@ -74,8 +75,12 @@ namespace Animalcages
         }
         protected virtual void tryGenMesh()
         {
-            renderer = new CagedEntityRenderer(Api as ICoreClientAPI, tmpCapturedEntityName, tmpCapturedEntityTextureId, tmpCapturedEntityShape);
-            currentMesh = renderer.genMesh();
+            try
+            {
+                renderer = new CagedEntityRenderer(Api as ICoreClientAPI, tmpCapturedEntityName, tmpCapturedEntityTextureId, tmpCapturedEntityShape);
+                currentMesh = renderer.genMesh();
+            }
+            catch (Exception) { }
         }
         private Entity getCapturedEntity()
         {
