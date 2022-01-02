@@ -21,7 +21,7 @@ namespace Animalcages
             base.Initialize(api);
             MarkDirty(true);
         }
-        public override void OnBlockBroken()
+        public override void OnBlockBroken(IPlayer byPlayer = null)
         {
             Entity entity = getCapturedEntity();
             if (entity != null)
