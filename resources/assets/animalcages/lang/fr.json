@@ -1,0 +1,10 @@
+{
+    "block-smallanimalcage-opened": "Cage à animaux petite (ouverte)",
+    "blockdesc-smallanimalcage-opened": "Attaquez un petit animal avec cette cage pour l'attraper.",
+    "block-smallanimalcage-closed": "Cage à animaux petite (fermée)",
+    "blockdesc-smallanimalcage-closed": "Contient un animal capturé. Cassez le bloc pour le libérer.",
+    "block-mediumanimalcage-*-opened-*": "Cage à animaux moyenne (ouverte)",
+    "blockdesc-mediumanimalcage-*-opened-*": "Attaquez un animal moyen avec cette cage pour l'attraper. L'animal doit être blessé ou domestiqué pour être capturé.",
+    "block-mediumanimalcage-*-closed-*": "Cage à animaux moyenne (fermée)",
+    "blockdesc-mediumanimalcage-*-closed-*": "Contient un animal capturé. Cassez le bloc pour le libérer. Besoin d'une place libre de sac à dos."
+}
