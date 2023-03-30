@@ -37,9 +37,7 @@
         "scale": 0.6
     },
     "maxstacksize": 1,
-    "storageFlagsByType": {
-        "*-closed-*": 2
-    },
+    "storageFlags":  2,
     "variantgroups": [
         {
             "code": "hpart",
