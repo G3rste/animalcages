@@ -38,7 +38,7 @@ namespace Animalcages
                 && attackedEntity.Alive
                 && !itemslot.Itemstack.Attributes.HasAttribute(CAPTURED_ENTITY)
                 && world is Vintagestory.API.Server.IServerWorldAccessor
-                && isCatchable(attackedEntity))
+                && isCatchable(byEntity, attackedEntity))
             {
                 ItemStack newStack = new ItemStack(api.World.GetBlock(CodeWithVariant("type", "closed")));
                 itemslot.TakeOutWhole();
@@ -117,6 +117,6 @@ namespace Animalcages
                 }
             }
         }
-        protected abstract bool isCatchable(Entity entity);
+        protected abstract bool isCatchable(Entity byEntity, Entity entity);
     }
 }

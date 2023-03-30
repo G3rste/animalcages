@@ -60,7 +60,7 @@ namespace Animalcages
             }
             else { base.OnBeforeRender(capi, itemstack, target, ref renderinfo); }
         }
-        protected override bool isCatchable(Entity attackedEntity)
+        protected override bool isCatchable(Entity byEntity, Entity attackedEntity)
         {
             bool mediumEntity = CageConfig.Current.mediumCatchableEntities.Exists(x => x.name == attackedEntity.Properties.Code.GetName());
             bool smallEntity = CageConfig.Current.smallCatchableEntities.Exists(x => x.name == attackedEntity.Properties.Code.GetName());
@@ -68,7 +68,7 @@ namespace Animalcages
             var bh = attackedEntity.GetBehavior<EntityBehaviorHealth>();
             bool wounded = bh.MaxHealth >= bh.Health * CageConfig.Current.woundedMultiplicator;
 
-            return smallEntity || mediumEntity && (generation > 0 || wounded);
+            return smallEntity || mediumEntity && (generation > 0 || wounded || attackedEntity.WatchedAttributes.GetTreeAttribute("domesticationstatus")?.GetString("owner") == (byEntity as EntityPlayer)?.PlayerUID);
         }
 
         public override bool TryPlaceBlock(IWorldAccessor world, IPlayer byPlayer, ItemStack itemstack, BlockSelection blockSel, ref string failureCode)
