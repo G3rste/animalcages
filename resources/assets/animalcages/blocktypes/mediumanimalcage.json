@@ -3,18 +3,31 @@
     "class": "blockmediumanimalcage",
     "entityclass": "blockentitymediumanimalcage",
     "handbook": {
-        "groupBy": [ "*" ]
+        "groupBy": [
+            "*"
+        ]
     },
     "heldTpIdleAnimation": "holdbothhandslarge",
     "heldTpHitAnimation": "twohandplaceblock",
     "creativeinventory": {
-        "general": [ "*-floor-opened-north" ]
+        "general": [
+            "*-floor-opened-north"
+        ]
     },
-    "shapeinventory": { "base": "mediumanimalcage-{type}-gui" },
+    "shapeinventory": {
+        "base": "mediumanimalcage-{type}-gui"
+    },
     "behaviors": [
-        { "name": "RightClickPickup" }
+        {
+            "name": "RightClickPickup"
+        }
     ],
-    "guitransform": {
+    "guiTransform": {
+        "translation": {
+            "x": 4,
+            "y": 7,
+            "z": 0
+        },
         "scale": 0.6
     },
     "fpHandTransform": {
@@ -22,36 +35,46 @@
     },
     "tpHandTransform": {
         "translation": {
-            "x": -2.9,
-            "y": -1.3,
-            "z": -1.6
-        },
-        "origin": {
-            "x": 0.5,
-            "y": 0.2,
+            "x": 1,
+            "y": -0.7,
             "z": 0.5
         },
-        "scale": 0.2
+        "rotation": {
+            "x": 10,
+            "y": 15,
+            "z": -70
+        },
+        "origin": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "scale": 0.45
     },
     "groundTransform": {
         "scale": 0.6
     },
     "maxstacksize": 1,
-    "storageFlags":  2,
+    "storageFlags": 2,
     "variantgroups": [
         {
             "code": "hpart",
-            "states": [ "ceiling", "floor" ]
+            "states": [
+                "ceiling",
+                "floor"
+            ]
         },
         {
             "code": "type",
-            "states": [ "closed", "opened" ]
+            "states": [
+                "closed",
+                "opened"
+            ]
         },
         {
             "code": "side",
             "loadFromProperties": "abstract/horizontalorientation"
         }
-
     ],
     "shapebytype": {
         "*-north": {

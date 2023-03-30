@@ -2,17 +2,44 @@
     "code": "smallanimalcage",
     "class": "blocksmallanimalcage",
     "entityclass": "blockentitysmallanimalcage",
-    "creativeinventory": { "general": [ "*-opened" ] },
+    "creativeinventory": {
+        "general": [
+            "*-opened"
+        ]
+    },
     "heldTpIdleAnimation": "holdbothhands",
     "heldTpHitAnimation": "twohandplaceblock",
     "behaviors": [
-        { "name": "RightClickPickup" }
+        {
+            "name": "RightClickPickup"
+        }
     ],
+    "tpHandTransform": {
+        "translation": {
+            "x": -0.4,
+            "y": -0.2,
+            "z": -0.3
+        },
+        "rotation": {
+            "x": -149,
+            "y": -22,
+            "z": -98
+        },
+        "origin": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "scale": 0.4
+    },
     "maxstacksize": 1,
     "variantgroups": [
         {
             "code": "type",
-            "states": [ "closed", "opened" ]
+            "states": [
+                "closed",
+                "opened"
+            ]
         }
     ],
     "shapebytype": {
