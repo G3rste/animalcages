@@ -12,8 +12,7 @@ namespace Animalcages
                 base.tryGenMesh();
                 if (currentMesh != null)
                 {
-                    ModelTransform transform = new ModelTransform();
-                    transform.EnsureDefaultValues();
+                    ModelTransform transform = ModelTransform.NoTransform;
                     if (variant.Contains("east"))
                     {
                         transform.Translation.X -= 0.4f;

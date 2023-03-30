@@ -44,8 +44,7 @@ namespace Animalcages
                                     itemstack.Attributes.GetInt(CAPTURED_ENTITY_TEXTURE_ID),
                                     itemstack.Attributes.GetString(CAPTURED_ENTITY_SHAPE))
                                 .genMesh();
-                        ModelTransform transform = new ModelTransform();
-                        transform.EnsureDefaultValues();
+                        ModelTransform transform = ModelTransform.NoTransform;
                         transform.Translation.X -= 0.4f;
                         entityMesh.ModelTransform(transform);
                         cageMesh.AddMeshData(entityMesh);
