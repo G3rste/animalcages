@@ -1,0 +1,371 @@
+{
+    "smallCatchableEntities": [
+        {
+            "name": "sheep-bighorn-lamb",
+            "scale": 0.85
+        },
+        {
+            "name": "deer-fawn",
+            "scale": 0.85
+        },
+        {
+            "name": "chicken-baby",
+            "scale": 1.0
+        },
+        {
+            "name": "chicken-hen",
+            "scale": 1.0
+        },
+        {
+            "name": "chicken-henpoult",
+            "scale": 1.0
+        },
+        {
+            "name": "chicken-rooster",
+            "scale": 1.0
+        },
+        {
+            "name": "chicken-roosterpoult",
+            "scale": 1.0
+        },
+        {
+            "name": "hare-baby",
+            "scale": 1.0
+        },
+        {
+            "name": "pig-wild-piglet",
+            "scale": 1.0
+        },
+        {
+            "name": "wolf-pup",
+            "scale": 1.0
+        },
+        {
+            "name": "fox-pup-forest",
+            "scale": 1.0
+        },
+        {
+            "name": "fox-pup-arctic",
+            "scale": 1.0
+        },
+        {
+            "name": "aurochs-lamb",
+            "scale": 1.0
+        },
+        {
+            "name": "raccoon-male",
+            "scale": 1.0
+        },
+        {
+            "name": "raccoon-female",
+            "scale": 1.0
+        },
+        {
+            "name": "raccoon-pub",
+            "scale": 1.0
+        },
+        {
+            "name": "hyena-pup",
+            "scale": 1.0
+        },
+        {
+            "name": "hare-female-arctic",
+            "scale": 1.0
+        },
+        {
+            "name": "hare-female-ashgrey",
+            "scale": 1.0
+        },
+        {
+            "name": "hare-female-darkbrown",
+            "scale": 1.0
+        },
+        {
+            "name": "hare-female-desert",
+            "scale": 1.0
+        },
+        {
+            "name": "hare-female-gold",
+            "scale": 1.0
+        },
+        {
+            "name": "hare-female-lightbrown",
+            "scale": 1.0
+        },
+        {
+            "name": "hare-female-lightgrey",
+            "scale": 1.0
+        },
+        {
+            "name": "hare-female-silver",
+            "scale": 1.0
+        },
+        {
+            "name": "hare-female-smokegrey",
+            "scale": 1.0
+        },
+        {
+            "name": "hare-male-arctic",
+            "scale": 1.0
+        },
+        {
+            "name": "hare-male-ashgrey",
+            "scale": 1.0
+        },
+        {
+            "name": "hare-male-darkbrown",
+            "scale": 1.0
+        },
+        {
+            "name": "hare-male-desert",
+            "scale": 1.0
+        },
+        {
+            "name": "hare-male-gold",
+            "scale": 1.0
+        },
+        {
+            "name": "hare-male-lightbrown",
+            "scale": 1.0
+        },
+        {
+            "name": "hare-male-lightgrey",
+            "scale": 1.0
+        },
+        {
+            "name": "hare-male-silver",
+            "scale": 1.0
+        },
+        {
+            "name": "hare-male-smokegrey",
+            "scale": 1.0
+        },
+        {
+            "name": "tame-wolf-pup",
+            "scale": 1.0
+        },
+        {
+            "name": "cat-kitten",
+            "scale": 1.0
+        },
+        {
+            "name": "cat-kitten-ocelot",
+            "scale": 1.0
+        },
+        {
+            "name": "cat-kitten-european",
+            "scale": 1.0
+        },
+        {
+            "name": "cat-kitten-serval",
+            "scale": 1.0
+        },
+        {
+            "name": "cat-female",
+            "scale": 1.0
+        },
+        {
+            "name": "cat-female-ocelot",
+            "scale": 1.0
+        },
+        {
+            "name": "cat-female-european",
+            "scale": 1.0
+        },
+        {
+            "name": "cat-female-serval",
+            "scale": 1.0
+        },
+        {
+            "name": "cat-male",
+            "scale": 1.0
+        },
+        {
+            "name": "cat-male-ocelot",
+            "scale": 1.0
+        },
+        {
+            "name": "cat-male-european",
+            "scale": 1.0
+        },
+        {
+            "name": "cat-male-serval",
+            "scale": 1.0
+        },
+        {
+            "name": "crab-landcrab",
+            "scale": 1.0
+        },
+        {
+            "name": "crab-bairdiccrab",
+            "scale": 1.0
+        },
+        {
+            "name": "foal-female-draft",
+            "scale": 1.0
+        },
+        {
+            "name": "foal-female-arabian",
+            "scale": 1.0
+        },
+        {
+            "name": "foal-male-draft",
+            "scale": 1.0
+        },
+        {
+            "name": "foal-male-arabian",
+            "scale": 1.0
+        }
+    ],
+    "mediumCatchableEntities": [
+        {
+            "name": "wolf-male",
+            "scale": 0.9
+        },
+        {
+            "name": "wolf-female",
+            "scale": 0.9
+        },
+        {
+            "name": "pig-wild-male",
+            "scale": 1.0
+        },
+        {
+            "name": "pig-wild-female",
+            "scale": 1.0
+        },
+        {
+            "name": "sheep-bighorn-male",
+            "scale": 0.9
+        },
+        {
+            "name": "sheep-bighorn-female",
+            "scale": 1.0
+        },
+        {
+            "name": "hyena-male",
+            "scale": 0.9
+        },
+        {
+            "name": "hyena-female",
+            "scale": 0.9
+        },
+        {
+            "name": "fox-male",
+            "scale": 1.0
+        },
+        {
+            "name": "fox-female",
+            "scale": 1.0
+        },
+        {
+            "name": "fox-arctic-male",
+            "scale": 1.0
+        },
+        {
+            "name": "fox-arctic-female",
+            "scale": 1.0
+        },
+        {
+            "name": "aurochs-female",
+            "scale": 0.75
+        },
+        {
+            "name": "aurochs-male",
+            "scale": 0.75
+        },
+        {
+            "name": "deer-female",
+            "scale": 0.9
+        },
+        {
+            "name": "deer-male",
+            "scale": 0.8
+        },
+        {
+            "name": "white-hart",
+            "scale": 0.8
+        },
+        {
+            "name": "tame-wolf-male",
+            "scale": 0.9
+        },
+        {
+            "name": "tame-wolf-female",
+            "scale": 0.9
+        },
+        {
+            "name": "horse-female-draft",
+            "scale": 0.7
+        },
+        {
+            "name": "horse-female-arabian",
+            "scale": 0.7
+        },
+        {
+            "name": "horse-male-draft",
+            "scale": 0.7
+        },
+        {
+            "name": "horse-male-arabian",
+            "scale": 0.7
+        },
+        {
+            "name": "bear-female-black",
+            "scale": 0.7
+        },
+        {
+            "name": "bear-female-brown",
+            "scale": 0.7
+        },
+        {
+            "name": "bear-female-sun",
+            "scale": 0.7
+        },
+        {
+            "name": "bear-female-panda",
+            "scale": 0.7
+        },
+        {
+            "name": "bear-female-polar",
+            "scale": 0.7
+        },
+        {
+            "name": "bear-female-polar",
+            "scale": 0.7
+        },
+        {
+            "name": "bear-male-black",
+            "scale": 0.7
+        },
+        {
+            "name": "bear-male-brown",
+            "scale": 0.7
+        },
+        {
+            "name": "bear-male-sun",
+            "scale": 0.7
+        },
+        {
+            "name": "bear-male-panda",
+            "scale": 0.7
+        },
+        {
+            "name": "bear-male-polar",
+            "scale": 0.7
+        },
+        {
+            "name": "bear-male-polar",
+            "scale": 0.7
+        },
+        {
+            "name": "gazelle-female",
+            "scale": 1.0
+        },
+        {
+            "name": "gazelle-male",
+            "scale": 1.0
+        }
+    ],
+    "woundedMultiplicator": 3
+}
