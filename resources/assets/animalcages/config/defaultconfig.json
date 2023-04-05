@@ -215,6 +215,66 @@
         {
             "name": "foal-male-arabian",
             "scale": 1.0
+        },
+        {
+            "name": "pheasant-chick",
+            "scale": 1.0
+        },
+        {
+            "name": "pheasant-cockpoult",
+            "scale": 1.0
+        },
+        {
+            "name": "pheasant-henpoult",
+            "scale": 1.0
+        },
+        {
+            "name": "pheasant-cock",
+            "scale": 1.0
+        },
+        {
+            "name": "pheasant-hen",
+            "scale": 1.0
+        },
+        {
+            "name": "goldenpheasant-chick",
+            "scale": 1.0
+        },
+        {
+            "name": "goldenpheasant-cockpoult",
+            "scale": 1.0
+        },
+        {
+            "name": "goldenpheasant-henpoult",
+            "scale": 1.0
+        },
+        {
+            "name": "goldenpheasant-cock",
+            "scale": 1.0
+        },
+        {
+            "name": "goldenpheasant-hen",
+            "scale": 1.0
+        },
+        {
+            "name": "capercaillie-chick",
+            "scale": 1.0
+        },
+        {
+            "name": "capercaillie-cockpoult",
+            "scale": 1.0
+        },
+        {
+            "name": "capercaillie-henpoult",
+            "scale": 1.0
+        },
+        {
+            "name": "capercaillie-cock",
+            "scale": 1.0
+        },
+        {
+            "name": "capercaillie-hen",
+            "scale": 1.0
         }
     ],
     "mediumCatchableEntities": [
@@ -292,6 +352,14 @@
         },
         {
             "name": "tame-wolf-female",
+            "scale": 0.9
+        },
+        {
+            "name": "dog-hunting-male",
+            "scale": 0.9
+        },
+        {
+            "name": "dog-hunting-female",
             "scale": 0.9
         },
         {
