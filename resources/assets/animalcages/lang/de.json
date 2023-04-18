@@ -4,7 +4,7 @@
     "block-smallanimalcage-closed": "Kleintierk�fig (geschlossen)",
     "blockdesc-smallanimalcage-closed": "Enth�lt ein gefangenes Kleintier. Zerst�re den Block, um es freizulassen.",
     "block-mediumanimalcage-*-opened-*": "Mittelgro�er Tierk�fig (offen)",
-    "blockdesc-mediumanimalcage-*-opened-*": "Greife ein Tier mit diesem Item an, um es einzufangen. Das Tier muss verletzt oder domestiziert sein, um eingefangen werden zu k�nnen. Im Inventar wird ein leerer Rucksackplatz ben�tigt.",
+    "blockdesc-mediumanimalcage-*-opened-*": "Greife ein Tier mit diesem Item an, um es einzufangen. Das Tier muss verletzt oder domestiziert sein, um eingefangen werden zu k�nnen.",
     "block-mediumanimalcage-*-closed-*": "Mittelgro�er Tierk�fig (geschlossen)",
-    "blockdesc-mediumanimalcage-*-closed-*": "Enth�lt ein gefangenes Tier. Zerst�re den Block, um es freizulassen. F�r einen vollen K�fig im Inventar wird ein leerer Rucksackplatz ben�tigt."
+    "blockdesc-mediumanimalcage-*-closed-*": "Enth�lt ein gefangenes Tier. Zerst�re den Block, um es freizulassen."
 }
