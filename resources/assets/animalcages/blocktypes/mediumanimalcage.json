@@ -55,7 +55,6 @@
         "scale": 0.6
     },
     "maxstacksize": 1,
-    "storageFlags": 2,
     "variantgroups": [
         {
             "code": "hpart",
