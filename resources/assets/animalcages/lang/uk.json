@@ -1,0 +1,10 @@
+{
+    "block-smallanimalcage-opened": "Клітка для малих істот (відкрита)",
+    "blockdesc-smallanimalcage-opened": "Атакуйте малу істоту кліткою, аби спіймати її.",
+    "block-smallanimalcage-closed": "Клітка для малих істот (закрита)",
+    "blockdesc-smallanimalcage-closed": "Містить спійману істоту. Щоб відпустити її зламайте блок.",
+    "block-mediumanimalcage-*-opened-*": "Клітка для середніх істот (відкрита)",
+    "blockdesc-mediumanimalcage-*-opened-*": "Атакуйте середню істоту кліткою, аби спіймати її. Істота повинна бути знесилена, або приручена.",
+    "block-mediumanimalcage-*-closed-*": "Клітка для малих істот (закрита)",
+    "blockdesc-mediumanimalcage-*-closed-*": "Містить спійману істоту. Щоб відпустити її зламайте блок."
+}
