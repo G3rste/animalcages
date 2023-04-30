@@ -141,7 +141,15 @@
             "scale": 1.0
         },
         {
-            "name": "tame-wolf-pup",
+            "name": "dog-wolf-pup",
+            "scale": 1.0
+        },
+        {
+            "name": "dog-hunting-pup",
+            "scale": 1.0
+        },
+        {
+            "name": "dog-shepherd-pup",
             "scale": 1.0
         },
         {
@@ -347,19 +355,27 @@
             "scale": 0.8
         },
         {
-            "name": "tame-wolf-male",
-            "scale": 0.9
-        },
-        {
-            "name": "tame-wolf-female",
-            "scale": 0.9
-        },
-        {
             "name": "dog-hunting-male",
             "scale": 0.9
         },
         {
             "name": "dog-hunting-female",
+            "scale": 0.9
+        },
+        {
+            "name": "dog-wolf-male",
+            "scale": 0.9
+        },
+        {
+            "name": "dog-wolf-female",
+            "scale": 0.9
+        },
+        {
+            "name": "dog-shepherd-male",
+            "scale": 0.9
+        },
+        {
+            "name": "dog-shepherd-female",
             "scale": 0.9
         },
         {
