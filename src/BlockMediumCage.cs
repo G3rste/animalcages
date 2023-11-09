@@ -10,18 +10,18 @@ namespace Animalcages
 {
     class BlockMediumCage : BlockCage
     {
-        public static Dictionary<string, MeshRef> CachedMeshRefs(ICoreAPI api)
+        public static Dictionary<string, MultiTextureMeshRef> CachedMeshRefs(ICoreAPI api)
         {
-            Dictionary<string, MeshRef> toolTextureSubIds;
+            Dictionary<string, MultiTextureMeshRef> toolTextureSubIds;
             object obj;
 
             if (api.ObjectCache.TryGetValue("cachedMediumEntityMeshRefs", out obj))
             {
-                toolTextureSubIds = obj as Dictionary<string, MeshRef>;
+                toolTextureSubIds = obj as Dictionary<string, MultiTextureMeshRef>;
             }
             else
             {
-                api.ObjectCache["cachedMediumEntityMeshRefs"] = toolTextureSubIds = new Dictionary<string, MeshRef>();
+                api.ObjectCache["cachedMediumEntityMeshRefs"] = toolTextureSubIds = new Dictionary<string, MultiTextureMeshRef>();
             }
 
             return toolTextureSubIds;
@@ -49,7 +49,7 @@ namespace Animalcages
                         entityMesh.ModelTransform(transform);
                         cageMesh.AddMeshData(entityMesh);
                         CachedMeshRefs(capi)[entity + "_" + itemstack.Attributes.GetInt(CAPTURED_ENTITY_TEXTURE_ID)] = capi.Render
-                            .UploadMesh(cageMesh);
+                            .UploadMultiTextureMesh(cageMesh);
                     }
                     renderinfo.ModelRef = CachedMeshRefs(capi)[entity + "_" + itemstack.Attributes.GetInt(CAPTURED_ENTITY_TEXTURE_ID)];
                 }
