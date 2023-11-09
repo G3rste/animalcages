@@ -1,0 +1,10 @@
+{
+    "block-smallanimalcage-opened": "Piccola gabbia animali (aperta)",
+    "blockdesc-smallanimalcage-opened": "Attacca un piccolo animale con questa gabbia per catturarlo.",
+    "block-smallanimalcage-closed": "Piccola gabbia animali (chiusa)",
+    "blockdesc-smallanimalcage-closed": "Contiene un animale catturato. Rompi il blocco per rilasciarlo.",
+    "block-mediumanimalcage-*-opened-*": "Media gabbia animali (aperta)",
+    "blockdesc-mediumanimalcage-*-opened-*": "Attacca un animale medio con questa gabbia per catturarlo. L'animale ha bisogno di essere ferito o addomesticato per essere catturato. Necessita di uno slot vuoto nello zaino per essere preso.",
+    "block-mediumanimalcage-*-closed-*": "Media gabbia animali (chiusa)",
+    "blockdesc-mediumanimalcage-*-closed-*": "Contiene un animale catturato. Rompi il blocco per rilasciarlo. Necessita di uno slot vuoto nello zaino per essere preso."
+}

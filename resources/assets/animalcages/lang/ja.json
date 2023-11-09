@@ -1,8 +1,4 @@
 {
-    "comment_description": "Japanese localization file for 'Animalcages'.",
-    "comment_version": "Mod Version: v2.1.4",
-    "comment_author": "Translated By: Macoto Hino",
-    "comment_technical_details": "Machine translation using PCOT and DeepL.",
     "block-smallanimalcage-opened": "小型の動物の檻(開)",
     "blockdesc-smallanimalcage-opened": "この檻で小動物を攻撃して捕まえる。",
     "block-smallanimalcage-closed": "小型の動物の檻(閉)",
