@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using Vintagestory.API.Client;
 using Vintagestory.API.Common;
+using Vintagestory.API.Server;
 
 namespace Animalcages
 {
@@ -12,6 +14,20 @@ namespace Animalcages
             api.RegisterBlockClass("blockmediumanimalcage", typeof(BlockMediumCage));
             api.RegisterBlockEntityClass("blockentitysmallanimalcage", typeof(BlockEntityAnimalCage));
             api.RegisterBlockEntityClass("blockentitymediumanimalcage", typeof(BlockEntityMediumAnimalCage));
+        }
+
+        public override void StartClientSide(ICoreClientAPI api)
+        {
+            base.StartClientSide(api);
+            
+            api.Network
+                .RegisterChannel("animalcagesnetwork")
+                .RegisterMessageType<CageConfig>()
+                .SetMessageHandler<CageConfig>(packet => CageConfig.Current = packet);
+        }
+        public override void StartServerSide(ICoreServerAPI api)
+        {
+            base.StartServerSide(api);
             try
             {
                 var Config = api.LoadModConfig<CageConfig>("animalcagesconfig.json");
@@ -41,6 +57,15 @@ namespace Animalcages
                     CageConfig.Current.mediumCatchableEntities = new List<CageConfig.CatchableEntity>();
                 api.StoreModConfig(CageConfig.Current, "animalcagesconfig.json");
             }
+
+            api.Network
+                .RegisterChannel("animalcagesnetwork")
+                .RegisterMessageType<CageConfig>();
+
+            api.Event.PlayerJoin += (byPlayer) => 
+                api.Network
+                    .GetChannel("animalcagesnetwork")
+                    .BroadcastPacket<CageConfig>(CageConfig.Current, new IServerPlayer[]{byPlayer});
         }
     }
 
