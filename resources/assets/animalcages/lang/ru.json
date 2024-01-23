@@ -1,10 +1,10 @@
 {
-    "block-smallanimalcage-opened": "Клетка для мелких животных (открытая)",
-    "blockdesc-smallanimalcage-opened": "Атакуйте маленькое животное этой клеткой, чтобы поймать его.",
-    "block-smallanimalcage-closed": "Клетка для мелких животных (закрытая)",
-    "blockdesc-smallanimalcage-closed": "Содержит пойманное животное. Разбейте Блок, чтобы освободить его.",
-    "block-mediumanimalcage-*-opened-*": "Средняя клетка для животных (открытая)",
-    "blockdesc-mediumanimalcage-*-opened-*": "Атакуйте среднее животное этой клеткой, чтобы поймать его. Предварительно животное нужно травмировать или приручить.",
-    "block-mediumanimalcage-*-closed-*": "Средняя клетка для животных (закрытая)",
-    "blockdesc-mediumanimalcage-*-closed-*": "Содержит пойманное животное. Разбейте Блок, чтобы освободить его. Предварительно животное нужно травмировать или приручить.."
+    "block-smallanimalcage-opened": "Мал. клетка для животных (открыта)",
+    "blockdesc-smallanimalcage-opened": "Атакуйте маленькое животное с этой клеткой, чтобы поймать его.",
+    "block-smallanimalcage-closed": "Мал. клетка для животных (закрыта)",
+    "blockdesc-smallanimalcage-closed": "Внутри пойманное животное. Разрушьте блок, чтобы отпустить его.",
+    "block-mediumanimalcage-*-opened-*": "Сред. клетка для животных (открыта)",
+    "blockdesc-mediumanimalcage-*-opened-*": "Атакуйте животное среднего размера с этой клеткой, чтобы поймать его. Животное должно быть ранено или приручено.",
+    "block-mediumanimalcage-*-closed-*": "Сред. клетка для животных (закрыта)",
+    "blockdesc-mediumanimalcage-*-closed-*": "Внутри пойманное животное. Разрушьте блок, чтобы отпустить его."
 }
