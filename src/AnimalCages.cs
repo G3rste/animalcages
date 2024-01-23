@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using ProtoBuf;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Server;
@@ -19,7 +20,7 @@ namespace Animalcages
         public override void StartClientSide(ICoreClientAPI api)
         {
             base.StartClientSide(api);
-            
+
             api.Network
                 .RegisterChannel("animalcagesnetwork")
                 .RegisterMessageType<CageConfig>()
@@ -62,21 +63,25 @@ namespace Animalcages
                 .RegisterChannel("animalcagesnetwork")
                 .RegisterMessageType<CageConfig>();
 
-            api.Event.PlayerJoin += (byPlayer) => 
+            api.Event.PlayerJoin += (byPlayer) =>
                 api.Network
                     .GetChannel("animalcagesnetwork")
-                    .BroadcastPacket<CageConfig>(CageConfig.Current, new IServerPlayer[]{byPlayer});
+                    .BroadcastPacket<CageConfig>(CageConfig.Current, new IServerPlayer[] { byPlayer });
         }
     }
 
+    [ProtoContract(ImplicitFields = ImplicitFields.None)]
     public class CageConfig
     {
         public static CageConfig Current { get; set; }
 
+        [ProtoMember(0)]
         public List<CatchableEntity> smallCatchableEntities { get; set; }
 
+        [ProtoMember(1)]
         public List<CatchableEntity> mediumCatchableEntities { get; set; }
 
+        [ProtoMember(2)]
         public int woundedMultiplicator { get; set; }
 
         public float getScale(string entity)
@@ -90,6 +95,8 @@ namespace Animalcages
             return 1f;
 
         }
+        
+        [ProtoContract(ImplicitFields = ImplicitFields.AllPublic)]
         public class CatchableEntity
         {
             public string name { get; set; }
