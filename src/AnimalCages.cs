@@ -75,13 +75,13 @@ namespace Animalcages
     {
         public static CageConfig Current { get; set; }
 
-        [ProtoMember(0)]
+        [ProtoMember(1)]
         public List<CatchableEntity> smallCatchableEntities { get; set; }
 
-        [ProtoMember(1)]
+        [ProtoMember(2)]
         public List<CatchableEntity> mediumCatchableEntities { get; set; }
 
-        [ProtoMember(2)]
+        [ProtoMember(3)]
         public int woundedMultiplicator { get; set; }
 
         public float getScale(string entity)
@@ -101,12 +101,6 @@ namespace Animalcages
         {
             public string name { get; set; }
             public float scale { get; set; }
-
-            public CatchableEntity(string name, float scale)
-            {
-                this.name = name;
-                this.scale = scale;
-            }
         }
     }
 }
