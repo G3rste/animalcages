@@ -283,6 +283,26 @@
         {
             "name": "capercaillie-hen",
             "scale": 1.0
+        },
+        {
+            "name": "wildturkey-chick",
+            "scale": 1.0
+        },
+        {
+            "name": "wildturkey-cockpoult",
+            "scale": 1.0
+        },
+        {
+            "name": "wildturkey-henpoult",
+            "scale": 1.0
+        },
+        {
+            "name": "wildturkey-cock",
+            "scale": 1.0
+        },
+        {
+            "name": "wildturkey-hen",
+            "scale": 1.0
         }
     ],
     "mediumCatchableEntities": [
