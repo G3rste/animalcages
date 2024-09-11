@@ -15,15 +15,15 @@ namespace Animalcages
             api.RegisterBlockClass("blockmediumanimalcage", typeof(BlockMediumCage));
             api.RegisterBlockEntityClass("blockentitysmallanimalcage", typeof(BlockEntityAnimalCage));
             api.RegisterBlockEntityClass("blockentitymediumanimalcage", typeof(BlockEntityMediumAnimalCage));
+
+            api.Network.RegisterChannel("animalcagesnetwork").RegisterMessageType<CageConfig>();
         }
 
         public override void StartClientSide(ICoreClientAPI api)
         {
             base.StartClientSide(api);
 
-            api.Network
-                .RegisterChannel("animalcagesnetwork")
-                .RegisterMessageType<CageConfig>()
+            api.Network.GetChannel("animalcagesnetwork")
                 .SetMessageHandler<CageConfig>(packet => CageConfig.Current = packet);
         }
         public override void StartServerSide(ICoreServerAPI api)
@@ -59,14 +59,10 @@ namespace Animalcages
                 api.StoreModConfig(CageConfig.Current, "animalcagesconfig.json");
             }
 
-            api.Network
-                .RegisterChannel("animalcagesnetwork")
-                .RegisterMessageType<CageConfig>();
-
             api.Event.PlayerJoin += (byPlayer) =>
                 api.Network
                     .GetChannel("animalcagesnetwork")
-                    .BroadcastPacket<CageConfig>(CageConfig.Current, new IServerPlayer[] { byPlayer });
+                    .SendPacket<CageConfig>(CageConfig.Current, new IServerPlayer[] { byPlayer });
         }
     }
 

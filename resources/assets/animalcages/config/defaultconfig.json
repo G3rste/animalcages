@@ -303,6 +303,94 @@
         {
             "name": "wildturkey-hen",
             "scale": 1.0
+        },
+        {
+          "name": "goat-angora-male-baby",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-angora-female-baby",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-ibexalp-male-baby",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-ibexalp-female-baby",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-ibexnub-male-baby",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-ibexnub-female-baby",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-markhor-male-baby",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-markhor-female-baby",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-mountain-male-baby",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-mountain-female-baby",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-muskox-male-baby",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-muskox-female-baby",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-nubian-male-baby",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-nubian-female-baby",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-sirohi-male-baby",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-sirohi-female-baby",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-takingold-male-baby",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-takingold-female-baby",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-turdag-male-baby",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-turdag-female-baby",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-valais-male-baby",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-valais-female-baby",
+          "scale": 1.0
         }
     ],
     "mediumCatchableEntities": [
@@ -469,6 +557,94 @@
         {
             "name": "gazelle-male",
             "scale": 1.0
+        },
+        {
+          "name": "goat-angora-male-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-angora-female-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-ibexalp-male-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-ibexalp-female-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-ibexnub-male-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-ibexnub-female-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-markhor-male-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-markhor-female-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-mountain-male-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-mountain-female-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-muskox-male-adult",
+          "scale": 0.9
+        },
+        {
+          "name": "goat-muskox-female-adult",
+          "scale": 0.9
+        },
+        {
+          "name": "goat-nubian-male-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-nubian-female-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-sirohi-male-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-sirohi-female-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-takingold-male-adult",
+          "scale": 0.9
+        },
+        {
+          "name": "goat-takingold-female-adult",
+          "scale": 0.9
+        },
+        {
+          "name": "goat-turdag-male-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-turdag-female-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-valais-male-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "goat-valais-female-adult",
+          "scale": 1.0
         }
     ],
     "woundedMultiplicator": 3
