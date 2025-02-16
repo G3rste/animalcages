@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using ProtoBuf;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
@@ -82,16 +83,49 @@ namespace Animalcages
 
         public float getScale(string entity)
         {
-            var find = smallCatchableEntities.Find(x => x.name == entity);
+            var find = GetSmallCatchableEntity(entity);
             if (find != null) { return find.scale; }
 
-            find = mediumCatchableEntities.Find(x => x.name == entity);
+            find = GetMediumCatchableEntity(entity);
             if (find != null) { return find.scale; }
 
             return 1f;
-
         }
-        
+
+        public CatchableEntity GetSmallCatchableEntity(string entity)
+        {
+            var find = smallCatchableEntities.Find((x) =>
+            {
+                if (x.name.EndsWith("*") && entity.StartsWith(x.name.Remove(x.name.Length - 1)))
+                {
+                    return true;
+                }
+                else if (x.name == entity)
+                {
+                    return true;
+                }
+                return false;
+            });
+            return find;
+        }
+
+        public CatchableEntity GetMediumCatchableEntity(string entity)
+        {
+            var find = mediumCatchableEntities.Find((x) =>
+            {
+                if (x.name.EndsWith("*") && entity.StartsWith(x.name.Remove(x.name.Length - 1)))
+                {
+                    return true;
+                }
+                else if (x.name == entity)
+                {
+                    return true;
+                }
+                return false;
+            });
+            return find;
+        }
+
         [ProtoContract(ImplicitFields = ImplicitFields.AllPublic)]
         public class CatchableEntity
         {

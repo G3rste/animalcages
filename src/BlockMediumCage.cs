@@ -62,8 +62,8 @@ namespace Animalcages
         }
         protected override bool isCatchable(Entity byEntity, Entity attackedEntity)
         {
-            bool mediumEntity = CageConfig.Current.mediumCatchableEntities.Exists(x => x.name == attackedEntity.Properties.Code.GetName());
-            bool smallEntity = CageConfig.Current.smallCatchableEntities.Exists(x => x.name == attackedEntity.Properties.Code.GetName());
+            bool mediumEntity = CageConfig.Current.GetMediumCatchableEntity(attackedEntity.Properties.Code.GetName()) != null;
+            bool smallEntity = CageConfig.Current.GetSmallCatchableEntity(attackedEntity.Properties.Code.GetName()) != null;
             int generation = attackedEntity.WatchedAttributes.GetInt("generation", 0);
             var bh = attackedEntity.GetBehavior<EntityBehaviorHealth>();
             bool wounded = bh.MaxHealth >= bh.Health * CageConfig.Current.woundedMultiplicator;

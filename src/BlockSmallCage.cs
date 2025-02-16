@@ -56,7 +56,7 @@ namespace Animalcages
         }
         protected override bool isCatchable(Entity byEntity, Entity entity)
         {
-            return CageConfig.Current.smallCatchableEntities.Exists(x => x.name == entity.Properties.Code.GetName());
+            return CageConfig.Current.GetSmallCatchableEntity(entity.Properties.Code.GetName()) != null;
         }
     }
 }
