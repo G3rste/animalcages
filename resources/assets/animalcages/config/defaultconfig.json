@@ -41,7 +41,7 @@
             "scale": 1.0
         },
         {
-            "name": "fox-pup-forest",
+            "name": "fox-pup-red",
             "scale": 1.0
         },
         {
@@ -427,19 +427,19 @@
             "scale": 0.9
         },
         {
-            "name": "fox-male",
+            "name": "fox-male-red",
             "scale": 1.0
         },
         {
-            "name": "fox-female",
+            "name": "fox-female-red",
             "scale": 1.0
         },
         {
-            "name": "fox-arctic-male",
+            "name": "fox-male-arctic",
             "scale": 1.0
         },
         {
-            "name": "fox-arctic-female",
+            "name": "fox-female-arctic",
             "scale": 1.0
         },
         {
