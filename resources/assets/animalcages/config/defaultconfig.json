@@ -41,7 +41,7 @@
             "scale": 1.0
         },
         {
-            "name": "fox-pup-forest",
+            "name": "fox-pup-red",
             "scale": 1.0
         },
         {
@@ -391,6 +391,114 @@
         {
           "name": "goat-valais-female-baby",
           "scale": 1.0
+        },
+        {
+          "name": "gazelle-calf",
+          "scale": 0.8
+        },
+        {
+          "name": "deer-whitetail-male-baby",
+          "scale": 0.9
+        },
+        {
+          "name": "deer-whitetail-female-baby",
+          "scale": 0.9
+        },
+        {
+          "name": "deer-redbrocket-male-baby",
+          "scale": 1.0
+        },
+        {
+          "name": "deer-redbrocket-female-baby",
+          "scale": 1.0
+        },
+        {
+          "name": "deer-marsh-male-baby",
+          "scale": 0.9
+        },
+        {
+          "name": "deer-marsh-female-baby",
+          "scale": 0.9
+        },
+        {
+          "name": "deer-caribou-male-baby",
+          "scale": 0.7
+        },
+        {
+          "name": "deer-caribou-female-baby",
+          "scale": 0.7
+        },
+        {
+          "name": "deer-water-male-baby",
+          "scale": 1.0
+        },
+        {
+          "name": "deer-water-female-baby",
+          "scale": 1.0
+        },
+        {
+          "name": "deer-pudu-male-baby",
+          "scale": 1.0
+        },
+        {
+          "name": "deer-pudu-female-baby",
+          "scale": 1.0
+        },
+        {
+          "name": "deer-elk-male-baby",
+          "scale": 0.8
+        },
+        {
+          "name": "deer-elk-female-baby",
+          "scale": 0.8
+        },
+        {
+          "name": "deer-taruca-male-baby",
+          "scale": 1.0
+        },
+        {
+          "name": "deer-taruca-female-baby",
+          "scale": 1.0
+        },
+        {
+          "name": "deer-chital-male-baby",
+          "scale": 0.9
+        },
+        {
+          "name": "deer-chital-female-baby",
+          "scale": 0.9
+        },
+        {
+          "name": "deer-guemal-male-baby",
+          "scale": 1.0
+        },
+        {
+          "name": "deer-guemal-female-baby",
+          "scale": 1.0
+        },
+        {
+          "name": "deer-pampas-male-baby",
+          "scale": 1.0
+        },
+        {
+          "name": "deer-pampas-female-baby",
+          "scale": 1.0
+        },
+        {
+          "name": "deer-fallow-male-baby",
+          "scale": 0.9
+        },
+        {
+          "name": "deer-fallow-female-baby",
+          "scale": 0.9
+        },
+        {
+          "name": "deer-moose-male-baby",
+          "scale": 0.6
+        },
+        {
+          "name": "deer-moose-female-baby",
+          "scale": 0.6
         }
     ],
     "mediumCatchableEntities": [
@@ -427,19 +535,19 @@
             "scale": 0.9
         },
         {
-            "name": "fox-male",
+            "name": "fox-male-red",
             "scale": 1.0
         },
         {
-            "name": "fox-female",
+            "name": "fox-female-red",
             "scale": 1.0
         },
         {
-            "name": "fox-arctic-male",
+            "name": "fox-male-arctic",
             "scale": 1.0
         },
         {
-            "name": "fox-arctic-female",
+            "name": "fox-female-arctic",
             "scale": 1.0
         },
         {
@@ -523,10 +631,6 @@
             "scale": 0.7
         },
         {
-            "name": "bear-female-polar",
-            "scale": 0.7
-        },
-        {
             "name": "bear-male-black",
             "scale": 0.7
         },
@@ -540,10 +644,6 @@
         },
         {
             "name": "bear-male-panda",
-            "scale": 0.7
-        },
-        {
-            "name": "bear-male-polar",
             "scale": 0.7
         },
         {
@@ -645,6 +745,126 @@
         {
           "name": "goat-valais-female-adult",
           "scale": 1.0
+        },
+        {
+          "name": "deer-whitetail-male-adult",
+          "scale": 0.9
+        },
+        {
+          "name": "deer-whitetail-female-adult",
+          "scale": 0.9
+        },
+        {
+          "name": "deer-redbrocket-male-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "deer-redbrocket-female-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "deer-marsh-male-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "deer-marsh-female-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "deer-caribou-male-adult",
+          "scale": 0.9
+        },
+        {
+          "name": "deer-caribou-female-adult",
+          "scale": 0.9
+        },
+        {
+          "name": "deer-water-male-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "deer-water-female-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "deer-pudu-male-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "deer-pudu-female-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "tameddeer-elk-male-adult",
+          "scale": 0.85
+        },
+        {
+          "name": "tameddeer-elk-female-adult",
+          "scale": 0.85
+        },
+        {
+          "name": "tameddeer-albinoelk-male-adult",
+          "scale": 0.85
+        },
+        {
+          "name": "tameddeer-albinoelk-female-adult",
+          "scale": 0.85
+        },
+        {
+          "name": "deer-elk-male-adult",
+          "scale": 0.85
+        },
+        {
+          "name": "deer-elk-female-adult",
+          "scale": 0.85
+        },
+        {
+          "name": "deer-taruca-male-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "deer-taruca-female-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "deer-chital-male-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "deer-chital-female-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "deer-guemal-male-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "deer-guemal-female-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "deer-pampas-male-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "deer-pampas-female-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "deer-fallow-male-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "deer-fallow-female-adult",
+          "scale": 1.0
+        },
+        {
+          "name": "deer-moose-male-adult",
+          "scale": 0.7
+        },
+        {
+          "name": "deer-moose-female-adult",
+          "scale": 0.7
         }
     ],
     "woundedMultiplicator": 3
