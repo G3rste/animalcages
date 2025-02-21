@@ -523,10 +523,6 @@
             "scale": 0.7
         },
         {
-            "name": "bear-female-polar",
-            "scale": 0.7
-        },
-        {
             "name": "bear-male-black",
             "scale": 0.7
         },
@@ -540,10 +536,6 @@
         },
         {
             "name": "bear-male-panda",
-            "scale": 0.7
-        },
-        {
-            "name": "bear-male-polar",
             "scale": 0.7
         },
         {
