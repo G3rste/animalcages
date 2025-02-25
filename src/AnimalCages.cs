@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using ProtoBuf;
 using Vintagestory.API.Client;
@@ -51,8 +52,7 @@ namespace Animalcages
             }
             finally
             {
-                if (CageConfig.Current.woundedMultiplicator <= 0)
-                    CageConfig.Current.woundedMultiplicator = 3;
+                CageConfig.Current.mustBeBelowHpInPercent = Math.Clamp(CageConfig.Current.mustBeBelowHpInPercent, 0f, 1f); 
                 if (CageConfig.Current.smallCatchableEntities == null)
                     CageConfig.Current.smallCatchableEntities = new List<CageConfig.CatchableEntity>();
                 if (CageConfig.Current.mediumCatchableEntities == null)
@@ -79,7 +79,7 @@ namespace Animalcages
         public List<CatchableEntity> mediumCatchableEntities { get; set; }
 
         [ProtoMember(3)]
-        public int woundedMultiplicator { get; set; }
+        public float mustBeBelowHpInPercent { get; set; } = 0.5f;
 
         public float getScale(string entity)
         {
