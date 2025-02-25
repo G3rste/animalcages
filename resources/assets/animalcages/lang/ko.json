@@ -1,0 +1,10 @@
+{
+    "block-smallanimalcage-opened": "작은 동물 케이지 (열려있는)",
+    "blockdesc-smallanimalcage-opened": "이 케이지를 이용해 소형 동물을 잡으세요.",
+    "block-smallanimalcage-closed": "작은 동물 케이지 (닫혀있는)",
+    "blockdesc-smallanimalcage-closed": "포획된 동물이 들어 있습니다. 블록을 깨서 풀어줄 수 있습니다.",
+    "block-mediumanimalcage-*-opened-*": "중형 동물 케이지 (열려있는)",
+    "blockdesc-mediumanimalcage-*-opened-*": "이 케이지를 이용해 중형 동물을 잡으세요.",
+    "block-mediumanimalcage-*-closed-*": "중형 동물 케이지 (닫혀있는)",
+    "blockdesc-mediumanimalcage-*-closed-*": "포획된 동물이 들어 있습니다. 블록을 깨서 풀어줄 수 있습니다."
+}
