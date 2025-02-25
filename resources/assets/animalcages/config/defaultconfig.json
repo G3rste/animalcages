@@ -867,5 +867,5 @@
           "scale": 0.7
         }
     ],
-    "woundedMultiplicator": 3
+    "mustBeBelowHpInPercent": 0.5
 }

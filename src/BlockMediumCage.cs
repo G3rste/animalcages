@@ -66,7 +66,7 @@ namespace Animalcages
             bool smallEntity = CageConfig.Current.GetSmallCatchableEntity(attackedEntity.Properties.Code.GetName()) != null;
             int generation = attackedEntity.WatchedAttributes.GetInt("generation", 0);
             var bh = attackedEntity.GetBehavior<EntityBehaviorHealth>();
-            bool wounded = bh.MaxHealth >= bh.Health * CageConfig.Current.woundedMultiplicator;
+            bool wounded = bh.MaxHealth * CageConfig.Current.mustBeBelowHpInPercent >= bh.Health ;
 
             return smallEntity || mediumEntity && (generation > 0 || wounded || attackedEntity.WatchedAttributes.GetTreeAttribute("domesticationstatus")?.GetString("owner") == (byEntity as EntityPlayer)?.PlayerUID);
         }
