@@ -5,6 +5,7 @@ using ProtoBuf;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Server;
+using Vintagestory.API.Util;
 
 namespace Animalcages
 {
@@ -52,7 +53,7 @@ namespace Animalcages
             }
             finally
             {
-                CageConfig.Current.mustBeBelowHpInPercent = Math.Clamp(CageConfig.Current.mustBeBelowHpInPercent, 0f, 1f); 
+                CageConfig.Current.mustBeBelowHpInPercent = Math.Clamp(CageConfig.Current.mustBeBelowHpInPercent, 0f, 1f);
                 if (CageConfig.Current.smallCatchableEntities == null)
                     CageConfig.Current.smallCatchableEntities = new List<CageConfig.CatchableEntity>();
                 if (CageConfig.Current.mediumCatchableEntities == null)
@@ -94,36 +95,28 @@ namespace Animalcages
 
         public CatchableEntity GetSmallCatchableEntity(string entity)
         {
-            var find = smallCatchableEntities.Find((x) =>
-            {
-                if (x.name.EndsWith("*") && entity.StartsWith(x.name.Remove(x.name.Length - 1)))
-                {
-                    return true;
-                }
-                else if (x.name == entity)
-                {
-                    return true;
-                }
-                return false;
-            });
-            return find;
+            return smallCatchableEntities.Find((x) => matches(x.name, entity));
         }
 
         public CatchableEntity GetMediumCatchableEntity(string entity)
         {
-            var find = mediumCatchableEntities.Find((x) =>
+            return mediumCatchableEntities.Find((x) => matches(x.name, entity));
+        }
+
+        private bool matches(string match, string word)
+        {
+            var matches = true;
+            var parts = match.Split('*');
+            var currentIndex = 0;
+            for (int i = 0; i < parts.Length; i++)
             {
-                if (x.name.EndsWith("*") && entity.StartsWith(x.name.Remove(x.name.Length - 1)))
-                {
-                    return true;
-                }
-                else if (x.name == entity)
-                {
-                    return true;
-                }
-                return false;
-            });
-            return find;
+                var part = parts[i];
+                currentIndex = word.IndexOf(part, currentIndex) + part.Length;
+                matches &= currentIndex != -1;
+                matches &= i != 0 || currentIndex == part.Length;
+                matches &= i != parts.Length - 1 || currentIndex == word.Length || part.Length == 0;
+            }
+            return matches;
         }
 
         [ProtoContract(ImplicitFields = ImplicitFields.AllPublic)]
