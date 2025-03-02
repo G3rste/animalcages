@@ -100,7 +100,6 @@ namespace Animalcages
                         item.Client.FirstTexture.Bake(api.Assets);
                         textureDict.AddTextureLocation(new AssetLocationAndSource(item.Client.FirstTexture.Baked.BakedName, "Item code ", item.Code));
                         tt.TextureSubIdsByCode[count] = textureDict[new AssetLocationAndSource(item.Client.FirstTexture.Baked.BakedName)];
-                        api.Logger.Debug("Load Entity Block Asset: " + item.Client.FirstTexture.Base.Path);
                         if (item.Client.FirstTexture.Alternates != null)
                         {
                             foreach (var val in item.Client.FirstTexture.Alternates)
@@ -109,7 +108,6 @@ namespace Animalcages
                                 val.Bake(api.Assets);
                                 textureDict.AddTextureLocation(new AssetLocationAndSource(val.Baked.BakedName, "Item code ", item.Code));
                                 tt.TextureSubIdsByCode[count] = textureDict[new AssetLocationAndSource(val.Baked.BakedName)];
-                                api.Logger.Debug("Load Entity Block Asset: " + val.Base.Path);
                             }
                         }
                     }
