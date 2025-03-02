@@ -9,27 +9,11 @@
             "scale": 0.85
         },
         {
-            "name": "chicken-baby",
+            "name": "chicken-*",
             "scale": 1.0
         },
         {
-            "name": "chicken-hen",
-            "scale": 1.0
-        },
-        {
-            "name": "chicken-henpoult",
-            "scale": 1.0
-        },
-        {
-            "name": "chicken-rooster",
-            "scale": 1.0
-        },
-        {
-            "name": "chicken-roosterpoult",
-            "scale": 1.0
-        },
-        {
-            "name": "hare-baby",
+            "name": "hare-*",
             "scale": 1.0
         },
         {
@@ -41,27 +25,11 @@
             "scale": 1.0
         },
         {
-            "name": "fox-pup-red",
+            "name": "fox-pup-*",
             "scale": 1.0
         },
         {
-            "name": "fox-pup-arctic",
-            "scale": 1.0
-        },
-        {
-            "name": "aurochs-lamb",
-            "scale": 1.0
-        },
-        {
-            "name": "raccoon-male",
-            "scale": 1.0
-        },
-        {
-            "name": "raccoon-female",
-            "scale": 1.0
-        },
-        {
-            "name": "raccoon-pup",
+            "name": "raccoon-*",
             "scale": 1.0
         },
         {
@@ -69,802 +37,110 @@
             "scale": 1.0
         },
         {
-            "name": "hare-female-arctic",
-            "scale": 1.0
+          "name": "deer-*-baby",
+          "scale": 0.7
         },
         {
-            "name": "hare-female-ashgrey",
-            "scale": 1.0
-        },
-        {
-            "name": "hare-female-darkbrown",
-            "scale": 1.0
-        },
-        {
-            "name": "hare-female-desert",
-            "scale": 1.0
-        },
-        {
-            "name": "hare-female-gold",
-            "scale": 1.0
-        },
-        {
-            "name": "hare-female-lightbrown",
-            "scale": 1.0
-        },
-        {
-            "name": "hare-female-lightgrey",
-            "scale": 1.0
-        },
-        {
-            "name": "hare-female-silver",
-            "scale": 1.0
-        },
-        {
-            "name": "hare-female-smokegrey",
-            "scale": 1.0
-        },
-        {
-            "name": "hare-male-arctic",
-            "scale": 1.0
-        },
-        {
-            "name": "hare-male-ashgrey",
-            "scale": 1.0
-        },
-        {
-            "name": "hare-male-darkbrown",
-            "scale": 1.0
-        },
-        {
-            "name": "hare-male-desert",
-            "scale": 1.0
-        },
-        {
-            "name": "hare-male-gold",
-            "scale": 1.0
-        },
-        {
-            "name": "hare-male-lightbrown",
-            "scale": 1.0
-        },
-        {
-            "name": "hare-male-lightgrey",
-            "scale": 1.0
-        },
-        {
-            "name": "hare-male-silver",
-            "scale": 1.0
-        },
-        {
-            "name": "hare-male-smokegrey",
-            "scale": 1.0
-        },
-        {
-            "name": "dog-wolf-pup",
-            "scale": 1.0
-        },
-        {
-            "name": "dog-hunting-pup",
-            "scale": 1.0
-        },
-        {
-            "name": "dog-shepherd-pup",
-            "scale": 1.0
-        },
-        {
-            "name": "cat-kitten",
-            "scale": 1.0
-        },
-        {
-            "name": "cat-kitten-ocelot",
-            "scale": 1.0
-        },
-        {
-            "name": "cat-kitten-european",
-            "scale": 1.0
-        },
-        {
-            "name": "cat-kitten-serval",
-            "scale": 1.0
-        },
-        {
-            "name": "cat-female",
-            "scale": 1.0
-        },
-        {
-            "name": "cat-female-ocelot",
-            "scale": 1.0
-        },
-        {
-            "name": "cat-female-european",
-            "scale": 1.0
-        },
-        {
-            "name": "cat-female-serval",
-            "scale": 1.0
-        },
-        {
-            "name": "cat-male",
-            "scale": 1.0
-        },
-        {
-            "name": "cat-male-ocelot",
-            "scale": 1.0
-        },
-        {
-            "name": "cat-male-european",
-            "scale": 1.0
-        },
-        {
-            "name": "cat-male-serval",
-            "scale": 1.0
-        },
-        {
-            "name": "crab-landcrab",
-            "scale": 1.0
-        },
-        {
-            "name": "crab-bairdiccrab",
-            "scale": 1.0
-        },
-        {
-            "name": "foal-female-draft",
-            "scale": 1.0
-        },
-        {
-            "name": "foal-female-arabian",
-            "scale": 1.0
-        },
-        {
-            "name": "foal-male-draft",
-            "scale": 1.0
-        },
-        {
-            "name": "foal-male-arabian",
-            "scale": 1.0
-        },
-        {
-            "name": "pheasant-chick",
-            "scale": 1.0
-        },
-        {
-            "name": "pheasant-cockpoult",
-            "scale": 1.0
-        },
-        {
-            "name": "pheasant-henpoult",
-            "scale": 1.0
-        },
-        {
-            "name": "pheasant-cock",
-            "scale": 1.0
-        },
-        {
-            "name": "pheasant-hen",
-            "scale": 1.0
-        },
-        {
-            "name": "goldenpheasant-chick",
-            "scale": 1.0
-        },
-        {
-            "name": "goldenpheasant-cockpoult",
-            "scale": 1.0
-        },
-        {
-            "name": "goldenpheasant-henpoult",
-            "scale": 1.0
-        },
-        {
-            "name": "goldenpheasant-cock",
-            "scale": 1.0
-        },
-        {
-            "name": "goldenpheasant-hen",
-            "scale": 1.0
-        },
-        {
-            "name": "capercaillie-chick",
-            "scale": 1.0
-        },
-        {
-            "name": "capercaillie-cockpoult",
-            "scale": 1.0
-        },
-        {
-            "name": "capercaillie-henpoult",
-            "scale": 1.0
-        },
-        {
-            "name": "capercaillie-cock",
-            "scale": 1.0
-        },
-        {
-            "name": "capercaillie-hen",
-            "scale": 1.0
-        },
-        {
-            "name": "wildturkey-chick",
-            "scale": 1.0
-        },
-        {
-            "name": "wildturkey-cockpoult",
-            "scale": 1.0
-        },
-        {
-            "name": "wildturkey-henpoult",
-            "scale": 1.0
-        },
-        {
-            "name": "wildturkey-cock",
-            "scale": 1.0
-        },
-        {
-            "name": "wildturkey-hen",
-            "scale": 1.0
-        },
-        {
-          "name": "goat-angora-male-baby",
+          "name": "goat-*-baby",
           "scale": 1.0
         },
         {
-          "name": "goat-angora-female-baby",
-          "scale": 1.0
+            "name": "dog-*-pup",
+            "scale": 1.0
         },
         {
-          "name": "goat-ibexalp-male-baby",
-          "scale": 1.0
+            "name": "cat-*",
+            "scale": 1.0
         },
         {
-          "name": "goat-ibexalp-female-baby",
-          "scale": 1.0
+            "name": "foal-*",
+            "scale": 1.0
         },
         {
-          "name": "goat-ibexnub-male-baby",
-          "scale": 1.0
+            "name": "pheasant-*",
+            "scale": 1.0
         },
         {
-          "name": "goat-ibexnub-female-baby",
-          "scale": 1.0
+            "name": "goldenpheasant-*",
+            "scale": 1.0
         },
         {
-          "name": "goat-markhor-male-baby",
-          "scale": 1.0
+            "name": "capercaillie-*",
+            "scale": 1.0
         },
         {
-          "name": "goat-markhor-female-baby",
-          "scale": 1.0
-        },
-        {
-          "name": "goat-mountain-male-baby",
-          "scale": 1.0
-        },
-        {
-          "name": "goat-mountain-female-baby",
-          "scale": 1.0
-        },
-        {
-          "name": "goat-muskox-male-baby",
-          "scale": 1.0
-        },
-        {
-          "name": "goat-muskox-female-baby",
-          "scale": 1.0
-        },
-        {
-          "name": "goat-nubian-male-baby",
-          "scale": 1.0
-        },
-        {
-          "name": "goat-nubian-female-baby",
-          "scale": 1.0
-        },
-        {
-          "name": "goat-sirohi-male-baby",
-          "scale": 1.0
-        },
-        {
-          "name": "goat-sirohi-female-baby",
-          "scale": 1.0
-        },
-        {
-          "name": "goat-takingold-male-baby",
-          "scale": 1.0
-        },
-        {
-          "name": "goat-takingold-female-baby",
-          "scale": 1.0
-        },
-        {
-          "name": "goat-turdag-male-baby",
-          "scale": 1.0
-        },
-        {
-          "name": "goat-turdag-female-baby",
-          "scale": 1.0
-        },
-        {
-          "name": "goat-valais-male-baby",
-          "scale": 1.0
-        },
-        {
-          "name": "goat-valais-female-baby",
-          "scale": 1.0
+            "name": "wildturkey-*",
+            "scale": 1.0
         },
         {
           "name": "gazelle-calf",
           "scale": 0.8
         },
         {
-          "name": "deer-whitetail-male-baby",
-          "scale": 0.9
+            "name": "crab-*",
+            "scale": 1.0
         },
         {
-          "name": "deer-whitetail-female-baby",
-          "scale": 0.9
-        },
-        {
-          "name": "deer-redbrocket-male-baby",
-          "scale": 1.0
-        },
-        {
-          "name": "deer-redbrocket-female-baby",
-          "scale": 1.0
-        },
-        {
-          "name": "deer-marsh-male-baby",
-          "scale": 0.9
-        },
-        {
-          "name": "deer-marsh-female-baby",
-          "scale": 0.9
-        },
-        {
-          "name": "deer-caribou-male-baby",
-          "scale": 0.7
-        },
-        {
-          "name": "deer-caribou-female-baby",
-          "scale": 0.7
-        },
-        {
-          "name": "deer-water-male-baby",
-          "scale": 1.0
-        },
-        {
-          "name": "deer-water-female-baby",
-          "scale": 1.0
-        },
-        {
-          "name": "deer-pudu-male-baby",
-          "scale": 1.0
-        },
-        {
-          "name": "deer-pudu-female-baby",
-          "scale": 1.0
-        },
-        {
-          "name": "deer-elk-male-baby",
-          "scale": 0.8
-        },
-        {
-          "name": "deer-elk-female-baby",
-          "scale": 0.8
-        },
-        {
-          "name": "deer-taruca-male-baby",
-          "scale": 1.0
-        },
-        {
-          "name": "deer-taruca-female-baby",
-          "scale": 1.0
-        },
-        {
-          "name": "deer-chital-male-baby",
-          "scale": 0.9
-        },
-        {
-          "name": "deer-chital-female-baby",
-          "scale": 0.9
-        },
-        {
-          "name": "deer-guemal-male-baby",
-          "scale": 1.0
-        },
-        {
-          "name": "deer-guemal-female-baby",
-          "scale": 1.0
-        },
-        {
-          "name": "deer-pampas-male-baby",
-          "scale": 1.0
-        },
-        {
-          "name": "deer-pampas-female-baby",
-          "scale": 1.0
-        },
-        {
-          "name": "deer-fallow-male-baby",
-          "scale": 0.9
-        },
-        {
-          "name": "deer-fallow-female-baby",
-          "scale": 0.9
-        },
-        {
-          "name": "deer-moose-male-baby",
-          "scale": 0.6
-        },
-        {
-          "name": "deer-moose-female-baby",
-          "scale": 0.6
+            "name": "aurochs-lamb",
+            "scale": 1.0
         }
     ],
     "mediumCatchableEntities": [
         {
-            "name": "wolf-male",
+            "name": "wolf-*",
             "scale": 0.9
         },
         {
-            "name": "wolf-female",
+            "name": "pig-*",
+            "scale": 1.0
+        },
+        {
+            "name": "sheep-*",
             "scale": 0.9
         },
         {
-            "name": "pig-wild-male",
-            "scale": 1.0
-        },
-        {
-            "name": "pig-wild-female",
-            "scale": 1.0
-        },
-        {
-            "name": "sheep-bighorn-male",
+            "name": "hyena-*",
             "scale": 0.9
         },
         {
-            "name": "sheep-bighorn-female",
+            "name": "fox-*",
             "scale": 1.0
         },
         {
-            "name": "hyena-male",
+          "name": "goat-*",
+          "scale": 1.0
+        },
+        {
+          "name": "deer-*",
+          "scale": 0.9
+        },
+        {
+          "name": "tameddeer-*",
+          "scale": 0.85
+        },
+        {
+            "name": "bear-*",
+            "scale": 0.7
+        },
+        {
+            "name": "dog-*",
             "scale": 0.9
         },
         {
-            "name": "hyena-female",
-            "scale": 0.9
+            "name": "horse-*",
+            "scale": 0.7
         },
         {
-            "name": "fox-male-red",
+            "name": "gazelle-*",
             "scale": 1.0
-        },
-        {
-            "name": "fox-female-red",
-            "scale": 1.0
-        },
-        {
-            "name": "fox-male-arctic",
-            "scale": 1.0
-        },
-        {
-            "name": "fox-female-arctic",
-            "scale": 1.0
-        },
-        {
-            "name": "aurochs-female",
-            "scale": 0.75
-        },
-        {
-            "name": "aurochs-male",
-            "scale": 0.75
-        },
-        {
-            "name": "deer-female",
-            "scale": 0.9
-        },
-        {
-            "name": "deer-male",
-            "scale": 0.8
         },
         {
             "name": "white-hart",
             "scale": 0.8
         },
         {
-            "name": "dog-hunting-male",
-            "scale": 0.9
-        },
-        {
-            "name": "dog-hunting-female",
-            "scale": 0.9
-        },
-        {
-            "name": "dog-wolf-male",
-            "scale": 0.9
-        },
-        {
-            "name": "dog-wolf-female",
-            "scale": 0.9
-        },
-        {
-            "name": "dog-shepherd-male",
-            "scale": 0.9
-        },
-        {
-            "name": "dog-shepherd-female",
-            "scale": 0.9
-        },
-        {
-            "name": "horse-female-draft",
-            "scale": 0.7
-        },
-        {
-            "name": "horse-female-arabian",
-            "scale": 0.7
-        },
-        {
-            "name": "horse-male-draft",
-            "scale": 0.7
-        },
-        {
-            "name": "horse-male-arabian",
-            "scale": 0.7
-        },
-        {
-            "name": "bear-female-black",
-            "scale": 0.7
-        },
-        {
-            "name": "bear-female-brown",
-            "scale": 0.7
-        },
-        {
-            "name": "bear-female-sun",
-            "scale": 0.7
-        },
-        {
-            "name": "bear-female-panda",
-            "scale": 0.7
-        },
-        {
-            "name": "bear-female-polar",
-            "scale": 0.7
-        },
-        {
-            "name": "bear-male-black",
-            "scale": 0.7
-        },
-        {
-            "name": "bear-male-brown",
-            "scale": 0.7
-        },
-        {
-            "name": "bear-male-sun",
-            "scale": 0.7
-        },
-        {
-            "name": "bear-male-panda",
-            "scale": 0.7
-        },
-        {
-            "name": "bear-male-polar",
-            "scale": 0.7
-        },
-        {
-            "name": "gazelle-female",
-            "scale": 1.0
-        },
-        {
-            "name": "gazelle-male",
-            "scale": 1.0
-        },
-        {
-          "name": "goat-angora-male-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "goat-angora-female-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "goat-ibexalp-male-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "goat-ibexalp-female-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "goat-ibexnub-male-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "goat-ibexnub-female-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "goat-markhor-male-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "goat-markhor-female-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "goat-mountain-male-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "goat-mountain-female-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "goat-muskox-male-adult",
-          "scale": 0.9
-        },
-        {
-          "name": "goat-muskox-female-adult",
-          "scale": 0.9
-        },
-        {
-          "name": "goat-nubian-male-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "goat-nubian-female-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "goat-sirohi-male-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "goat-sirohi-female-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "goat-takingold-male-adult",
-          "scale": 0.9
-        },
-        {
-          "name": "goat-takingold-female-adult",
-          "scale": 0.9
-        },
-        {
-          "name": "goat-turdag-male-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "goat-turdag-female-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "goat-valais-male-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "goat-valais-female-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "deer-whitetail-male-adult",
-          "scale": 0.9
-        },
-        {
-          "name": "deer-whitetail-female-adult",
-          "scale": 0.9
-        },
-        {
-          "name": "deer-redbrocket-male-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "deer-redbrocket-female-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "deer-marsh-male-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "deer-marsh-female-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "deer-caribou-male-adult",
-          "scale": 0.9
-        },
-        {
-          "name": "deer-caribou-female-adult",
-          "scale": 0.9
-        },
-        {
-          "name": "deer-water-male-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "deer-water-female-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "deer-pudu-male-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "deer-pudu-female-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "tameddeer-elk-male-adult",
-          "scale": 0.85
-        },
-        {
-          "name": "tameddeer-elk-female-adult",
-          "scale": 0.85
-        },
-        {
-          "name": "tameddeer-albinoelk-male-adult",
-          "scale": 0.85
-        },
-        {
-          "name": "tameddeer-albinoelk-female-adult",
-          "scale": 0.85
-        },
-        {
-          "name": "deer-elk-male-adult",
-          "scale": 0.85
-        },
-        {
-          "name": "deer-elk-female-adult",
-          "scale": 0.85
-        },
-        {
-          "name": "deer-taruca-male-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "deer-taruca-female-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "deer-chital-male-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "deer-chital-female-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "deer-guemal-male-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "deer-guemal-female-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "deer-pampas-male-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "deer-pampas-female-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "deer-fallow-male-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "deer-fallow-female-adult",
-          "scale": 1.0
-        },
-        {
-          "name": "deer-moose-male-adult",
-          "scale": 0.7
-        },
-        {
-          "name": "deer-moose-female-adult",
-          "scale": 0.7
+            "name": "aurochs-*",
+            "scale": 0.75
         }
     ],
     "mustBeBelowHpInPercent": 0.5
