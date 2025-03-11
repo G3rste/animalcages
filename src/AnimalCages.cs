@@ -111,8 +111,9 @@ namespace Animalcages
             for (int i = 0; i < parts.Length; i++)
             {
                 var part = parts[i];
-                currentIndex = word.IndexOf(part, currentIndex) + part.Length;
+                currentIndex = word.IndexOf(part, currentIndex);
                 matches &= currentIndex != -1;
+                currentIndex += part.Length;
                 matches &= i != 0 || currentIndex == part.Length;
                 matches &= i != parts.Length - 1 || currentIndex == word.Length || part.Length == 0;
                 if (!matches) break;
