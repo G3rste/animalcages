@@ -45,7 +45,7 @@ namespace Animalcages
                                     itemstack.Attributes.GetString(CAPTURED_ENTITY_SHAPE))
                                 .genMesh();
                         ModelTransform transform = ModelTransform.NoTransform;
-                        transform.Translation.X -= 0.4f;
+                        transform.Translation = new Vec3f(-0.4f, 0, 0);
                         entityMesh.ModelTransform(transform);
                         cageMesh.AddMeshData(entityMesh);
                         CachedMeshRefs(capi)[entity + "_" + itemstack.Attributes.GetInt(CAPTURED_ENTITY_TEXTURE_ID)] = capi.Render
