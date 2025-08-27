@@ -1,11 +1,7 @@
 {
     "smallCatchableEntities": [
         {
-            "name": "sheep-bighorn-lamb",
-            "scale": 0.85
-        },
-        {
-            "name": "deer-fawn",
+            "name": "*-baby*",
             "scale": 0.85
         },
         {
@@ -17,32 +13,8 @@
             "scale": 1.0
         },
         {
-            "name": "pig-wild-piglet",
-            "scale": 1.0
-        },
-        {
-            "name": "wolf-pup",
-            "scale": 1.0
-        },
-        {
-            "name": "fox-pup-*",
-            "scale": 1.0
-        },
-        {
             "name": "raccoon-*",
             "scale": 1.0
-        },
-        {
-            "name": "hyena-pup",
-            "scale": 1.0
-        },
-        {
-          "name": "deer-*-baby",
-          "scale": 0.7
-        },
-        {
-          "name": "goat-*-baby",
-          "scale": 1.0
         },
         {
             "name": "dog-*-pup",
@@ -50,38 +22,6 @@
         },
         {
             "name": "cat-*",
-            "scale": 1.0
-        },
-        {
-            "name": "foal-*",
-            "scale": 1.0
-        },
-        {
-            "name": "pheasant-*",
-            "scale": 1.0
-        },
-        {
-            "name": "goldenpheasant-*",
-            "scale": 1.0
-        },
-        {
-            "name": "capercaillie-*",
-            "scale": 1.0
-        },
-        {
-            "name": "wildturkey-*",
-            "scale": 1.0
-        },
-        {
-          "name": "gazelle-calf",
-          "scale": 0.8
-        },
-        {
-            "name": "crab-*",
-            "scale": 1.0
-        },
-        {
-            "name": "aurochs-lamb",
             "scale": 1.0
         }
     ],
@@ -125,22 +65,6 @@
         {
             "name": "dog-*",
             "scale": 0.9
-        },
-        {
-            "name": "horse-*",
-            "scale": 0.7
-        },
-        {
-            "name": "gazelle-*",
-            "scale": 1.0
-        },
-        {
-            "name": "white-hart",
-            "scale": 0.8
-        },
-        {
-            "name": "aurochs-*",
-            "scale": 0.75
         }
     ],
     "mustBeBelowHpInPercent": 0.5
