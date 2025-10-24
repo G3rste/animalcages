@@ -1,71 +1,75 @@
 {
-    "smallCatchableEntities": [
-        {
-            "name": "*-baby*",
-            "scale": 0.85
-        },
-        {
-            "name": "chicken-*",
-            "scale": 1.0
-        },
-        {
-            "name": "hare-*",
-            "scale": 1.0
-        },
-        {
-            "name": "raccoon-*",
-            "scale": 1.0
-        },
-        {
-            "name": "dog-*-pup",
-            "scale": 1.0
-        },
-        {
-            "name": "cat-*",
-            "scale": 1.0
-        }
-    ],
-    "mediumCatchableEntities": [
-        {
-            "name": "wolf-*",
-            "scale": 0.9
-        },
-        {
-            "name": "pig-*",
-            "scale": 1.0
-        },
-        {
-            "name": "sheep-*",
-            "scale": 0.9
-        },
-        {
-            "name": "hyena-*",
-            "scale": 0.9
-        },
-        {
-            "name": "fox-*",
-            "scale": 1.0
-        },
-        {
-          "name": "goat-*",
-          "scale": 1.0
-        },
-        {
-          "name": "deer-*",
-          "scale": 0.9
-        },
-        {
-          "name": "tameddeer-*",
-          "scale": 0.85
-        },
-        {
-            "name": "bear-*",
-            "scale": 0.7
-        },
-        {
-            "name": "dog-*",
-            "scale": 0.9
-        }
-    ],
-    "mustBeBelowHpInPercent": 0.5
+  "smallCatchableEntities": [
+    {
+      "name": "*-baby*",
+      "scale": 0.85
+    },
+    {
+      "name": "chicken-*",
+      "scale": 1.0
+    },
+    {
+      "name": "hare-*",
+      "scale": 1.0
+    },
+    {
+      "name": "raccoon-*",
+      "scale": 1.0
+    },
+    {
+      "name": "dog-*-pup",
+      "scale": 1.0
+    },
+    {
+      "name": "cat-*",
+      "scale": 1.0
+    },
+    {
+      "name": "pig-*-piglet",
+      "scale": 1.0
+    }
+  ],
+  "mediumCatchableEntities": [
+    {
+      "name": "wolf-*",
+      "scale": 0.9
+    },
+    {
+      "name": "pig-*-*",
+      "scale": 1.0
+    },
+    {
+      "name": "sheep-*",
+      "scale": 0.9
+    },
+    {
+      "name": "hyena-*",
+      "scale": 0.9
+    },
+    {
+      "name": "fox-*",
+      "scale": 1.0
+    },
+    {
+      "name": "goat-*",
+      "scale": 1.0
+    },
+    {
+      "name": "deer-*",
+      "scale": 0.9
+    },
+    {
+      "name": "tameddeer-*",
+      "scale": 0.85
+    },
+    {
+      "name": "bear-*",
+      "scale": 0.7
+    },
+    {
+      "name": "dog-*",
+      "scale": 0.9
+    }
+  ],
+  "mustBeBelowHpInPercent": 0.5
 }
