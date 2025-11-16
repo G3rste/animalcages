@@ -1,11 +1,53 @@
 {
+    "alwaysUseDefaultConfig": true,
+    "mustBeBelowHpInPercent": 0.5,
     "smallCatchableEntities": [
         {
             "name": "*-baby*",
             "scale": 0.85
         },
         {
+            "name": "*-calf*",
+            "scale": 0.85
+        },
+        {
+            "name": "*-pup*",
+            "scale": 0.85
+        },
+        {
+            "name": "*-lamb*",
+            "scale": 0.85
+        },
+        {
+            "name": "*-chick*",
+            "scale": 0.85
+        },
+        {
+            "name": "*-piglet*",
+            "scale": 0.85
+        },
+        {
+            "name": "*-cub*",
+            "scale": 0.85
+        },
+        {
             "name": "chicken-*",
+            "scale": 1.0
+        },
+        {
+            "name": "capercaillie-*",
+            "scale": 1.0
+        },
+        {
+            "name": "goldenpheasant-*",
+            "scale": 1.0
+        },
+        {
+            "name": "pheasant-*",
+            "scale": 1.0
+        },
+        {
+            "name": "wildturkey-*",
             "scale": 1.0
         },
         {
@@ -17,55 +59,26 @@
             "scale": 1.0
         },
         {
-            "name": "dog-*-pup",
-            "scale": 1.0
-        },
-        {
             "name": "cat-*",
             "scale": 1.0
         }
     ],
     "mediumCatchableEntities": [
         {
-            "name": "wolf-*",
-            "scale": 0.9
+            "name": "*-adult*",
+            "scale": 0.85
         },
         {
-            "name": "pig-*",
-            "scale": 1.0
+            "name": "*-juvenile*",
+            "scale": 0.85
         },
         {
-            "name": "sheep-*",
-            "scale": 0.9
-        },
-        {
-            "name": "hyena-*",
-            "scale": 0.9
-        },
-        {
-            "name": "fox-*",
-            "scale": 1.0
-        },
-        {
-          "name": "goat-*",
-          "scale": 1.0
-        },
-        {
-          "name": "deer-*",
-          "scale": 0.9
-        },
-        {
-          "name": "tameddeer-*",
-          "scale": 0.85
-        },
-        {
-            "name": "bear-*",
-            "scale": 0.7
+            "name": "*-adolescent*",
+            "scale": 0.85
         },
         {
             "name": "dog-*",
-            "scale": 0.9
+            "scale": 1.0
         }
-    ],
-    "mustBeBelowHpInPercent": 0.5
+    ]
 }

@@ -35,7 +35,12 @@ namespace Animalcages
             try
             {
                 var Config = api.LoadModConfig<CageConfig>("animalcagesconfig.json");
-                if (Config != null)
+                if (Config?.alwaysUseDefaultConfig == true)
+                {
+                    api.Logger.Notification("Mod is configured to always use the default config. Falling back to default settings");
+                    CageConfig.Current = api.Assets.Get<CageConfig>(new AssetLocation("animalcages", "config/defaultconfig.json"));
+                }
+                else if (Config != null)
                 {
                     api.Logger.Notification("Mod Config successfully loaded.");
                     CageConfig.Current = Config;
@@ -72,15 +77,17 @@ namespace Animalcages
     public class CageConfig
     {
         public static CageConfig Current { get; set; }
-
         [ProtoMember(1)]
-        public List<CatchableEntity> smallCatchableEntities { get; set; }
+        public bool alwaysUseDefaultConfig { get; set; } = true;
 
         [ProtoMember(2)]
-        public List<CatchableEntity> mediumCatchableEntities { get; set; }
+        public float mustBeBelowHpInPercent { get; set; } = 0.5f;
 
         [ProtoMember(3)]
-        public float mustBeBelowHpInPercent { get; set; } = 0.5f;
+        public List<CatchableEntity> smallCatchableEntities { get; set; }
+
+        [ProtoMember(4)]
+        public List<CatchableEntity> mediumCatchableEntities { get; set; }
 
         public float getScale(string entity)
         {
