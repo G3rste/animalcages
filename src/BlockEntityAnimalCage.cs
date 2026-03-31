@@ -27,7 +27,6 @@ namespace Animalcages
             if (entity != null)
             {
                 entity.Pos.SetPos(Pos);
-                entity.ServerPos.SetPos(Pos);
                 Api.World.SpawnEntity(entity);
             }
         }
