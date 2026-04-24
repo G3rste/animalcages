@@ -1,0 +1,10 @@
+{
+    "block-smallanimalcage-opened": "小型の動物の檻(開)",
+    "blockdesc-smallanimalcage-opened": "この檻で小動物を攻撃して捕まえる。",
+    "block-smallanimalcage-closed": "小型の動物の檻(閉)",
+    "blockdesc-smallanimalcage-closed": "捕獲された動物が入っている。ブロックを壊すと解放する。",
+    "block-mediumanimalcage-*-opened-*": "中型の動物の檻(開)",
+    "blockdesc-mediumanimalcage-*-opened-*": "この檻で中型の動物を攻撃して捕まえる。捕まえるようにするには、その動物が傷ついているか、飼いならされている必要がある。拾う為にはバックパックのスロットが空である必要がある。",
+    "block-mediumanimalcage-*-closed-*": "中型の動物の檻(閉)",
+    "blockdesc-mediumanimalcage-*-closed-*": "捕獲された動物が入っている。ブロックを壊すと解放する。 拾うには、空のバックパックスロットが必要。"
+}

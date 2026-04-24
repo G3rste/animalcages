@@ -1,0 +1,10 @@
+{
+    "block-smallanimalcage-opened": "Small animal cage (open)",
+    "blockdesc-smallanimalcage-opened": "Attack a small animal with this cage to catch it.",
+    "block-smallanimalcage-closed": "Small animal cage (closed)",
+    "blockdesc-smallanimalcage-closed": "Contains a captured animal. Break the Block to release it.",
+    "block-mediumanimalcage-*-opened-*": "Medium animal cage (open)",
+    "blockdesc-mediumanimalcage-*-opened-*": "Attack a medium animal with this cage to catch it. The animal needs to be hurt or domesticated to be catchable.",
+    "block-mediumanimalcage-*-closed-*": "Medium animal cage (closed)",
+    "blockdesc-mediumanimalcage-*-closed-*": "Contains a captured animal. Break the Block to release it."
+}

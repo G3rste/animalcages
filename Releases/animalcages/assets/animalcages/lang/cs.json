@@ -1,0 +1,10 @@
+{
+    "block-smallanimalcage-opened": "Malá klec pro zvířata (otevřená)",
+    "blockdesc-smallanimalcage-opened": "Zaútočte na malé zvíře pomocí této klece a chyťte ho.",
+    "block-smallanimalcage-closed": "Malá klec pro zvířata (uzavřená)",
+    "blockdesc-smallanimalcage-closed": "Obsahuje odchycené zvíře. Rozbijte blok, abyste ho osvobodili.",
+    "block-mediumanimalcage-*-opened-*": "Střední klec pro zvířata (otevřená)",
+    "blockdesc-mediumanimalcage-*-opened-*": "Zaútočte na středně velké zvíře pomocí této klece a chyťte ho. Zvíře musí být zraněné nebo ochočené, aby se dalo chytit.",
+    "block-mediumanimalcage-*-closed-*": "Střední klec pro zvířata (uzavřená)",
+    "blockdesc-mediumanimalcage-*-closed-*": "Obsahuje odchycené zvíře. Rozbijte blok, abyste ho osvobodili."
+}

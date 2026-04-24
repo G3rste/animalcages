@@ -1,0 +1,10 @@
+{
+    "block-smallanimalcage-opened": "Kleintierkäfig (offen)",
+    "blockdesc-smallanimalcage-opened": "Greife ein Kleintier mit diesem Item an, um es einzufangen.",
+    "block-smallanimalcage-closed": "Kleintierkäfig (geschlossen)",
+    "blockdesc-smallanimalcage-closed": "Enthält ein gefangenes Kleintier. Zerstöre den Block, um es freizulassen.",
+    "block-mediumanimalcage-*-opened-*": "Mittelgroßer Tierkäfig (offen)",
+    "blockdesc-mediumanimalcage-*-opened-*": "Greife ein Tier mit diesem Item an, um es einzufangen. Das Tier muss verletzt oder domestiziert sein, um eingefangen werden zu können.",
+    "block-mediumanimalcage-*-closed-*": "Mittelgroßer Tierkäfig (geschlossen)",
+    "blockdesc-mediumanimalcage-*-closed-*": "Enthält ein gefangenes Tier. Zerstöre den Block, um es freizulassen."
+}

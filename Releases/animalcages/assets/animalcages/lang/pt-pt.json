@@ -1,0 +1,10 @@
+{
+    "block-smallanimalcage-opened": "Jaula de animal pequena (aberta)",
+    "blockdesc-smallanimalcage-opened": "Ataque um animal pequeno com ela para capturá-lo.",
+    "block-smallanimalcage-closed": "Jaula de animal pequena (fechada)",
+    "blockdesc-smallanimalcage-closed": "Contem um animal capturado. Quebre o Bloco para solta-lo.",
+    "block-mediumanimalcage-*-opened-*": "Jaula de animal média (aberta)",
+    "blockdesc-mediumanimalcage-*-opened-*": "Ataque um animal de tamanho médio com esta jaula para capturá-lo. O animal deve ser ferido ou domesticado para poder ser capturado.",
+    "block-mediumanimalcage-*-closed-*": "Jaula de animal média (fechada)",
+    "blockdesc-mediumanimalcage-*-closed-*": "Contem um animal capturado. Quebre o Bloco para liberá-lo."
+}

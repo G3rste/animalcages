@@ -1,0 +1,10 @@
+{
+    "block-smallanimalcage-opened": "Mała klatka dla zwierząt (otwarta)",
+    "blockdesc-smallanimalcage-opened": "Zaatakuj małe zwierzę tą klatką, aby je złapać.",
+    "block-smallanimalcage-closed": "Mała klatka dla zwierząt (zamknięta)",
+    "blockdesc-smallanimalcage-closed": "Zawiera złapane zwierzę. Postaw blok i go zniszcz, aby wypuścić je.",
+    "block-mediumanimalcage-*-opened-*": "Średnia klatka dla zwierząt (otwarta)",
+    "blockdesc-mediumanimalcage-*-opened-*": "Zaatakuj średniej wielkości zwierzę tą klatką, aby je złapać. Zwierze musi być osłabione lub oswojone, by je złapać.",
+    "block-mediumanimalcage-*-closed-*": "Średnia klatka dla zwierząt (zamknięta)",
+    "blockdesc-mediumanimalcage-*-closed-*": "Zawiera złapane zwierzę. Postaw blok i go zniszcz, aby wypuścić je."
+}
