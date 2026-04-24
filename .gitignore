@@ -1,4 +1,6 @@
 lib
 obj
 bin
-*.sln
+animalcages.sln
+Releases
+/.vs/*

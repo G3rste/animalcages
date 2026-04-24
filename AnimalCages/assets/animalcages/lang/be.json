@@ -1,0 +1,10 @@
+{
+    "block-smallanimalcage-opened": "Малая клетка для жывёл (адчыненая)",
+    "blockdesc-smallanimalcage-opened": "Ударыце гэтай клеткай па малой жывёле, каб злавіць яе.",
+    "block-smallanimalcage-closed": "Малая клетка для жывёл (зачыненая)",
+    "blockdesc-smallanimalcage-closed": "Унутры злоўленая жывёла. Разбурыце блок, каб вызваліць яе.",
+    "block-mediumanimalcage-*-opened-*": "Сярэдняя клетка для жывёл (адчыненая)",
+    "blockdesc-mediumanimalcage-*-opened-*": "Ударыце гэтай клеткай па сярэдняй жывёле, каб злавіць яе. Жывёла павінна быць паранена альбо прыручана, каб яе можна было злавіць.",
+    "block-mediumanimalcage-*-closed-*": "Сярэдняя клетка для жывёл (зачыненая)",
+    "blockdesc-mediumanimalcage-*-closed-*": "Унутры злоўленая жывёла. Разбурыце блок, каб вызваліць яе."
+}

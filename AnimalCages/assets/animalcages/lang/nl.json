@@ -1,0 +1,10 @@
+{
+    "block-smallanimalcage-opened": "Kleine dierenkooi (open)",
+    "blockdesc-smallanimalcage-opened": "Val een klein dier aan met deze kooi on het te vangen.",
+    "block-smallanimalcage-closed": "Kleine dieren kooi (gesloten)",
+    "blockdesc-smallanimalcage-closed": "Bevat een gevangen dier. Breek het blok om het vrij te geven.",
+    "block-mediumanimalcage-*-opened-*": "Middelgrote dierenkooi (open)",
+    "blockdesc-mediumanimalcage-*-opened-*": "Val een middelgroot dier aan met deze kooi om het te vangen. Het dier moet gewond of gedomesticeerd zijn om het te kunnen vangen.",
+    "block-mediumanimalcage-*-closed-*": "Middelgrote dierenkooi (gesloten)",
+    "blockdesc-mediumanimalcage-*-closed-*": "Bevat een gevangen dier. Breek het blok om het vrij te geven."
+}
