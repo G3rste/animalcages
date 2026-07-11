@@ -44,6 +44,19 @@ namespace Animalcages
             }
             else return null;
         }
+
+        public static int GetEntityGeneration(byte[] entityBytes, string entityClass, IWorldAccessor world)
+        {
+            try
+            {
+                Entity entity = BytesToEntity(entityBytes, entityClass, world);
+                return entity == null ? 0 : entity.WatchedAttributes.GetInt("generation", 0);
+            }
+            catch
+            {
+                return 0;
+            }
+        }
     }
 
     public class CagedEntityRenderer : ITexPositionSource
