@@ -14,6 +14,7 @@ namespace Animalcages
         public const string CAPTURED_ENTITY_NAME = "capturedEntityName";
         public const string CAPTURED_ENTITY_SHAPE = "capturedEntityShape";
         public const string CAPTURED_ENTITY_TEXTURE_ID = "capturedEntityTextureId";
+        public const string CAPTURED_ENTITY_GENERATION = "capturedEntityGeneration";
         public static Dictionary<string, CapturedEntityTextures> EntitiyTextureIds(ICoreAPI api)
         {
             Dictionary<string, CapturedEntityTextures> entityTextureSubIds;
@@ -29,6 +30,20 @@ namespace Animalcages
             }
 
             return entityTextureSubIds;
+        }
+
+        public static int GetCapturedEntityGeneration(ItemStack stack, IWorldAccessor world)
+        {
+            if (stack.Attributes.HasAttribute(CAPTURED_ENTITY_GENERATION))
+            {
+                return stack.Attributes.GetInt(CAPTURED_ENTITY_GENERATION);
+            }
+
+            return EntityUtil.GetEntityGeneration(
+                stack.Attributes.GetBytes(CAPTURED_ENTITY),
+                stack.Attributes.GetString(CAPTURED_ENTITY_CLASS),
+                world
+            );
         }
 
         public override void OnAttackingWith(IWorldAccessor world, Entity byEntity, Entity attackedEntity, ItemSlot itemslot)
@@ -55,6 +70,11 @@ namespace Animalcages
             if (inSlot.Itemstack.Attributes.HasAttribute(CAPTURED_ENTITY_NAME))
             {
                 dsc.AppendLine("(" + Lang.Get("item-creature-" + entityName) + ")");
+                int generation = GetCapturedEntityGeneration(inSlot.Itemstack, world);
+                if (generation > 0)
+                {
+                    dsc.AppendLine(Lang.Get("Generation: {0}", generation));
+                }
             }
         }
 
@@ -70,6 +90,7 @@ namespace Animalcages
                 stack.Attributes.SetString(CAPTURED_ENTITY_NAME, entity.tmpCapturedEntityName);
                 stack.Attributes.SetString(CAPTURED_ENTITY_SHAPE, entity.tmpCapturedEntityShape);
                 stack.Attributes.SetInt(CAPTURED_ENTITY_TEXTURE_ID, entity.tmpCapturedEntityTextureId);
+                stack.Attributes.SetInt(CAPTURED_ENTITY_GENERATION, GetCapturedEntityGeneration(stack, world));
                 return stack;
             }
             return new ItemStack(world.BlockAccessor.GetBlock(CodeWithVariant("type", "opened")));
@@ -82,6 +103,7 @@ namespace Animalcages
             stack.Attributes.SetString(CAPTURED_ENTITY_NAME, entity.Properties.Code.GetName());
             stack.Attributes.SetString(CAPTURED_ENTITY_SHAPE, entity.Properties.Client.Shape.Base.Clone().WithPathPrefix("shapes/").WithPathPrefix(entity.Properties.Client.Shape.Base.Domain + ":").WithPathAppendix(".json").Path);
             stack.Attributes.SetInt(CAPTURED_ENTITY_TEXTURE_ID, entity.WatchedAttributes.GetInt("textureIndex", 0));
+            stack.Attributes.SetInt(CAPTURED_ENTITY_GENERATION, entity.WatchedAttributes.GetInt("generation", 0));
         }
         public override void OnCollectTextures(ICoreAPI api, ITextureLocationDictionary textureDict)
         {
