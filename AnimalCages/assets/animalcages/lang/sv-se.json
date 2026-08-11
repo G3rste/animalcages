@@ -1,0 +1,10 @@
+{
+    "block-smallanimalcage-opened": "Liten djurbur (öppen)",
+    "blockdesc-smallanimalcage-opened": "Attackera ett litet djur med buren för att fånga det.",
+    "block-smallanimalcage-closed": "Liten djurbur (stängd)",
+    "blockdesc-smallanimalcage-closed": "Innehåller ett fångat djur. Bryt blocket för att släppa lös det.",
+    "block-mediumanimalcage-*-opened-*": "Mellanstor djurbur (öppen)",
+    "blockdesc-mediumanimalcage-*-opened-*": "Attackera ett mellanstort djur med buren för att fånga det. Djuret måste vara skadat eller domesticerad för att kunna fångas.",
+    "block-mediumanimalcage-*-closed-*": "Mellanstor djurbur (stängd)",
+    "blockdesc-mediumanimalcage-*-closed-*": "Innehåller ett fångat djur. Bryt blocket för att släppa lös det."
+}

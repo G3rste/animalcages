@@ -1,0 +1,10 @@
+{
+    "block-smallanimalcage-opened": "Küçük hayvan kafesi (açık)",
+    "blockdesc-smallanimalcage-opened": "Küçük hayvanları yakalamak için kafes elinizdeyken hayvana saldırın.",
+    "block-smallanimalcage-closed": "Küçük hayvan kafesi (kapalı)",
+    "blockdesc-smallanimalcage-closed": "İçinde yakalanmış hayvan var. Hayvanı serbest bırakmak için yere koyup kırın.",
+    "block-mediumanimalcage-*-opened-*": "Hayvan kafesi (açık)",
+    "blockdesc-mediumanimalcage-*-opened-*": "Orta boy hayvanları yakalamak için kafes elinizdeyken hayvana saldırın. Hayvanın yakalanabilmesi için yaralı ve evcilleştirilmiş olması gerekir.",
+    "block-mediumanimalcage-*-closed-*": "Hayvan kafesi (kapalı)",
+    "blockdesc-mediumanimalcage-*-closed-*": "İçinde yakalanmış hayvan var. Hayvanı serbest bırakmak için yere koyup kırın."
+}
